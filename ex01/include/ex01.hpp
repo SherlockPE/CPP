@@ -2,6 +2,7 @@
 # define EX01_HPP
 
 # include <iostream>
+# include <string>
 # include <string.h>
 # define TRUE 1
 # define FALSE 0
@@ -19,6 +20,7 @@
 
 struct contact
 {
+	int		id;
 	char	first_name[80];
 	char	last_name[80];
 	char	nick_name[80];
@@ -26,11 +28,12 @@ struct contact
 	char	darkest_secret[300];
 };
 
-void	get_input(char *input);
+// void	get_input(char *message, char *input);
+void	get_input(std::string message, char *input);
 void	print_menu(void);
-int		manage_options(char *input, contact *phone_list, int *end);
-void    add_contact(contact *phone_list);
-void    display_contacts(contact *phone_list);
+int		manage_options(char *input, contact *phone_list, int *end, int *index);
+void    add_contact(contact *phone_list, int *index);
+void    display_contacts(contact *phone_list, int *index);
 void	print_title(void);
 // int     manage_options(char *input, int *option);
 

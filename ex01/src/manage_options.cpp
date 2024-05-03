@@ -6,19 +6,33 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:27:52 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/03 19:54:43 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/03 20:45:08 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-int	manage_options(char *input, contact *phone_list, int *end)
+void	string_upper(char *string)
 {
+	int	i;
+
+	i = 0;
+	while (string[i])
+	{
+		if (string[i] >= 'a' && string[i] <= 'z')
+			string[i] = string[i] - 32;
+		i++;
+	}
+}
+
+int	manage_options(char *input, contact *phone_list, int *end, int *index)
+{
+	string_upper(input);
 	std::cout << "Haz elegido la opción " << YELLOW << input << RESET << "\n";
 	if (!strcmp(input, "ADD"))
-		add_contact(phone_list);
+		add_contact(phone_list, index);
 	else if (!strcmp(input, "SEARCH"))
-		display_contacts(phone_list);
+		display_contacts(phone_list, index);
 	else if (!strcmp(input, "EXIT") || !strcmp(input, "Q"))
 	{
 		*end = TRUE;
