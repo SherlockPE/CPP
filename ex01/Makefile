@@ -6,7 +6,7 @@
 #    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/03 17:45:12 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/03 18:59:18 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,11 @@
 SRC_DIR = src
 OBJ_DIR = obj
 
-SOURCES = main.cpp
+SOURCES =	add_contact.cpp \
+			display_contacts.cpp \
+			main.cpp \
+			get_input.cpp \
+			manage_options.cpp
 NAME = phone_book
 INCLUDE = -I include
 

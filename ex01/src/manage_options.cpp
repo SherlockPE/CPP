@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   manage_options.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 16:42:23 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/03 18:55:16 by fabriciolop      ###   ########.fr       */
+/*   Created: 2024/05/03 18:27:52 by fabriciolop       #+#    #+#             */
+/*   Updated: 2024/05/03 18:52:19 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-int main(void)
+int	manage_options(char *input, contact *phone_list, int *end)
 {
-	int		end;
-	char	input[80];
-	contact	phone_list[8];
-
-	end = FALSE;
-	while (1)
+	if (!strcmp(input, "ADD"))
+		add_contact(phone_list);
+	else if (!strcmp(input, "SEARCH"))
+		display_contacts(phone_list);
+	else if (!strcmp(input, "EXIT"))
 	{
-		get_input(input);
-		if (manage_options(input, phone_list, &end))
-			continue ;
-		if (end)
-			break;
-	}	
+		*end = TRUE;
+		std::cout << "Saliendo......\n";
+	}
+	else
+	{
+		std::cout << "Por favor ingrese un input valido\n";
+		return (1);
+	}
 	return (0);
 }
