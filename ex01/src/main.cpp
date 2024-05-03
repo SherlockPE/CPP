@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:42:23 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/03 18:55:16 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/03 19:48:51 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(void)
 	char	input[80];
 	contact	phone_list[8];
 
+	print_title();
 	end = FALSE;
 	while (1)
 	{
@@ -26,6 +27,6 @@ int main(void)
 			continue ;
 		if (end)
 			break;
-	}	
+	}
 	return (0);
 }

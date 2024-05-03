@@ -6,7 +6,7 @@
 #    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/03 18:59:18 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/03 19:46:27 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ SOURCES =	add_contact.cpp \
 			display_contacts.cpp \
 			main.cpp \
 			get_input.cpp \
-			manage_options.cpp
+			manage_options.cpp \
+			print_menu.cpp \
+			print_title.cpp
 NAME = phone_book
 INCLUDE = -I include
 

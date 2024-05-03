@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:27:52 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/03 18:52:19 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/03 19:54:43 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	manage_options(char *input, contact *phone_list, int *end)
 {
+	std::cout << "Haz elegido la opción " << YELLOW << input << RESET << "\n";
 	if (!strcmp(input, "ADD"))
 		add_contact(phone_list);
 	else if (!strcmp(input, "SEARCH"))
 		display_contacts(phone_list);
-	else if (!strcmp(input, "EXIT"))
+	else if (!strcmp(input, "EXIT") || !strcmp(input, "Q"))
 	{
 		*end = TRUE;
 		std::cout << "Saliendo......\n";
