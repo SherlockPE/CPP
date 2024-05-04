@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:42:23 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/04 14:54:32 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/04 15:00:15 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int main(void)
 {
 	static int	index;
 	int			end;
-	// // char	input[80];
 	std::string 	input;
-	std::string input;
 	contact	phone_list[8];
 
 	print_title();

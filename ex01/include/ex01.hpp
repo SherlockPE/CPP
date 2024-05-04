@@ -33,7 +33,7 @@ struct contact
 std::string	get_input(std::string message);
 void		print_menu(void);
 // int			manage_options(char *input, contact *phone_list, int *end, int *index);
-int	manage_options(std::string input, contact *phone_list, int *end, int *index);
+int			manage_options(std::string input, contact *phone_list, int *end, int *index);
 void    	add_contact(contact *phone_list, int *index);
 void    	display_contacts(contact *phone_list, int *index);
 void		print_title(void);
