@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 21:39:58 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/03 21:41:54 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/04 14:20:10 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,19 @@ int ft_strcmp(std::string str1, std::string str2)
 {
     int i;
 
+    std::cout << "valor 1: " << str1[0] << std::endl;
+    std::cout << "valor 1: " << str1[1] << std::endl;
+    std::cout << "valor 1: " << str1[2] << std::endl;
+    
+    std::cout << "valor 1:[" << str1 << "]" << std::endl;
+    std::cout << "valor 2:[" << str2 << "]" << std::endl;
+    
     i = 0;
-    while (str1[i])
-    {
-        if (str1[i] != str2[i])
-            return (str1[i] - str2[i]);
-        i++;
-    }
+    // while (str1[i])
+    // {
+    //     // std::cout << "valor 2: " << str2[i] << std::endl;
+    //     i++;
+    // }
+    // std::cout << "son iguales" << std::endl;
     return (0);
 }

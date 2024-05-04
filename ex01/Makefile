@@ -6,7 +6,7 @@
 #    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/03 21:44:31 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/04 13:53:54 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,14 @@
 SRC_DIR = src
 UTILS_DIR = utils
 OBJ_DIR = obj
+
+RED =			\033[0;91m
+GREEN =			\033[0;92m
+CYAN =			\033[0;96m
+BLUE=			\033[0;34m
+PURPLE=			\033[0;35m
+YELLOW =		\033[0;93m
+RESET=			\033[0m
 
 SOURCES =	add_contact.cpp \
 			display_contacts.cpp \
@@ -32,7 +40,7 @@ SRC := $(addprefix $(SRC_DIR)/, $(SOURCES))
 UTLS := $(addprefix $(UTILS_DIR)/, $(UTILS))
 
 
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o) $(UTLS:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 
 MDIR := mkdir -p
@@ -46,14 +54,17 @@ CPPFLAGS := -Wall -Wextra -Werror
 all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
+	@echo "Creating object directories"
 	$(MDIR) $(OBJ_DIR)
 	$(MDIR) $(OBJ_DIR)/$(SRC_DIR)
-	$(MDIR) $(OBJ_DIR)/$(SRC_DIR)
+	$(MDIR) $(OBJ_DIR)/$(UTILS_DIR)
 
 $(NAME): $(OBJ)
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) $(OBJ) -o $(NAME)
 
-$(OBJ_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
+# $(OBJ_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
+# 	$(CPPC) $(CPPFLAGS) $(INCLUDE) -c $< -o $@
+$(OBJ_DIR)/%.o: %.cpp
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:

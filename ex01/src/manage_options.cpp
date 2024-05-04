@@ -6,28 +6,31 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:27:52 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/03 21:42:00 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/04 14:20:50 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-void	string_upper(char *string)
+void	string_upper(std::string *string)
 {
 	int	i;
+	char *str2;
 
 	i = 0;
-	while (string[i])
+	str2 = (char *)string;
+	while (str2[i])
 	{
-		if (string[i] >= 'a' && string[i] <= 'z')
-			string[i] = string[i] - 32;
+		if (str2[i] >= 'a' && str2[i] <= 'z')
+			str2[i] = str2[i] - 32;
 		i++;
 	}
+	*string = (std::string)str2;
 }
 
-int	manage_options(char *input, contact *phone_list, int *end, int *index)
+int	manage_options(std::string input, contact *phone_list, int *end, int *index)
 {
-	string_upper(input);
+	string_upper(&input);
 	std::cout << "Haz elegido la opción " << YELLOW << input << RESET << "\n";
 	if (!ft_strcmp(input, "ADD"))
 		add_contact(phone_list, index);
