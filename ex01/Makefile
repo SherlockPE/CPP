@@ -6,12 +6,13 @@
 #    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/03 19:46:27 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/03 21:44:31 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 SRC_DIR = src
+UTILS_DIR = utils
 OBJ_DIR = obj
 
 SOURCES =	add_contact.cpp \
@@ -21,10 +22,16 @@ SOURCES =	add_contact.cpp \
 			manage_options.cpp \
 			print_menu.cpp \
 			print_title.cpp
+
+UTILS	=	ft_strcmp.cpp
+
 NAME = phone_book
 INCLUDE = -I include
 
 SRC := $(addprefix $(SRC_DIR)/, $(SOURCES)) 
+UTLS := $(addprefix $(UTILS_DIR)/, $(UTILS))
+
+
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 
@@ -40,6 +47,7 @@ all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
 	$(MDIR) $(OBJ_DIR)
+	$(MDIR) $(OBJ_DIR)/$(SRC_DIR)
 	$(MDIR) $(OBJ_DIR)/$(SRC_DIR)
 
 $(NAME): $(OBJ)

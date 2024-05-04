@@ -37,5 +37,8 @@ void    display_contacts(contact *phone_list, int *index);
 void	print_title(void);
 // int     manage_options(char *input, int *option);
 
+//Utils
+int ft_strcmp(std::string str1, std::string str2);
+
 
 #endif

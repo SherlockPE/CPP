@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_input.cpp                                      :+:      :+:    :+:   */
+/*   ft_strcmp.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 18:09:46 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/03 21:38:52 by fabriciolop      ###   ########.fr       */
+/*   Created: 2024/05/03 21:39:58 by fabriciolop       #+#    #+#             */
+/*   Updated: 2024/05/03 21:41:54 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-void	get_input(std::string message, char *input)
+int ft_strcmp(std::string str1, std::string str2)
 {
-	std::cout << message << YELLOW ;
-	std::getline(std::cin, input);
-	// std::cin >> input; // <--- error here
-	std::cout << RESET;
+    int i;
+
+    i = 0;
+    while (str1[i])
+    {
+        if (str1[i] != str2[i])
+            return (str1[i] - str2[i]);
+        i++;
+    }
+    return (0);
 }
