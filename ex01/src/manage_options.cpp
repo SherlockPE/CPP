@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:27:52 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/04 15:01:54 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/04 17:14:12 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ std::string	string_upper(std::string string)
 int	manage_options(std::string input, contact *phone_list, int *end, int *index)
 {
 	input = string_upper(input);
-	std::cout << "Haz elegido la opción " << YELLOW << input << RESET << "\n";
+	std::cout << "Haz elegido : " << YELLOW << input << RESET << "\n";
 	if (!ft_strcmp(input, "ADD"))
 		add_contact(phone_list, index);
 	else if (!ft_strcmp(input, "SEARCH"))

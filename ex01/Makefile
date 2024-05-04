@@ -6,7 +6,7 @@
 #    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/04 13:53:54 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/04 17:15:59 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 
 MDIR := mkdir -p
 CPPC := c++
-CPPFLAGS := -Wall -Wextra -Werror
+CPPFLAGS := -Wall -Wextra -Werror -g3
 
 # print:
 # 	@echo "$(SRC)"

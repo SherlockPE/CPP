@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:09:46 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/04 15:00:47 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/04 17:14:00 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ std::string	get_input(std::string message)
 {
 	std::string input;
 
-	std::cout << message << YELLOW ;
-	std::cin.ignore();
+	std::cout << message /* << YELLOW */;
+	// std::cin.ignore();
 	std::getline(std::cin, input);
-	std::cout << RESET;
+	if (std::cin.eof())
+		exit(1);
+	// std::cout << RESET;
 	return (input);
 }
 
