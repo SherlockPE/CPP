@@ -18,15 +18,6 @@
 # define RESET "\033[0m"
 # define ORANGE "\033[38;5;208m"
 
-// struct contact
-// {
-// 	int		id;
-// 	char	first_name[80];
-// 	char	last_name[80];
-// 	char	nick_name[80];
-// 	char	phone_number[80];
-// 	char	darkest_secret[300];
-// };
 struct contact
 {
 	int		id;
@@ -48,6 +39,8 @@ void    	display_contacts(contact *phone_list, int *index);
 void		print_title(void);
 // int     manage_options(char *input, int *option);
 
+//Utils
 int ft_strcmp(std::string str1, std::string str2);
+
 
 #endif

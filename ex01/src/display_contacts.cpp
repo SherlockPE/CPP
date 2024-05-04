@@ -6,13 +6,13 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:47:13 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/04 14:46:45 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/04 14:52:59 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-void	print_arr_val(std::string message, std::string value)
+void	print_arr_val(std::string message, char *value)
 {
 	std::cout << message << value << std::endl;
 }
