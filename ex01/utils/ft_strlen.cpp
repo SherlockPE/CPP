@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.cpp                                      :+:      :+:    :+:   */
+/*   ft_strlen.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 21:39:58 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/04 22:44:13 by fabriciolop      ###   ########.fr       */
+/*   Created: 2024/05/04 23:33:22 by fabriciolop       #+#    #+#             */
+/*   Updated: 2024/05/04 23:34:27 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-int ft_strcmp(std::string str1, std::string str2)
+int ft_strlen(std::string str)
 {
     int i;
 
     i = 0;
-    while (str1[i] || str2[i])
-    {
-        if (str1[i] != str2[i])
-            return (1);
+    while (str[i])
         i++;
-    }
-    return (0);
+    return (i);
 }

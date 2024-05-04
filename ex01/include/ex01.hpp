@@ -4,6 +4,8 @@
 # include <iostream>
 # include <string>
 # include <string.h>
+# include <iomanip>
+# define WSIZE 10
 # define TRUE 1
 # define FALSE 0
 
@@ -41,6 +43,6 @@ void		print_title(void);
 
 //Utils
 int ft_strcmp(std::string str1, std::string str2);
-
+int ft_strlen(std::string str);
 
 #endif
