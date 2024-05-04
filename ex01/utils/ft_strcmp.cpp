@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ft_strcmp.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 16:42:23 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/04 14:38:16 by fabriciolop      ###   ########.fr       */
+/*   Created: 2024/05/03 21:39:58 by fabriciolop       #+#    #+#             */
+/*   Updated: 2024/05/04 14:27:48 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-int main(void)
+int ft_strcmp(std::string str1, std::string str2)
 {
-	static int	index;
-	int			end;
-	// char	input[80];
-	std::string 	input;
-	contact	phone_list[8];
+    int i;
 
-	print_title();
-	end = FALSE;
-	while (1)
-	{
-		print_menu();
-		input = get_input("Your choose: ");
-		if (manage_options(input, phone_list, &end, &index))
-			continue ;
-		if (end)
-			break;
-	}
-	return (0);
+    i = 0;
+    while (str1[i])
+    {
+        if (str1[i] != str2[i])
+            return (1);
+        i++;
+    }
+    std::cout << "son iguales" << std::endl;
+    return (0);
 }

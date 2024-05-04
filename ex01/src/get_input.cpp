@@ -6,16 +6,19 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:09:46 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/03 21:25:09 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/04 14:39:23 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-void	get_input(std::string message, char *input)
+std::string	get_input(std::string message)
 {
+	std::string input;
+
 	std::cout << message << YELLOW ;
-	// getline(std::cin, input);
-	std::cin >> input; // <--- error here
+	std::cin.ignore();
+	std::getline(std::cin, input);
 	std::cout << RESET;
+	return (input);
 }
