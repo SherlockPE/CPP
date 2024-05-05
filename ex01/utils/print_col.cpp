@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_menu.cpp                                     :+:      :+:    :+:   */
+/*   print_col.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 19:41:56 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/05 14:01:41 by fabriciolop      ###   ########.fr       */
+/*   Created: 2024/05/05 13:57:43 by fabriciolop       #+#    #+#             */
+/*   Updated: 2024/05/05 13:59:19 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-void	print_menu(void)
+void    print_col(std::string string, std::string color)
 {
-	std::cout << "\nPlease write one of the following commands: \n";
-	print_col("ADD", GREEN);
-	std::cout << "To add a contact\n";
-	print_col("SEARCH", GREEN);
-	std::cout <<  "To display a list of your contacts";
-	print_col("EXIT", GREEN);
-	std::cout << "To exit program\n";
+	std::cout << color;
+	std::cout << string;
+	std::cout << RESET;
 }

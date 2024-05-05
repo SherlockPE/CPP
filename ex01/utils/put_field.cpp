@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_menu.cpp                                     :+:      :+:    :+:   */
+/*   put_field.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 19:41:56 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/05 14:01:41 by fabriciolop      ###   ########.fr       */
+/*   Created: 2024/05/05 14:26:50 by fabriciolop       #+#    #+#             */
+/*   Updated: 2024/05/05 14:27:07 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-void	print_menu(void)
+void	put_field(std::string content)
 {
-	std::cout << "\nPlease write one of the following commands: \n";
-	print_col("ADD", GREEN);
-	std::cout << "To add a contact\n";
-	print_col("SEARCH", GREEN);
-	std::cout <<  "To display a list of your contacts";
-	print_col("EXIT", GREEN);
-	std::cout << "To exit program\n";
+	int	c_len;
+	int	i;
+
+	c_len = ft_strlen(content);
+	if (c_len > WSIZE)
+	{
+		content[WSIZE - 1] = '.';
+		content[WSIZE] = 0;
+	}
+	i = 0;
+	std::cout << std::setfill(' ') << std::setw(WSIZE - c_len + 1);
+	while (i < WSIZE && content[i])
+	{
+		std::cout << content[i];
+		i++;
+	}
+	std::cout << "|";
 }
