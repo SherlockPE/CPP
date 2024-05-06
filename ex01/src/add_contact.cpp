@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_contact.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:41:34 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/04 14:52:16 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/06 12:52:49 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void    add_contact(contact *phone_list, int *index)
 	phone_list[*index].first_name = get_input("First name: ");
 	phone_list[*index].last_name = get_input("Last name: ");
 	phone_list[*index].nick_name = get_input("nick name: ");
-	phone_list[*index].phone_number = get_input("phone number: ");
+	// phone_list[*index].phone_number = get_input("phone number: ");
+	phone_list[*index].phone_number = get_int("phone number: ");
 	phone_list[*index].darkest_secret = get_input("darkest_secret: ");
 	if (*index < 8)
 		(*index)++;

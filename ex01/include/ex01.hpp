@@ -20,6 +20,15 @@
 # define RESET "\033[0m"
 # define ORANGE "\033[38;5;208m"
 
+//Table color
+# define COLUM_CLR MAGENTA
+# define ROW_CLOR MAGENTA
+
+//Table character
+# define COLUM_CHAR "|"
+# define ROW_CHAR "_"
+
+
 struct	contact
 {
 	int	id;
@@ -31,6 +40,8 @@ struct	contact
 };
 
 std::string get_input(std::string message);
+std::string	get_int(std::string input);
+
 void	print_menu(void);
 int		manage_options(std::string input, contact *phone_list, int *end, int *index);
 void	add_contact(contact *phone_list, int *index);
@@ -45,5 +56,8 @@ int		ft_strlen(std::string str);
 std::string string_upper(std::string string);
 void	print_col(std::string string, std::string color);
 void	put_field(std::string content);
+
+void	put_line(int columns);
+void	put_separator(void);
 
 #endif

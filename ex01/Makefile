@@ -3,13 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
+#    By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/04 23:44:42 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/06 12:10:54 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 SRC_DIR = src
 UTILS_DIR = utils
@@ -24,15 +23,22 @@ YELLOW =		\033[0;93m
 RESET=			\033[0m
 
 SOURCES =	add_contact.cpp \
-			display_contacts.cpp \
-			main.cpp \
 			get_input.cpp \
+			get_int.cpp \
+			main.cpp \
 			manage_options.cpp \
+			print_contact_table.cpp \
 			print_menu.cpp \
-			print_title.cpp
+			print_title.cpp \
+			search.cpp
 
 UTILS	=	ft_strcmp.cpp \
-			ft_strlen.cpp
+			ft_strlen.cpp \
+			print_col.cpp \
+			put_field.cpp \
+			put_line.cpp \
+			put_separator.cpp \
+			string_upper.cpp
 
 NAME = phone_book
 INCLUDE = -I include

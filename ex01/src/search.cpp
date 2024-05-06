@@ -3,34 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   search.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 14:20:35 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/05 16:21:00 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/06 12:05:50 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
-
-int     get_int(int *max_id, std::string input, int max_index)
-{
-	int num;
-
-	while (true)
-	{
-		std::cout << input;
-		std::cin >> num;
-		if (!std::cin)
-		{
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		}
-		else if (num < 0 || num > max_index)
-			std::cout << "Sorry there's no input for you";
-		else
-			break;
-	}
-}
 
 void	search_contacts(contact *phone_list, int *index)
 {

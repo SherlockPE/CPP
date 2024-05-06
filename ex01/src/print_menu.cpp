@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_menu.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 19:41:56 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/05 14:01:41 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/06 11:38:33 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	print_menu(void)
 {
 	std::cout << "\nPlease write one of the following commands: \n";
 	print_col("ADD", GREEN);
-	std::cout << "To add a contact\n";
+	std::cout << " to add a contact\n";
 	print_col("SEARCH", GREEN);
-	std::cout <<  "To display a list of your contacts";
+	std::cout <<  " to display a list of your contacts\n";
 	print_col("EXIT", GREEN);
-	std::cout << "To exit program\n";
+	std::cout << " to exit program\n";
 }
