@@ -6,11 +6,11 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:33:58 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/02 17:17:44 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/02 18:40:23 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iostream"
+#include <iostream>
 
 char	ft_upper(int c)
 {
@@ -35,12 +35,12 @@ int main(int argc, char const *argv[])
 		j = 0;
 		while (argv[i][j])
 		{
-			printf("%c", ft_upper(argv[i][j]));
+			std::cout << ft_upper(argv[i][j]);
 			j++;
 		}
 		i++;
 	}
-	printf ("%c", '\n');
+	std::cout << '\n';
 	return (0);
 }
 
