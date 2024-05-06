@@ -21,8 +21,9 @@
 # define ORANGE "\033[38;5;208m"
 
 //Table color
-# define COLUM_CLR MAGENTA
-# define ROW_CLOR MAGENTA
+# define G_COLOR CYAN
+# define COLUM_CLR G_COLOR
+# define ROW_CLOR G_COLOR
 
 //Table character
 # define COLUM_CHAR "|"
@@ -57,7 +58,10 @@ std::string string_upper(std::string string);
 void	print_col(std::string string, std::string color);
 void	put_field(std::string content);
 
+int	ft_atoi(std::string str);
 void	put_line(int columns);
+void	put_header(std::string color);
+void	put_row(contact *phone_list, int position);
 void	put_separator(void);
 
 #endif

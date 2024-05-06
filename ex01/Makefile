@@ -6,7 +6,7 @@
 #    By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/06 12:10:54 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/05/06 15:55:32 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,14 @@ SOURCES =	add_contact.cpp \
 			print_title.cpp \
 			search.cpp
 
-UTILS	=	ft_strcmp.cpp \
+UTILS	=	ft_atoi.cpp \
+			ft_strcmp.cpp \
 			ft_strlen.cpp \
 			print_col.cpp \
 			put_field.cpp \
+			put_header.cpp \
 			put_line.cpp \
+			put_row.cpp \
 			put_separator.cpp \
 			string_upper.cpp
 
