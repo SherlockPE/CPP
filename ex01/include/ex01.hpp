@@ -27,7 +27,7 @@
 
 //Table character
 # define COLUM_CHAR "|"
-# define ROW_CHAR "_"
+# define ROW_CHAR "-"
 
 
 struct	contact
