@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+         #
+#    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/06 15:55:32 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/05/09 17:24:03 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ YELLOW =		\033[0;93m
 RESET=			\033[0m
 
 SOURCES =	add_contact.cpp \
-			get_input.cpp \
-			get_int.cpp \
+			exit_program.cpp \
 			main.cpp \
 			manage_options.cpp \
+			print_contact_info.cpp \
 			print_contact_table.cpp \
 			print_menu.cpp \
 			print_title.cpp \
@@ -35,6 +35,8 @@ SOURCES =	add_contact.cpp \
 UTILS	=	ft_atoi.cpp \
 			ft_strcmp.cpp \
 			ft_strlen.cpp \
+			get_input.cpp \
+			get_int.cpp \
 			print_col.cpp \
 			put_field.cpp \
 			put_header.cpp \

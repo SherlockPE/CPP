@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_int.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:06:04 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/06 12:58:15 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:18:09 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ bool ft_is_all_digit(std::string input)
 	}
 	return (true);
 }
-
-
 
 std::string	get_int(std::string input)
 {
