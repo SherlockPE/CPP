@@ -6,7 +6,7 @@
 #    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/09 14:56:07 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/09 17:24:03 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,6 @@ RESET=			\033[0m
 
 SOURCES =	add_contact.cpp \
 			exit_program.cpp \
-			get_input.cpp \
-			get_int.cpp \
 			main.cpp \
 			manage_options.cpp \
 			print_contact_info.cpp \
@@ -37,6 +35,8 @@ SOURCES =	add_contact.cpp \
 UTILS	=	ft_atoi.cpp \
 			ft_strcmp.cpp \
 			ft_strlen.cpp \
+			get_input.cpp \
+			get_int.cpp \
 			print_col.cpp \
 			put_field.cpp \
 			put_header.cpp \
