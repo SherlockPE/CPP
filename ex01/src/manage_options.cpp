@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:27:52 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/09 13:05:21 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/09 14:18:23 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	manage_options(PhoneBook *agenda)
 	agenda->input = string_upper(agenda->input);
 	std::cout << "Haz elegido : " << YELLOW << agenda->input << RESET << "\n";
 
-	//Comparación (pendiente cambiar los strcmp por la funcion original)
+	//Comparación
 	if (!ft_strcmp(agenda->input, "ADD"))
 		agenda->add_contact();
 	else if (!ft_strcmp(agenda->input, "SEARCH"))

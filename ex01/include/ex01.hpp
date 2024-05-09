@@ -7,7 +7,7 @@
 # include <string>
 # define WSIZE 10
 # define TRUE 1
-# define MAX_CONTACTS 8
+# define MAX_CONTACTS 1
 
 // Colors
 # define RED "\033[0;31m"
@@ -38,7 +38,7 @@ class	contact
 		std::string nick_name;
 		std::string phone_number;
 		std::string darkest_secret;
-	    void set_values (int id, std::string name, std::string lname, std::string nickname, std::string number, std::string d_secret);
+	    void set_values (std::string name, std::string lname, std::string nickname, std::string number, std::string d_secret);
 	// void print_values (void);
 };
 
@@ -56,6 +56,7 @@ class PhoneBook
         void    exit_program(int exit_code);
         void	print_menu(void);
         void	print_title(void);
+		void	print_contact_info(int id);
 };
 
 std::string get_input(std::string message);

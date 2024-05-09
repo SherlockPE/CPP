@@ -22,13 +22,12 @@ class	contact
 		std::string nick_name;
 		std::string phone_number;
 		std::string darkest_secret;
-	void set_values (int id, std::string name, std::string lname, std::string nickname, std::string number, std::string d_secret);
+	void set_values (std::string name, std::string lname, std::string nickname, std::string number, std::string d_secret);
 	void print_values (void);
 };
 
-void contact::set_values (int id, std::string name, std::string lname, std::string nickname, std::string number, std::string d_secret)
+void contact::set_values (std::string name, std::string lname, std::string nickname, std::string number, std::string d_secret)
 {
-	this->id = id;
 	first_name = name;
 	last_name = lname;
 	nick_name = nickname;
@@ -61,7 +60,7 @@ int main(void)
 	i = 0;
 	while (i < MAX_CONTACTS)
 	{
-		phone.contacts[i].set_values(i + 1, "Maria", "Lozano", "aaia aia", "98765", "aiaiaiaa that this filling in my soul");
+		phone.contacts[i].set_values("Maria", "Lozano", "aaia aia", "98765", "aiaiaiaa that this filling in my soul");
 		i++;
 	}
 	i = 0;

@@ -6,7 +6,7 @@
 #    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/09 13:01:55 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/09 14:56:07 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SOURCES =	add_contact.cpp \
 			get_int.cpp \
 			main.cpp \
 			manage_options.cpp \
+			print_contact_info.cpp \
 			print_contact_table.cpp \
 			print_menu.cpp \
 			print_title.cpp \
