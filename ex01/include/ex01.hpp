@@ -45,7 +45,7 @@ class	contact
 class PhoneBook
 {
 	public:
-    	static int	index;
+    	int	index;
     	std::string 	input;
 		contact contacts[MAX_CONTACTS];
 
