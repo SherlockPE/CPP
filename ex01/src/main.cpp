@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:42:23 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/09 15:10:05 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/09 16:07:42 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main(void)
 	PhoneBook agenda;
 	
 	agenda.index = 0;
+	agenda.actual_cant = 0;
 	agenda.print_title();
 	while (1)
 	{

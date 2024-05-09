@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:41:34 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/09 15:39:29 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/09 16:32:39 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ void	PhoneBook::add_contact()
 	if (index < MAX_CONTACTS)
 	{
 		contacts[index].set_values(first_name, last_name, nick_name, phone_number, darkest_secret);
-		index++;
+		if (actual_cant  < MAX_CONTACTS)
+			actual_cant++;
 	}
 	else
 	{
 		index = 0;
 		contacts[index].set_values(first_name, last_name, nick_name, phone_number, darkest_secret);
-		index++;
 	}
+	index++;
 }

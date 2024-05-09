@@ -6,13 +6,13 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 14:20:35 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/09 15:01:27 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/09 16:10:24 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-int	select_index(int index)
+int	select_index(int actual_cant)
 {
 	int			num;
 	std::string input;
@@ -21,7 +21,7 @@ int	select_index(int index)
 	{
 		input = get_int("Insert index: ");
 		num = ft_atoi(input);//(change ft_atoi for original atoi function (*pendient*))
-		if (num <= 0 || num > index)
+		if (num <= 0 || num > actual_cant)
 		{
 			std::cout << "Sorry, the index [";
 			print_col(input, YELLOW);
@@ -37,9 +37,9 @@ void	PhoneBook::search_contacts(void)
 {
 	int	selected;
 
-	if (index == 0)
+	if (actual_cant == 0)
 		return (print_col("Your contact list its empty\n", ORANGE));
 	print_contact_table();
-	selected = select_index(index);
+	selected = select_index(actual_cant);
 	print_contact_info(selected);
 }

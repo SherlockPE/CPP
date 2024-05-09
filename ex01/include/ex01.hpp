@@ -7,7 +7,7 @@
 # include <string>
 # define WSIZE 10
 # define TRUE 1
-# define MAX_CONTACTS 1
+# define MAX_CONTACTS 3
 
 // Colors
 # define RED "\033[0;31m"
@@ -46,6 +46,7 @@ class PhoneBook
 {
 	public:
     	int	index;
+		int	actual_cant;
     	std::string 	input;
 		contact contacts[MAX_CONTACTS];
 

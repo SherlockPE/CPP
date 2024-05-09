@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:47:13 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/09 14:38:13 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/09 16:09:09 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	PhoneBook::print_contact_table(void)
 	put_line((WSIZE * columns) + columns + 1);
 	put_header(CYAN);
 	put_line((WSIZE * columns) + columns + 1);
-	while (i < index)
+	while (i < actual_cant)
 	{
 		put_row(i);
 		put_line((WSIZE * columns) + columns + 1);
