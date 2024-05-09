@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 14:20:35 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/09 16:10:24 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/09 16:55:24 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	select_index(int actual_cant)
 {
 	int			num;
 	std::string input;
-
 	while (true)
 	{
 		input = get_int("Insert index: ");

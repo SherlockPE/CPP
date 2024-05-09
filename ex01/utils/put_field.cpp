@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_field.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 14:26:50 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/06 12:00:06 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:56:14 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	put_field(std::string content)
 	int	c_len;
 	int	i;
 
-	c_len = ft_strlen(content);
+	c_len = content.length();
+	// c_len = ft_strlen(content);
 	if (c_len > WSIZE)
 	{
 		content[WSIZE - 1] = '.';
