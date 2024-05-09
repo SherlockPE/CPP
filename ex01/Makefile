@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+         #
+#    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/06 15:55:32 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/05/09 13:01:55 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ YELLOW =		\033[0;93m
 RESET=			\033[0m
 
 SOURCES =	add_contact.cpp \
+			exit_program.cpp \
 			get_input.cpp \
 			get_int.cpp \
 			main.cpp \

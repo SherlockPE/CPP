@@ -6,13 +6,13 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 19:32:30 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/03 19:40:56 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/09 12:09:20 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-void	print_title(void)
+void	PhoneBook::print_title(void)
 {
 	std::cout << WHITE;
 	std::cout << "======================================================";

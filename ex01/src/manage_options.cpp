@@ -6,31 +6,24 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:27:52 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/05 14:39:14 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/09 13:05:21 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-int	manage_options(std::string input, contact *phone_list, int *end, int *index)
+void	manage_options(PhoneBook *agenda)
 {
-	input = string_upper(input);
-	std::cout << "Haz elegido : " << YELLOW << input << RESET << "\n";
+	agenda->input = string_upper(agenda->input);
+	std::cout << "Haz elegido : " << YELLOW << agenda->input << RESET << "\n";
 
-	//Comparación
-	if (!ft_strcmp(input, "ADD"))
-		add_contact(phone_list, index);
-	else if (!ft_strcmp(input, "SEARCH"))
-		search_contacts(phone_list, index);
-	else if (!ft_strcmp(input, "EXIT") || !ft_strcmp(input, "Q"))
-	{
-		*end = TRUE;
-	 	print_col("Saliendo......\n", MAGENTA);
-	}
+	//Comparación (pendiente cambiar los strcmp por la funcion original)
+	if (!ft_strcmp(agenda->input, "ADD"))
+		agenda->add_contact();
+	else if (!ft_strcmp(agenda->input, "SEARCH"))
+		agenda->search_contacts();
+	else if (!ft_strcmp(agenda->input, "EXIT") || !ft_strcmp(agenda->input, "Q"))
+		agenda->exit_program(EXIT_SUCCESS);
 	else
-	{
-	 	print_col("Por favor ingrese un input valido\n", MAGENTA);
-		return (1);
-	}
-	return (0);
+	 	print_col("Error\nPlease insert a valid input.\n", RED);
 }
