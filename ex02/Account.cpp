@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:52:40 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/09 18:32:35 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/09 18:55:17 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ void	Account::makeDeposit( int deposit )
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
+	if (_amount - withdrawal < 0)
+		return (false);
 	_amount -= withdrawal;
 	_nbWithdrawals += 1;
+	return (true);
 }
 
 //Display Account info
@@ -56,8 +59,8 @@ void	Account::displayAccountsInfos( void )
 Account::Account(int initial_deposit)
 {
 	_accountIndex = 0;
-	_amount = 0;
-	_nbDeposits = 0;
+	_amount = initial_deposit;
+	_nbDeposits = 1;
 	_nbWithdrawals = 0;
 }
 Account::~Account( void )

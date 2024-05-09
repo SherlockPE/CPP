@@ -6,26 +6,26 @@
 #    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/09 17:47:55 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/09 17:52:16 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/09 18:46:38 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:	start_test
+NAME = start_test
 
-SRC:	tests.cpp \
+SRC =	tests.cpp \
 		Account.cpp
 
-CPPFLAGS: -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror
 
-CPPC := c++;
-OBJ:	$(SRC:.cpp=.o)
+CPPC := c++
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CPPC) $(CPPFLAGS) $(OBJ) -o $@
 
-clean: 
+clean:
 	rm -f $(OBJ)
 
 fclean: clean
