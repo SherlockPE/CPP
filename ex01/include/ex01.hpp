@@ -29,6 +29,7 @@
 # define COLUM_CHAR "|"
 # define ROW_CHAR "-"
 
+//Before classes
 
 struct	contact
 {
