@@ -1,6 +1,6 @@
-**.o
-**obj
-**.json
+*.o
+*obj
+*.json
 phone_book
 .DS_Store
-**.vscode
+*.vscode
