@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:52:40 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/10 14:48:32 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/10 15:03:32 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,24 @@ void	Account::displayAccountsInfos( void )
 				<< "withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
-//Constructors
+//Constructor create account
 Account::Account(int initial_deposit)
 {
-	_accountIndex = 0;
+	// [19920104_091532] index:0;amount:42;created
+	_accountIndex = _nbAccounts;
+	_nbAccounts += 1;
 	_amount = initial_deposit;
 	_nbDeposits = 1;
 	_nbWithdrawals = 0;
+	_displayTimestamp();
+	std::cout 	<< "index:" << _accountIndex
+				<< ";amount:" << _amount << ";created" << std::endl;
 }
+
+//Deleter
 Account::~Account( void )
 {
-	_accountIndex = 0;
-	_amount = 0;
-	_nbDeposits = 0;
-	_nbWithdrawals = 0;
+	_displayTimestamp();
+	std::cout 	<< "index:" << _accountIndex
+				<< ";amount:" << _amount << ";closed" << std::endl;
 }
-
-
-
