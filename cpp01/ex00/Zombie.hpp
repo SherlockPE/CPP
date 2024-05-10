@@ -3,17 +3,21 @@
 
 # include <iostream>
 # include <iomanip>
+# include <new>  
+# include <string>
 
 class Zombie
 {
-	public:
-		Zombie* newZombie( std::string name );
-		void announce( void );
-
-		//Setter
-		void	
 	private:
 		std::string	name;
+	public:
+		//Metods
+		Zombie* newZombie( std::string name );
+		void 	announce( void );
+		void	randomChump( std::string name );
+
+		//Setter
+		void	set_name(std::string name);
 };
 
 #endif
