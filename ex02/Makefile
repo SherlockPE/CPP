@@ -6,16 +6,18 @@
 #    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/09 17:47:55 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/09 18:46:38 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/10 14:12:09 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = start_test
 
-SRC =	tests.cpp \
-		Account.cpp
+SRC =	Account.cpp \
+		my_test.cpp
+# tests.cpp \
+		
 
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CPPC := c++
 OBJ = $(SRC:.cpp=.o)
