@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 16:47:05 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/10 23:40:16 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/10 23:57:06 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,11 @@
 void Zombie::announce(void)
 {
 	std::cout	<< name << ": "
-				<< "BraiiiiiiinnnzzzZ..";
+				<< "BraiiiiiiinnnzzzZ.."
+				<< std::endl;
+}
+
+Zombie:: ~Zombie(void)
+{
+	std::cout << name << ": removed" << std::endl;
 }

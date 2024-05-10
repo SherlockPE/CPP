@@ -18,6 +18,9 @@ class Zombie
 
 		//Setter
 		void	set_name(std::string name);
+
+		//Destructor
+		~Zombie( void );
 };
 
 #endif
