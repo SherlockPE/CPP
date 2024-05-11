@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/11 15:30:01 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/11 15:45:34 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/05/11 15:30:33 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/05/11 15:50:22 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-int main(void)
+
+# include <iostream>
+# include <iomanip>
+
+class Weapon
 {
-    Weapon arma;
-    std::string reference;
+	private:
+		std::string type;
+	public:
+		//Getter
+		std::string	getType(void);
+		//Setter
+		void		setType(std::string type);
 
-    arma.setType("Ak-47");
-    std::cout << "Value of weapon: " << arma.getType() << std::endl;
-    reference = arma.getType();
-    arma.setType("molotov");
-    std::cout << "Value of weapon: " << arma.getType() << std::endl;
-    return 0;
+		Weapon(/* args */);
+		~Weapon();
+};
+
+Weapon::Weapon(/* args */)
+{
 }
+
+Weapon::~Weapon()
+{
+}
+
+#endif
