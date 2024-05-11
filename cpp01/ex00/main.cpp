@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 23:20:45 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/10 23:52:18 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/11 13:59:02 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main (void)
 
     // atexit(d_leaks);
     doctor = 0;
-    doctor = doctor->newZombie("Cerebros");
+    doctor = newZombie("Cerebros");
     doctor->announce();
     // cubeta.newZombie("delfin");
     // cubeta.randomChump("Soy el de la cubeta");
