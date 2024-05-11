@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 16:47:05 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/10 23:57:06 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/11 13:56:58 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ void Zombie::announce(void)
 				<< std::endl;
 }
 
+//Setter
+void	Zombie::set_name(std::string name)
+{
+	this->name = name;
+}
+
+//Destructor
 Zombie:: ~Zombie(void)
 {
 	std::cout << name << ": removed" << std::endl;

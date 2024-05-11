@@ -3,22 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 22:38:56 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/10 23:35:23 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/11 13:54:38 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-//Setter
-void	Zombie::set_name(std::string name)
-{
-    this->name = name;
-}
-
-Zombie* Zombie::newZombie( std::string name )
+Zombie* newZombie( std::string name )
 {
     Zombie *new_zombie = new Zombie;
     new_zombie->set_name(name);
