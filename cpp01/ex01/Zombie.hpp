@@ -3,12 +3,26 @@
 
 # include <iostream>
 # include <iomanip>
-// # include <new>  
-// # include <string>
+# include <new>  
+# include <string>
 
+class Zombie
+{
+	private:
+		std::string	name;
+	public:
+		//Metods
+		void 	announce( void );
 
+		//Setter
+		void	set_name(std::string name);
 
+		//Destructor
+		~Zombie( void );
+};
 
-
+Zombie* newZombie( std::string name );
+void	randomChump(std::string name );
+Zombie*	zombieHorde( int N, std::string name );
 
 #endif

@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 23:20:45 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/11 14:25:13 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/05/11 14:13:18 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/05/11 14:15:09 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include   "Zombie.hpp"
 
-int main (void)
+Zombie*	zombieHorde( int N, std::string name )
 {
-	int i;
-	int cant;
-	Zombie  *horde;
+	int		i;
+	Zombie	*horde;
 
-	cant = 3;
-	horde = zombieHorde(cant, "ichi ni san, nya arigatooo");
-	
+	horde = new Zombie[N];
 	i = 0;
-	while (i < cant)
+	while (i < N)
 	{
-		horde[i].announce();
+		horde[i].set_name(name);
 		i++;
 	}
-	delete [] horde;
-	return (0);
+	return (horde);
 }
