@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 15:34:25 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/11 15:38:59 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/12 18:52:48 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	Weapon::setType(std::string type)
 }
 
 //Getter
-std::string	Weapon::getType(void)
+std::string	&Weapon::getType(void)
 {
 	std::string &typeref = type;
 	return (typeref);
