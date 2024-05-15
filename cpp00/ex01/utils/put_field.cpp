@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_field.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 14:26:50 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/09 16:56:14 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/15 16:17:42 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	put_field(std::string content)
 		content[WSIZE] = 0;
 	}
 	i = 0;
-	std::cout << std::setfill(' ') << std::setw(WSIZE - c_len + 1);
+	std::cout << std::setw(WSIZE - c_len + 1);
 	while (i < WSIZE && content[i])
 	{
 		std::cout << content[i];
