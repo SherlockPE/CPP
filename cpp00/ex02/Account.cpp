@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:52:40 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/11 14:02:47 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:07:24 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ void	Account::displayAccountsInfos( void )
 }
 void	Account::_displayTimestamp( void )
 {
-	std::time_t time_since;
-	struct tm	actual_time;
+	time_t time_since;
+	struct tm	*actual_time;
 	char		buffer[40];
 
 	time_since = time(0);
-	actual_time = *(localtime(&time_since));
-	strftime(buffer, sizeof(buffer), "[%Y%m%d_%X]", &actual_time);
+	actual_time = localtime(&time_since);
+	strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S]", actual_time);
 	std::cout << buffer << " ";
 }
 //--------------------------------------------------------------------

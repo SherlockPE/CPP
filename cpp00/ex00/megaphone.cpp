@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:33:58 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/02 18:40:23 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:01:57 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])
 
 	if (argc == 1)
 	{
-		printf("* LOUD AND UNBEARABLE FEEDBACK NOISE *");
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 		return (0);
 	}
 	i = 1;
