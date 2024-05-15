@@ -5,6 +5,7 @@
 # include <iostream>
 # include <string.h>
 # include <string>
+# include <cstdlib>
 # define WSIZE 10
 # define MAX_CONTACTS 8
 

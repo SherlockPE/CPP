@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage_options.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:27:52 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/09 17:19:59 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/15 14:55:41 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	manage_options(PhoneBook *agenda)
 		agenda->add_contact();
 	else if (!agenda->input.compare("SEARCH"))
 		agenda->search_contacts();
-	else if (!agenda->input.compare("EXIT") || !agenda->input.compare("Q"))
+	else if (!agenda->input.compare("EXIT"))
 		agenda->exit_program(EXIT_SUCCESS);
 	else
 	 	print_col("Error\nPlease insert a valid input.\n", RED);
