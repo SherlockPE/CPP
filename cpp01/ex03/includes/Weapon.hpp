@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 15:30:33 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/16 14:19:43 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:49:08 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Weapon
 {
 	private:
-		std::string type;
+		std::string _type;
 	public:
 		std::string	&getType(void);
 		void		setType(std::string type);

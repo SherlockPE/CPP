@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 15:34:25 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/16 14:19:56 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:05:32 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 //Setter
 void	Weapon::setType(std::string type)
 {
-	this->type = type;
+	_type = type;
 }
 
 //Getter
 std::string	&Weapon::getType(void)
 {
-	std::string &typeref = type;
+	std::string &typeref = _type;
 	return (typeref);
 }
 
@@ -31,5 +31,5 @@ Weapon::Weapon()
 }
 Weapon::Weapon(std::string type)
 {
-	this->type = type;
+	_type = type;
 }

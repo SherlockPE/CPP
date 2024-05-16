@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 18:54:00 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/16 16:41:15 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:03:26 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	HumanA::attack(void)
 }
 
 // Constructor
-HumanA::HumanA(std::string name, Weapon &weapon)
+HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
 {
-	_name = name;
-	_weapon = weapon;
 }
