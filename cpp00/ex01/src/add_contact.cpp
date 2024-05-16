@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   add_contact.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:41:34 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/09 16:32:39 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/16 13:30:42 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ex01.hpp>
 
-void contact::set_values (std::string name, std::string lname, std::string nickname, std::string number, std::string d_secret)
+void Contact::set_values (std::string name, std::string lname, std::string nickname, std::string number, std::string d_secret)
 {
 	first_name = name;
 	last_name = lname;

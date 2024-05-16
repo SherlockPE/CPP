@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_int.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:06:04 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/09 14:18:09 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/05/16 13:36:30 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,30 +38,8 @@ std::string	get_int(std::string input)
 		else
 		{
 			std::cout << RED << "Error: [" << result << "]" << RESET;
-			std::cout << " is not a number" << std::endl;
+			std::cout << " is not a valid number" << std::endl;
 		}
 	}
 	return (result);
 }
-
-
-// int     get_int(std::string input, int max_index)
-// {
-// 	int num;
-
-// 	while (true)
-// 	{
-// 		std::cout << input;
-// 		std::cin >> num;
-// 		if (!std::cin)
-// 		{
-// 			std::cin.clear();
-// 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-// 		}
-// 		// else if (num < 0 || num > max_index)
-// 		// 	std::cout << "Sorry there's no index for you";
-// 		else
-// 			break;
-// 	}
-// 	return (num);
-// }

@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 14:26:50 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/15 16:17:42 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:32:25 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	put_field(std::string content)
 	int	i;
 
 	c_len = content.length();
-	// c_len = ft_strlen(content);
 	if (c_len > WSIZE)
 	{
 		content[WSIZE - 1] = '.';
