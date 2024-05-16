@@ -6,7 +6,7 @@
 #    By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/11 15:46:03 by flopez-r          #+#    #+#              #
-#    Updated: 2024/05/16 14:26:53 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/05/16 14:44:52 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ OBJ_DIR =	obj
 SRC_DIR =	src
 SOURCES =	main.cpp \
 			Weapon.cpp \
-			HumanA.cpp
+			HumanA.cpp \
+			HumanB.cpp
 
 MAKE_DIR = mkdir -p
 SRC = $(addprefix $(SRC_DIR)/, $(SOURCES))
