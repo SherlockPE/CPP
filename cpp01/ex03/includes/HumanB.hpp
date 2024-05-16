@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/11 15:34:25 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/12 18:52:48 by fabriciolop      ###   ########.fr       */
+/*   Created: 2024/05/16 14:07:02 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/05/16 14:29:25 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 
-//Setter
-void	Weapon::setType(std::string type)
+#ifndef HUMAN_B_HPP
+# define HUMAN_B_HPP
+
+# include "Weapon.hpp"
+
+class HumanB
 {
-	this->type = type;
-}
+	private:
+		std::string _name;
+		class Weapon _weapon;
+	public:
+		
+		void	attack(void);
+		void	setWeapon(Weapon weapon);
+		HumanB(std::string name);
+};
 
-//Getter
-std::string	&Weapon::getType(void)
-{
-	std::string &typeref = type;
-	return (typeref);
-}
 
+#endif
