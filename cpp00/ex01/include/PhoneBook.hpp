@@ -33,8 +33,6 @@ class PhoneBook
 		Contact contacts[MAX_CONTACTS];
 
 	public:
-		std::string input;
-
 		void add_contact();
 		static void exit_program(int exit_code);
 		void put_row(int position);
