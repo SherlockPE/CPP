@@ -15,7 +15,7 @@
 # define ROW_CHAR "-"
 
 // SRC
-void	manage_options(PhoneBook *agenda);
+void	manage_options(PhoneBook *agenda, std::string input);
 
 // Utils
 int			ft_atoi(std::string str);

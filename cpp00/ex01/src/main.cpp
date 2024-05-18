@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:42:23 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/16 13:23:41 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/18 19:39:31 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 int main(void)
 {
-	PhoneBook agenda;
+	PhoneBook 	agenda;
+	std::string	input;
 	
 	agenda.print_title();
 	while (1)
 	{
 		agenda.print_menu();
-		agenda.input = get_input("Your choose: ");
-		manage_options(&agenda);
+		input = get_input("Your choose: ");
+		manage_options(&agenda, input);
 	}
 	return (0);
 }
