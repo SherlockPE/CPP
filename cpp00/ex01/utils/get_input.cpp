@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:09:46 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/15 15:42:18 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/18 18:51:06 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ std::string	get_input(std::string message)
 		std::cout << message << YELLOW;
 		std::getline(std::cin, input);
 		if (std::cin.eof())
-			exit(1);
+			PhoneBook::exit_program(0);
 		std::cout << RESET;
 		if (!input.empty())
 			break;

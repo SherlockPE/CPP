@@ -6,7 +6,7 @@
 #    By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 16:45:46 by fabriciolop       #+#    #+#              #
-#    Updated: 2024/05/16 13:22:04 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/05/18 19:20:21 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,24 +22,16 @@ PURPLE=			\033[0;35m
 YELLOW =		\033[0;93m
 RESET=			\033[0m
 
-SOURCES =	add_contact.cpp \
-			exit_program.cpp \
+SOURCES =	Contact.cpp \
 			main.cpp \
 			manage_options.cpp \
-			PhoneBookConstructor.cpp \
-			print_contact_info.cpp \
-			print_contact_table.cpp \
-			print_menu.cpp \
-			print_title.cpp \
+			PhoneBook.cpp \
 			search.cpp
 
 UTILS	=	ft_atoi.cpp \
-			ft_strcmp.cpp \
-			ft_strlen.cpp \
 			get_input.cpp \
 			get_int.cpp \
 			print_col.cpp \
-			put_field.cpp \
 			put_header.cpp \
 			put_line.cpp \
 			put_row.cpp \
