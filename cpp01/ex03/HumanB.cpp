@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/12 18:54:00 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/16 19:03:26 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/05/16 14:07:33 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/05/26 21:09:17 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <HumanA.hpp>
+#include "HumanB.hpp"
 
-void	HumanA::attack(void)
+void	HumanB::attack(void)
 {
 	std::cout	<< _name
 				<< " attacks with their "
-				<< _weapon.getType() << std::endl;
+				<< _weapon->getType() << std::endl;
+}
+
+void    HumanB::setWeapon(Weapon &weapon)
+{
+    _weapon = &weapon;
 }
 
 // Constructor
-HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
+HumanB::HumanB(std::string name)
 {
+	_name = name;
 }
