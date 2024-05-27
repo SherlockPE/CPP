@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 13:34:48 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/27 15:43:13 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:52:12 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,17 @@ void	Replacer::replace_and_save(std::string origin, std::ofstream &object_file)
 
 	(void)object_file;
 	num_founded = 0;
-	while (1)
+	if (!_old_str.empty())
 	{
-		num_founded = origin.find(_old_str, num_founded);
-		if (num_founded == std::string::npos)
-			break;
-		origin.erase(num_founded, _old_str.length());
-		origin.insert(num_founded, _new_str);
-		num_founded += _old_str.length();
+		while (1)
+		{
+			num_founded = origin.find(_old_str, num_founded);
+			if (num_founded == std::string::npos)
+				break;
+			origin.erase(num_founded, _old_str.length());
+			origin.insert(num_founded, _new_str);
+			num_founded += _old_str.length();
+		}
 	}
 	object_file << origin;
 }
