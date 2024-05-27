@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/27 18:03:03 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/27 20:23:14 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/05/27 18:04:44 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/05/27 19:48:04 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main(void)
+#include <iostream>
+
+class Harl;
+typedef void	(Harl::*fn_ptr)(void) const;
+class Harl
 {
-    Harl complainer;
+	private:
+		fn_ptr	functions[4];
+	public:
+		
+		void	debug(void) const;
+		void	info(void) const;
+		void	warning(void) const;
+		void	error(void) const;
+		void	complain( std::string level );
+		Harl(/* args */);
+		~Harl();
+};
 
-    complainer.complain("DEBUG");
-    complainer.complain("INFO");
-    complainer.complain("WARNING");
-    complainer.complain("ERROR");
-    return 0;
-}
+#endif
