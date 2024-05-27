@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:27:52 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/05/18 19:39:44 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/05/27 20:02:15 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	manage_options(PhoneBook *agenda, std::string input)
 {
 	input = string_upper(input);
-	std::cout << "Haz elegido : " << YELLOW << input << RESET << "\n";
+	std::cout << "You have chosen: " << YELLOW << input << RESET << "\n";	
 
 	//Comparación
 	if (!input.compare("ADD"))
