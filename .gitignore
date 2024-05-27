@@ -5,3 +5,4 @@ phone_book
 .DS_Store
 *.vscode
 *a.out
+*.replace
