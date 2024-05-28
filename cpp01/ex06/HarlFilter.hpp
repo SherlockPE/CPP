@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HarlFilter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 14:41:14 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/28 15:16:01 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/05/28 14:39:56 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/05/28 15:20:19 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HarlFilter.hpp"
 
-int	exit_funct(std::string str, int exit_value)
-{
-	std::cout << str << std::endl;
-	return (exit_value);
-}
+#ifndef HARL_FILTER_HPP
+#define HARL_FILTER_HPP
 
-int main(int argc, char const *argv[])
+#include <iostream>
+
+class HarlFilter
 {
-    HarlFilter  harl;
-    if (argc < 2 || argc > 2)
-        return (exit_funct("Not valid parameters", 1));
-    harl.filter(argv[1]);
-    return 0;
-}
+    private:
+        
+    public:
+        void	debug(void) const;
+		void	info(void) const;
+		void	warning(void) const;
+		void	error(void) const;
+        void    harl_complain(void) const;
+        void    filter(std::string  value);
+};
+
+#endif

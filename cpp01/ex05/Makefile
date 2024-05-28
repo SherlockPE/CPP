@@ -6,11 +6,11 @@
 #    By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 18:02:38 by flopez-r          #+#    #+#              #
-#    Updated: 2024/05/27 19:01:29 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/05/28 14:38:28 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = replacer
+NAME = harl2
 
 OBJ_DIR =	obj
 SOURCES =	main.cpp \
