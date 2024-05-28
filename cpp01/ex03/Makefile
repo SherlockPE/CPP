@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
+#    By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/11 15:46:03 by flopez-r          #+#    #+#              #
-#    Updated: 2024/05/26 21:15:48 by fabriciolop      ###   ########.fr        #
+#    Updated: 2024/05/28 16:39:17 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pointers_and_references
+NAME = violence
 
 OBJ_DIR =	obj
 SOURCES =	main.cpp \
