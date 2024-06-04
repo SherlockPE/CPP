@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:45 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/05/29 15:22:55 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/04 12:34:34 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
@@ -18,13 +19,14 @@
 class Fixed
 {
 	private:
-		int					_fixed_point;
-		static const int	_num_irrational_bits;
+		int					_fixed_point_val;
+		static const int	_num_bits;
 	public:
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 		Fixed(void);
 		Fixed(Fixed &object_to_copy);
+		Fixed &operator=(const Fixed &object_to_copy);
 		~Fixed();
 };
 
