@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/04 12:44:47 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/05 13:52:43 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::_num_bits = 8;
 
 //Metods
 int		Fixed::getRawBits( void ) const
