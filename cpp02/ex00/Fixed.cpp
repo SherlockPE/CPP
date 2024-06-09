@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/05 13:52:43 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/09 15:36:54 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed(void) : _fixed_point_val(0)
 	std::cout << "Default constructor called\n";
 }
 //Copy Constructor
-Fixed::Fixed(Fixed &object_to_copy)
+Fixed::Fixed(const Fixed &object_to_copy)
 {
 	std::cout << "Copy constructor called\n";
 	(*this) = object_to_copy;

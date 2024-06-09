@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:45 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/09 14:31:09 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/09 15:36:26 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Fixed
 		
 		/* 					Constructors					 */
 		Fixed(void);
-		Fixed(Fixed &object_to_copy);
+		Fixed(const Fixed &object_to_copy);
 		Fixed(const int integer);
 		Fixed(const float number);
 

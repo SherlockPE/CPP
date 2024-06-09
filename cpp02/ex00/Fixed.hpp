@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:45 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/04 12:34:34 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/09 15:36:44 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Fixed
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 		Fixed(void);
-		Fixed(Fixed &object_to_copy);
+		Fixed(const Fixed &object_to_copy);
 		Fixed &operator=(const Fixed &object_to_copy);
 		~Fixed();
 };

@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/09 15:25:43 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/09 15:36:14 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(void) : _fixed_point_val(0)
 }
 
 //Copy Constructor
-Fixed::Fixed(Fixed &object_to_copy)
+Fixed::Fixed(const Fixed &object_to_copy)
 {
 	std::cout << "Copy constructor called\n";
 	(*this) = object_to_copy;
