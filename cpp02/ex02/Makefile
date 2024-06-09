@@ -1,7 +1,8 @@
-NAME = program_name
+NAME = Fixed_OCF
 
 OBJ_DIR =	obj
-SOURCES =	main.cpp
+SOURCES =	main.cpp \
+			Fixed.cpp
 
 MAKE_DIR = mkdir -p
 SRC = $(SOURCES)
