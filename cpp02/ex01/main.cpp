@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 13:49:50 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/09 15:37:05 by fabriciolop      ###   ########.fr       */
+/*   Created: 2024/06/09 21:17:20 by fabriciolop       #+#    #+#             */
+/*   Updated: 2024/06/09 21:22:56 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,9 @@ int	main( void ) {
 	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;
 
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	return 0; 
 }

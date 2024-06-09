@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/09 16:09:35 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/09 21:29:01 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ Fixed::Fixed(const Fixed &object_to_copy)
 //Int constructor
 Fixed::Fixed(const int integer) : _fixed_point_val(integer<<_num_bits)
 {
-	std::cout << "Int constructor called";
+	std::cout << "Int constructor called\n";
 }
 
 //Float constructor
 Fixed::Fixed(const float number) : _fixed_point_val(number * (1 << _num_bits))
 {
-	std::cout << "Destructor called\n";
+	std::cout << "Float constructor called\n";
 }
 
 /* 						Metods						 */
@@ -72,7 +72,7 @@ int Fixed::toInt( void ) const
 Fixed &Fixed::operator=(const Fixed &object_to_copy)
 {
 	std::cout << "Copy assignment operator called\n";
-	_fixed_point_val = object_to_copy.getRawBits();
+	_fixed_point_val = object_to_copy._fixed_point_val;
 	return (*this);
 }
 
