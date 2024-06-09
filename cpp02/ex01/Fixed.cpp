@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/09 15:36:14 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/09 16:09:35 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,12 @@ Fixed &Fixed::operator=(const Fixed &object_to_copy)
 	std::cout << "Copy assignment operator called\n";
 	_fixed_point_val = object_to_copy.getRawBits();
 	return (*this);
+}
+
+std::ostream	&operator<<(std::ostream &os, const Fixed &fixed_p)
+{
+	os << fixed_p.toFloat();
+	return (os);
 }
 
 //Destructor
