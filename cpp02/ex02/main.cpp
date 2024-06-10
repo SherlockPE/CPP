@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:17:20 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/06/10 10:58:42 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/10 17:06:52 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,16 @@ int	main( void ) {
 	// Fixed	a;
 	// Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	Fixed	a(10);
-	Fixed	b(0.5f);
+	Fixed	a(1);
+	Fixed	b(2);
 
-	std::cout << a - b << "\n";
-	
 
-	// if (a > b)
-	// 	std::cout << "a es mayor\n";
+	if (++a == b)
+		std::cout << "Entré\n";
+	std::cout << a;
 	// else if (a < b)
 	// 	std::cout << "a es menor\n";
-	// else if (a.toInt() == b)
+	// else if (a == b)
 	// 	std::cout << "son iguales\n";
 	
 	// std::cout << a << std::endl;

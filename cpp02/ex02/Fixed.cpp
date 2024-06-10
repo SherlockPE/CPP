@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/10 10:52:55 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/10 17:08:28 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,70 +69,100 @@ int Fixed::toInt( void ) const
 }
 
 /* 					Comparison operators					 */
-bool	operator>(const Fixed &obj1, const Fixed &obj2)
+bool	Fixed::operator>(const Fixed &obj1)
 {
-	if (obj1._fixed_point_val > obj2._fixed_point_val)
+	if ((*this)._fixed_point_val > obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
-bool	operator>=(const Fixed &obj1, const Fixed &obj2)
+bool	Fixed::operator>=(const Fixed &obj1)
 {
-	if (obj1._fixed_point_val >= obj2._fixed_point_val)
+	if (this->_fixed_point_val >= obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
-bool	operator<(const Fixed &obj1, const Fixed &obj2)
+bool	Fixed::operator<(const Fixed &obj1)
 {
-	if (obj1._fixed_point_val < obj2._fixed_point_val)
+	if (this->_fixed_point_val < obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
-bool	operator<=(const Fixed &obj1, const Fixed &obj2)
+bool	Fixed::operator<=(const Fixed &obj1)
 {
-	if (obj1._fixed_point_val <= obj2._fixed_point_val)
+	if (this->_fixed_point_val <= obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
-bool	operator==(const Fixed &obj1, const Fixed &obj2)
+bool	Fixed::operator==(const Fixed &obj1)
 {
-	if (obj1._fixed_point_val == obj2._fixed_point_val)
+	if (this->_fixed_point_val == obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
-bool	operator!=(const Fixed &obj1, const Fixed &obj2)
+bool	Fixed::operator!=(const Fixed &obj1)
 {
-	if (obj1._fixed_point_val != obj2._fixed_point_val)
+	if (this->_fixed_point_val != obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
 
 /* 					Arithmetic operator					 */
-Fixed 	operator+(const Fixed &obj1, const Fixed &obj2)
+Fixed 	Fixed::operator+(const Fixed &obj2)
 {
-	return (obj1.toFloat() + obj2.toFloat());
+	return (this->toFloat() + obj2.toFloat());
 }
 
-Fixed 	operator-(const Fixed &obj1, const Fixed &obj2)
+Fixed 	Fixed::operator-(const Fixed &obj2)
 {
-	return (obj1.toFloat() - obj2.toFloat());
+	return (this->toFloat() - obj2.toFloat());
 }
 
-Fixed 	operator*(const Fixed &obj1, const Fixed &obj2)
+Fixed 	Fixed::operator*(const Fixed &obj2)
 {
-	return (obj1.toFloat() * obj2.toFloat());
+	return (this->toFloat() * obj2.toFloat());
 }
 
-Fixed 	operator/(const Fixed &obj1, const Fixed &obj2)
+Fixed 	Fixed::operator/(const Fixed &obj2)
 {
-	return (obj1.toFloat() / obj2.toFloat());
+	if (obj2._fixed_point_val == 0)
+	{
+		std::cout << "division by zero\n";
+		return (0);
+	}
+	return (this->toFloat() / obj2.toFloat());
 }
 
+/* 					in(de)crement-prefix			 */
+Fixed	&Fixed::operator++(void)
+{
+	this->_fixed_point_val++;
+	return *this;
+}
+
+Fixed	&Fixed::operator--(void)
+{
+	this->_fixed_point_val++;
+	return *this;
+}
+
+/* 					in(de)crement-postfix			 */
+Fixed	Fixed::operator++(int)
+{
+	int old = _fixed_point_val++;
+	return (old);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	int old = _fixed_point_val--;
+	return (old);
+}
 
 //Assiggment Operator
 Fixed &Fixed::operator=(const Fixed &object_to_copy)

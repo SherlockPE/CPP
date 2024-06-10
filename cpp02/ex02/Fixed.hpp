@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:45 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/10 11:06:55 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:21:34 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,26 @@ class Fixed
 		int				toInt( void ) const;
 
 		/*					Comparison operators					*/
-		friend bool		operator>(const Fixed &obj1, const Fixed &obj2);
-		friend bool		operator>=(const Fixed &obj1, const Fixed &obj2);
-		friend bool		operator<(const Fixed &obj1, const Fixed &obj2);
-		friend bool		operator<=(const Fixed &obj1, const Fixed &obj2);
-		friend bool		operator==(const Fixed &obj1, const Fixed &obj2);
-		friend bool		operator!=(const Fixed &obj1, const Fixed &obj2);
+		bool		operator>(const Fixed &obj1);
+		bool		operator>=(const Fixed &obj1);
+		bool		operator<(const Fixed &obj1);
+		bool		operator<=(const Fixed &obj1);
+		bool		operator==(const Fixed &obj1);
+		bool		operator!=(const Fixed &obj1);
 
 		/* 					Arithmetic operator					 */
-		friend Fixed 	operator+(const Fixed &obj1, const Fixed &obj2);
-		friend Fixed 	operator-(const Fixed &obj1, const Fixed &obj2);
-		friend Fixed 	operator*(const Fixed &obj1, const Fixed &obj2);
-		friend Fixed 	operator/(const Fixed &obj1, const Fixed &obj2);
+		Fixed 	operator+(const Fixed &obj2);
+		Fixed 	operator-(const Fixed &obj2);
+		Fixed 	operator*(const Fixed &obj2);
+		Fixed 	operator/(const Fixed &obj2);
+
+		/* 					in(de)crement					 */
+		Fixed	&operator++(void);
+		Fixed	&operator--(void);
+		Fixed	operator++(int);
+		Fixed	operator--(int);
+		// friend void		operator(const Fixed &obj);
+		// friend void		operator++(const Fixed &obj);
 
 		/*					Constructors					*/
 		Fixed(void);
