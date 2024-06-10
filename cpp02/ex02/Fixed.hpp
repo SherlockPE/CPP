@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:45 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/09 21:51:15 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/10 10:51:00 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,22 @@ class Fixed
 		Fixed			&operator=(const Fixed &object_to_copy);
 		float			toFloat( void ) const;
 		int				toInt( void ) const;
+
 		
+		/* 					Comparison operators					 */
+		friend bool		operator>(const Fixed &obj1, const Fixed &obj2);
+		friend bool		operator>=(const Fixed &obj1, const Fixed &obj2);
+		friend bool		operator<(const Fixed &obj1, const Fixed &obj2);
+		friend bool		operator<=(const Fixed &obj1, const Fixed &obj2);
+		friend bool		operator==(const Fixed &obj1, const Fixed &obj2);
+		friend bool		operator!=(const Fixed &obj1, const Fixed &obj2);
+
+		/* 					Arithmetic operator					 */
+		friend Fixed 	operator+(const Fixed &obj1, const Fixed &obj2);
+		friend Fixed 	operator-(const Fixed &obj1, const Fixed &obj2);
+		friend Fixed 	operator*(const Fixed &obj1, const Fixed &obj2);
+		friend Fixed 	operator/(const Fixed &obj1, const Fixed &obj2);
+
 		/* 					Constructors					 */
 		Fixed(void);
 		Fixed(const Fixed &object_to_copy);
