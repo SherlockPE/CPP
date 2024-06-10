@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:45 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/10 10:51:00 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/10 11:06:55 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ class Fixed
 		float			toFloat( void ) const;
 		int				toInt( void ) const;
 
-		
-		/* 					Comparison operators					 */
+		/*					Comparison operators					*/
 		friend bool		operator>(const Fixed &obj1, const Fixed &obj2);
 		friend bool		operator>=(const Fixed &obj1, const Fixed &obj2);
 		friend bool		operator<(const Fixed &obj1, const Fixed &obj2);
@@ -45,7 +44,7 @@ class Fixed
 		friend Fixed 	operator*(const Fixed &obj1, const Fixed &obj2);
 		friend Fixed 	operator/(const Fixed &obj1, const Fixed &obj2);
 
-		/* 					Constructors					 */
+		/*					Constructors					*/
 		Fixed(void);
 		Fixed(const Fixed &object_to_copy);
 		Fixed(const int integer);
