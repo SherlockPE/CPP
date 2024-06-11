@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/10 17:08:28 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/11 12:29:19 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,43 +68,72 @@ int Fixed::toInt( void ) const
 	return (roundf(toFloat()));
 }
 
+/* 					Static Metods					 */
+Fixed	&Fixed::min(Fixed &obj1, Fixed &obj2)
+{
+	if (obj1 < obj2)
+		return (obj1);
+	return (obj2);
+}
+	
+Fixed	&Fixed::max(Fixed &obj1, Fixed &obj2)
+{
+	if (obj1 > obj2)
+		return (obj1);
+	return (obj2);
+}
+
+const Fixed	&Fixed::min(const Fixed &obj1, const Fixed &obj2)
+{
+	if (obj1 < obj2)
+		return (obj1);
+	return (obj2);
+}
+	
+const Fixed	&Fixed::max(const Fixed &obj1, const Fixed &obj2)
+{
+	if (obj1 > obj2)
+		return (obj1);
+	return (obj2);
+}
+
 /* 					Comparison operators					 */
-bool	Fixed::operator>(const Fixed &obj1)
+bool	Fixed::operator>(const Fixed &obj1) const
 {
 	if ((*this)._fixed_point_val > obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator>=(const Fixed &obj1)
+bool	Fixed::operator>=(const Fixed &obj1) const
 {
 	if (this->_fixed_point_val >= obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator<(const Fixed &obj1)
+bool	Fixed::operator<(const Fixed &obj1) const
 {
 	if (this->_fixed_point_val < obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator<=(const Fixed &obj1)
+bool	Fixed::operator<=(const Fixed &obj1) const
 {
 	if (this->_fixed_point_val <= obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator==(const Fixed &obj1)
+bool	Fixed::operator==(const Fixed &obj1) const
 {
 	if (this->_fixed_point_val == obj1._fixed_point_val)
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator!=(const Fixed &obj1)
+bool	Fixed::operator!=(const Fixed &obj1) const
 {
 	if (this->_fixed_point_val != obj1._fixed_point_val)
 		return (true);
@@ -154,13 +183,15 @@ Fixed	&Fixed::operator--(void)
 /* 					in(de)crement-postfix			 */
 Fixed	Fixed::operator++(int)
 {
-	int old = _fixed_point_val++;
+	Fixed	old = *this;
+	_fixed_point_val++;
 	return (old);
 }
 
 Fixed	Fixed::operator--(int)
 {
-	int old = _fixed_point_val--;
+	Fixed	old = *this;
+	_fixed_point_val--;
 	return (old);
 }
 
