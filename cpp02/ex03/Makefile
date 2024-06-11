@@ -1,8 +1,10 @@
-NAME = Fixed_OCF
+NAME = Bsp
 
 OBJ_DIR =	obj
+
 SOURCES =	main.cpp \
-			Fixed.cpp
+			Fixed.cpp \
+			Point.cpp
 
 MAKE_DIR = mkdir -p
 SRC = $(SOURCES)
