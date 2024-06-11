@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:33:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/11 16:08:33 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:23:48 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class Point
 	public:
 		/*					Constructors					*/
 		Point(void);
-		Point(const Fixed &src);
+		Point(const Point &src);
 		Point(const float x, const float y);
-		Fixed   &operator=(const Fixed &src);
+		Point   &operator=(const Point &src);
 
 		/*					    Metods  					*/
 		void	display_cords(void);
