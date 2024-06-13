@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:07:38 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/06/04 15:02:47 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/13 16:35:59 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,16 @@ class ClapTrap
 
         bool    check_energy(std::string Action);
     public:
+        /* 						Metods						 */
+        ClapTrap    &operator=(const ClapTrap &src);
+        void        attack(const std::string& target);
+        void        takeDamage(unsigned int amount);
+        void        beRepaired(unsigned int amount);
+
+		/*					Constructors					*/
         ClapTrap(void);
+        ClapTrap(const ClapTrap &src);
         ClapTrap(std::string Name);
         ~ClapTrap(void);
-
-        void attack(const std::string& target); 
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
 };
 # endif

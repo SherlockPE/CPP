@@ -3,40 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:10:14 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/06/04 15:08:53 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/13 16:53:04 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-//Default constructor
+/*					Constructors					*/
 ClapTrap::ClapTrap(void)
 {
-	std::cout << "Default constructor called";
+	std::cout << "Default constructor called" << std::endl;
 	_Name = "Unknown";
 	_Hit_points = 10;
 	_Energy_points = 10;
 	_Attack_damage = 0;
 }
 
-//Constructor
 ClapTrap::ClapTrap(std::string Name)
 {
-	std::cout << "Constructor called";
+	std::cout << "Constructor called" << std::endl;
 	_Name = Name;
 	_Hit_points = 10;
 	_Energy_points = 10;
 	_Attack_damage = 0;
 }
 
-//Destructor
-ClapTrap::~ClapTrap(void)
+ClapTrap::ClapTrap(const ClapTrap &src)
 {
-	std::cout << "Destructor called";
+	std::cout << "Copy constructor called" << std::endl;
+	*this = src;
 }
+
 
 //Checker
 bool	ClapTrap::check_energy(std::string Action)
@@ -44,15 +44,14 @@ bool	ClapTrap::check_energy(std::string Action)
 	if (_Energy_points <= 0)
 	{
 		std::cout	<< "ClapTrap " << _Name 
-					<< "Cant " << Action
-					<< "becouse it has no energy"
-					<< "\nEnergy: " << _Energy_points;
+					<< " Can't " << Action
+					<< " becouse it has no energy" << std::endl;
 		return (false);
 	}
 	return (true);
 }
 
-//Metods
+/* 						Metods						 */
 void ClapTrap::attack(const std::string& target)
 {
 	if (!check_energy("Attack"))
@@ -60,7 +59,7 @@ void ClapTrap::attack(const std::string& target)
 	std::cout	<< "ClapTrap " << _Name 
 				<< " attacks " << target
 				<< " causing " << _Attack_damage
-				<< "points of damage!";
+				<< " points of damage!" << std::endl;
 	_Energy_points -= 1;
 }
 
@@ -71,7 +70,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout	<< "ClapTrap " << _Name 
 				<< " repaids himself "
 				<< " adding " << amount
-				<< "points of HP!";
+				<< "points of HP!" << std::endl;
 	_Hit_points += amount;
 	_Energy_points -= 1;
 }
@@ -80,6 +79,22 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout	<< "ClapTrap " << _Name 
 				<< " receives "
-				<< amount << " of damage!";
+				<< amount << " of damage!" << std::endl;
 	_Hit_points -= amount;
+}
+
+ClapTrap    &ClapTrap::operator=(const ClapTrap &src)
+{
+	std::cout << "Copy operator called\n";
+	this->_Name = src._Name;
+	this->_Hit_points = src._Hit_points;
+	this->_Energy_points = src._Energy_points;
+	this->_Attack_damage = src._Attack_damage;
+	return (*this);
+}
+
+/* 					Destructor					 */
+ClapTrap::~ClapTrap(void)
+{
+	std::cout << "Destructor called" << std::endl;
 }

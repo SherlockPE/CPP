@@ -1,7 +1,8 @@
-NAME = program_name
+NAME = clap_trap
 
 OBJ_DIR =	obj
-SOURCES =	main.cpp
+SOURCES =	main.cpp \
+			ClapTrap.cpp
 
 MAKE_DIR = mkdir -p
 SRC = $(SOURCES)
