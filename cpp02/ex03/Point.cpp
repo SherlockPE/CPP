@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:33:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/11 16:29:31 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/13 18:03:24 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ Point::Point(const float x, const float y) : _x(x), _y(y)
 }
 
 /*					    Metods  					*/
+
+//formula = 1/2 . |​x1​(y2​−y3​) + x2​(y3​−y1​) + x3​(y1​−y2​)∣
+Fixed	Point::triangle_area(Point const a, Point const b, Point const c)
+{
+	// Fixed	result;
+
+	// result = a._x * a._y
+}
+
 
 //Assigment operator
 Point	&Point::operator=(const Point &src)

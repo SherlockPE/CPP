@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:33:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/11 16:23:48 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:48:08 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Point
 
 		/*					    Metods  					*/
 		void	display_cords(void);
+		Fixed	triangle_area(Point const a, Point const b, Point const c);
 		~Point(void);
 };
 
