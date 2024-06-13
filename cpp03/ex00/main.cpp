@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:21:13 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/13 16:51:52 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:56:02 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int main(void)
 		_param.attack("alguien");
 		_copy_constr.attack("alguien");
 	}
+	_copy_constr.beRepaired(2);
 
+	_copy_constr.takeDamage(500);
+	_copy_constr.attack("some");
+	_param.attack("some");
+	
 	return 0;
 }
