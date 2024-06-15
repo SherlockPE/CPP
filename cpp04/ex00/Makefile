@@ -1,4 +1,4 @@
-NAME = program_name
+NAME = polymorph
 
 OBJ_DIR =	obj
 SOURCES =	main.cpp

@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 13:09:44 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 13:10:14 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/06/15 12:04:53 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/06/15 13:05:32 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
+#pragma once
 
-int main()
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
+
+#include <iostream>
+
+class Animal
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-    ...
-    return 0;
-}
+	protected:
+		std::string	type;
+	public:
+		/*					Constructor					*/
+		Animal(void);
+		Animal(const Animal &src);
+	
+		/*					Metods						*/
+		void		makeSound(void);
+		std::string	getType(void);
+
+		/*					Operator					*/
+		Animal &operator=(const Animal &src);
+
+		/*					Destructor					*/
+		~Animal(void);
+};
+
+
+#endif
