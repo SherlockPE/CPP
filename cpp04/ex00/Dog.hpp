@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:46:59 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 12:59:43 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/15 13:51:49 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ class Dog : public Animal
 		/* 					Constructor					 */
 		Dog(void);
 		Dog(const Dog &src);
+		/*					Metods						*/
+		void	makeSound(void) const;
 
 		/* 					Operator					 */
-		Dog	&operator=(const Dog &src);
+		Dog		&operator=(const Dog &src);
 
 		/* 					Destructor					 */
 		~Dog();

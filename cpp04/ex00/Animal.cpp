@@ -6,11 +6,11 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:04:36 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 13:08:53 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/15 13:39:38 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Animal.hpp>
+#include "Animal.hpp"
 
 /* 					Constructor					 */
 Animal::Animal(void) : type("")
@@ -19,16 +19,15 @@ Animal::Animal(void) : type("")
 }
 
 /*					Metods						*/
-void		Animal::makeSound(void)
+void	Animal::makeSound(void) const
 {
 	std::cout << "*Animal sounds*\n";
 }
 
-std::string	Animal::getType(void)
+std::string	Animal::getType(void) const
 {
 	return (type);
 }
-
 
 Animal::Animal(const Animal &src)
 {

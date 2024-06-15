@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:00:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 13:01:31 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/15 13:51:25 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ Cat::Cat(const Cat &src)
 {
 	std::cout << "Copy Cat constructor called\n";
 	this->type = src.type;
+}
+
+/*					Metods						*/
+void		Cat::makeSound(void) const
+{
+	std::cout << "*Maon maon maon*\n";
 }
 
 /* 					Operator					 */

@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:00:43 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 13:01:14 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/15 13:51:34 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ class Cat : public Animal
 		Cat(void);
 		Cat(const Cat &src);
 
+		/*					Metods						*/
+		void	makeSound(void) const;
+
 		/* 					Operator					 */
-		Cat	&operator=(const Cat &src);
+		Cat		&operator=(const Cat &src);
 
 		/* 					Destructor					 */
 		~Cat();

@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:04:53 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 13:05:32 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/15 13:39:16 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Animal
 		Animal(const Animal &src);
 	
 		/*					Metods						*/
-		void		makeSound(void);
-		std::string	getType(void);
+		std::string		getType(void) const;
+		virtual	void	makeSound(void) const;
 
 		/*					Operator					*/
 		Animal &operator=(const Animal &src);
