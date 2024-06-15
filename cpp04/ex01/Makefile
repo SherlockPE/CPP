@@ -1,7 +1,12 @@
-NAME = program_name
+NAME = polymorph
 
 OBJ_DIR =	obj
-SOURCES =	main.cpp
+SOURCES =	main.cpp \
+			Animal.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp \
+			Cat.cpp \
+			Dog.cpp
 
 MAKE_DIR = mkdir -p
 SRC = $(SOURCES)
