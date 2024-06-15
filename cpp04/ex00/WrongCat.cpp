@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:00:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 14:17:57 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/15 14:11:58 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
 /* 					Constructor					 */
-Cat::Cat(void)
+WrongCat::WrongCat(void)
 {
-	this->type = "Cat";
+	this->type = "WrongCat";
 }
-Cat::Cat(const Cat &src)
+WrongCat::WrongCat(const WrongCat &src)
 {
-	std::cout << "Copy Cat constructor called\n";
+	std::cout << "Copy WrongCat constructor called\n";
 	this->type = src.type;
 }
 
 /*					Metods						*/
-void		Cat::makeSound(void) const
+void		WrongCat::makeSound(void) const
 {
-	std::cout << "*Miau, Miau, Miau!\n";
+	std::cout << "*Maon maon maon*\n";
 }
 
 /* 					Operator					 */
-Cat	&Cat::operator=(const Cat &src)
+WrongCat	&WrongCat::operator=(const WrongCat &src)
 {
 	this->type = src.type;
 	return (*this);
 }
 
 /* 					Destructor					 */
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout << "Cat Destructor called\n";
+	std::cout << "WrongCat Destructor called\n";
 }

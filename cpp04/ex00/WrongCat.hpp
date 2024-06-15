@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 12:46:59 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 14:02:20 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/06/15 13:00:43 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/06/15 13:51:34 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONG_CAT_HPP
+# define WRONG_CAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
 	private:
 		/* data */
 	public:
 		/* 					Constructor					 */
-		Dog(void);
-		Dog(const Dog &src);
+		WrongCat(void);
+		WrongCat(const WrongCat &src);
+
 		/*					Metods						*/
 		void	makeSound(void) const;
 
 		/* 					Operator					 */
-		Dog		&operator=(const Dog &src);
+		WrongCat		&operator=(const WrongCat &src);
 
 		/* 					Destructor					 */
-		~Dog();
+		~WrongCat();
 };
 
 #endif

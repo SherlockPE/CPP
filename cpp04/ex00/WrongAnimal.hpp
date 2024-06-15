@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 12:46:59 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 14:02:20 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/06/15 13:58:05 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/06/15 13:58:18 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef DOG_HPP
-# define DOG_HPP
 
-#include "Animal.hpp"
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-class Dog : public Animal
+#include <iostream>
+
+class WrongAnimal
 {
-	private:
-		/* data */
+	protected:
+		std::string	type;
 	public:
-		/* 					Constructor					 */
-		Dog(void);
-		Dog(const Dog &src);
+		/*					Constructor					*/
+		WrongAnimal(void);
+		WrongAnimal(const WrongAnimal &src);
+	
 		/*					Metods						*/
+		std::string		getType(void) const;
 		void	makeSound(void) const;
 
-		/* 					Operator					 */
-		Dog		&operator=(const Dog &src);
+		/*					Operator					*/
+		WrongAnimal &operator=(const WrongAnimal &src);
 
-		/* 					Destructor					 */
-		~Dog();
+		/*					Destructor					*/
+		~WrongAnimal(void);
 };
+
 
 #endif
