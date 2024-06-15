@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:59:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 13:51:45 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/15 14:56:51 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 Dog::Dog(void)
 {
 	this->type = "Dog";
+	_brain = new Brain();
 }
 Dog::Dog(const Dog &src)
 {
@@ -40,4 +41,5 @@ Dog	&Dog::operator=(const Dog &src)
 Dog::~Dog()
 {
 	std::cout << "Dog Destructor called\n";
+	delete	_brain;
 }

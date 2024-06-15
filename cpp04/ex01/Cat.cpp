@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:00:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 14:17:57 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/15 14:58:50 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 Cat::Cat(void)
 {
 	this->type = "Cat";
+	_brain = new Brain();
 }
+
 Cat::Cat(const Cat &src)
 {
 	std::cout << "Copy Cat constructor called\n";
@@ -41,4 +43,5 @@ Cat	&Cat::operator=(const Cat &src)
 Cat::~Cat()
 {
 	std::cout << "Cat Destructor called\n";
+	delete	_brain;
 }
