@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:41:37 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/12 18:47:54 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/17 10:03:57 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Point.hpp>
-
-
-//formula = 1/2 . |​x1​(y2​−y3​) + x2​(y3​−y1​) + x3​(y1​−y2​)∣
-Fixed	get_triangle_area(Point const a, Point const b, Point const c)
-{
-	// Fixed	result;
-
-	// result = ();
-}
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
@@ -28,8 +19,12 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 	Fixed   area2;
 	Fixed   area3;
 
-	total_area = get_triangle_area(a, b, c);
-	area1 = get_triangle_area(a, b, point);
-	area2 = get_triangle_area(a, point, c);
-	area3 = get_triangle_area(c, point, b);
+	total_area = Point::triangle_area(a, b, c);
+	area1 = Point::triangle_area(a, b, point);
+	area2 = Point::triangle_area(a, point, c);
+	area3 = Point::triangle_area(c, point, b);
+
+	if (area1 + area2 + area3 == total_area)
+		return (true);
+	return (false);
 }

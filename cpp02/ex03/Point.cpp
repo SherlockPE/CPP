@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:33:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/17 09:59:15 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/17 10:05:46 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@
 //Defaut constructor
 Point::Point(void): _x(0), _y(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Point Default constructor called" << std::endl;
 }
 
 //Copy constructor
 Point::Point(const Point &src)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Point Copy constructor called" << std::endl;
 	(*this) = src;
 }
 
 //Const floats constructor
 Point::Point(const float x, const float y) : _x(x), _y(y)
 {
-	std::cout << "Floats constructor called" << std::endl;
+	std::cout << "Point Floats constructor called" << std::endl;
 }
 
 /*					    Metods  					*/
@@ -63,7 +63,7 @@ Fixed	Point::triangle_area(Point const a, Point const b, Point const c)
 //Assigment operator
 Point	&Point::operator=(const Point &src)
 {
-	std::cout << "Assign operator called" << std::endl;
+	std::cout << "Point Assign operator called" << std::endl;
 	this->_x = src._x;
 	this->_y = src._y;
 	return (*this);
@@ -78,5 +78,5 @@ void	Point::display_cords(void)
 //Destructor
 Point::~Point(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Point Destructor called" << std::endl;
 }

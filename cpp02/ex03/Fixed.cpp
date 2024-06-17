@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/11 12:29:19 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/17 10:07:54 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,38 +18,38 @@ const int Fixed::_num_bits = 8;
 //Default Constructor
 Fixed::Fixed(void) : _fixed_point_val(0)
 {
-	std::cout << "Default constructor called\n";
+	std::cout << "Fixed Default constructor called\n";
 }
 
 //Copy Constructor
 Fixed::Fixed(const Fixed &object_to_copy)
 {
-	std::cout << "Copy constructor called\n";
+	std::cout << "Fixed Copy constructor called\n";
 	(*this) = object_to_copy;
 }
 
 //Int constructor
 Fixed::Fixed(const int integer) : _fixed_point_val(integer<<_num_bits)
 {
-	std::cout << "Int constructor called\n";
+	std::cout << "Fixed Int constructor called\n";
 }
 
 //Float constructor
 Fixed::Fixed(const float number) : _fixed_point_val(roundf(number * (1 << _num_bits)))
 {
-	std::cout << "Float constructor called\n";
+	std::cout << "Fixed Float constructor called\n";
 }
 
 /* 						Metods						 */
 int		Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called\n";
+	std::cout << "Fixed getRawBits member function called\n";
 	return (_fixed_point_val);
 }
 
 void	Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits member function called\n";
+	std::cout << "Fixed setRawBits member function called\n";
 	_fixed_point_val = raw;
 }
 
@@ -161,7 +161,7 @@ Fixed 	Fixed::operator/(const Fixed &obj2)
 {
 	if (obj2._fixed_point_val == 0)
 	{
-		std::cout << "division by zero\n";
+		std::cout << "Fixed: division by zero\n";
 		return (0);
 	}
 	return (this->toFloat() / obj2.toFloat());
@@ -198,7 +198,7 @@ Fixed	Fixed::operator--(int)
 //Assiggment Operator
 Fixed &Fixed::operator=(const Fixed &object_to_copy)
 {
-	std::cout << "Copy assignment operator called\n";
+	std::cout << "Fixed Copy assignment operator called\n";
 	_fixed_point_val = object_to_copy._fixed_point_val;
 	return (*this);
 }
@@ -212,5 +212,5 @@ std::ostream	&operator<<(std::ostream &os, const Fixed &fixed_p)
 //Destructor
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called\n";
+	std::cout << "Fixed Destructor called\n";
 }
