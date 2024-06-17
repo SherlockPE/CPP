@@ -4,7 +4,8 @@ OBJ_DIR =	obj
 
 SOURCES =	main.cpp \
 			Fixed.cpp \
-			Point.cpp
+			Point.cpp \
+			bsp.cpp
 
 MAKE_DIR = mkdir -p
 SRC = $(SOURCES)

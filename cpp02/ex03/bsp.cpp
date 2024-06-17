@@ -6,11 +6,11 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:41:37 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/17 10:03:57 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/17 10:17:12 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Point.hpp>
+#include "Point.hpp"
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
