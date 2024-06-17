@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:33:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/13 17:48:08 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/17 09:59:47 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ class Point
 		Point(void);
 		Point(const Point &src);
 		Point(const float x, const float y);
-		Point   &operator=(const Point &src);
 
 		/*					    Metods  					*/
-		void	display_cords(void);
+		Point	get_vector(Point	A, Point B);
+		Fixed	get_vector_product(Point A, Point B);
 		Fixed	triangle_area(Point const a, Point const b, Point const c);
+		Point   &operator=(const Point &src);
+		void	display_cords(void);
 		~Point(void);
 };
 
