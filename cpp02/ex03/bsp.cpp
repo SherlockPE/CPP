@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:41:37 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/17 10:17:12 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/18 12:30:29 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-bool bsp( Point const a, Point const b, Point const c, Point const point)
+bool  bsp( Point const a, Point const b, Point const c, Point const point)
 {
 	Fixed   total_area;
 	Fixed   area1;

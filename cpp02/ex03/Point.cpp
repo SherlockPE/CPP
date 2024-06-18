@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:33:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/17 10:05:46 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/18 12:39:22 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ Fixed	Point::triangle_area(Point const a, Point const b, Point const c)
 {
 	Point	AB = get_vector(a, b);
 	Point	BC = get_vector(b, c);
-	Fixed	result = get_vector_product(AB, BC);
-
-	return (result / 2);
+	Fixed	result = get_vector_product(AB, BC) / 2;
+	if (result < 0)
+		result = result * -1;
+	return (result);
 }
 
 //Assigment operator

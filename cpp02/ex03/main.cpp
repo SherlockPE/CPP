@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:17:20 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/06/17 10:19:32 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/18 12:39:51 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

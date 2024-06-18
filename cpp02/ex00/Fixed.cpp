@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:20:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/09 15:36:54 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/18 10:20:54 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ Fixed::Fixed(const Fixed &object_to_copy)
 {
 	std::cout << "Copy constructor called\n";
 	(*this) = object_to_copy;
-	// _fixed_point_val = object_to_copy._fixed_point_val;
 }
 
 //Assiggment Operator
