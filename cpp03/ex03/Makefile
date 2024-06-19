@@ -15,7 +15,7 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 INCLUDES := -I includes
 CPPC = c++
 CPPVERSION = -std=c++98
-CPPFLAGS = -Wall -Wextra -Werror $(CPPVERSION)
+CPPFLAGS = -Wall -Wextra -Werror -Wshadow $(CPPVERSION)
 
 all: c_dir $(NAME)
 
