@@ -4,6 +4,7 @@ OBJ_DIR =	obj
 SOURCES =	main.cpp \
 			ClapTrap.cpp \
 			ScavTrap.cpp \
+			DiamontTrap.cpp \
 			FragTrap.cpp
 
 
