@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:07:38 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/06/13 16:35:59 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:21:13 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ class ClapTrap
 
 		/*					Constructors					*/
         ClapTrap(void);
-        ClapTrap(const ClapTrap &src);
         ClapTrap(std::string Name);
+        ClapTrap(const ClapTrap &src);
         ~ClapTrap(void);
 };
 # endif

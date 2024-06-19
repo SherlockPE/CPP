@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:21:13 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/13 16:56:02 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:30:07 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,14 @@ int main(void)
 {
 	ClapTrap	_default;
 	ClapTrap	_param("Biddle");
-	ClapTrap	_copy_constr(_param);
+	// ClapTrap	_copy_constr(_param);
 
-	int	i = 11;
-	while (i--)
-	{
-		_default.attack("alguien");
+	std::cout << "----------------------------------\n";
+	for(int i=11; i > 0; i--)
 		_param.attack("alguien");
-		_copy_constr.attack("alguien");
-	}
-	_copy_constr.beRepaired(2);
-
-	_copy_constr.takeDamage(500);
-	_copy_constr.attack("some");
-	_param.attack("some");
-	
+	std::cout << "----------------------------------\n";
+	for(int i=2; i > 0; i--)
+		_default.takeDamage(10);
+	_default.attack("you");
 	return 0;
 }

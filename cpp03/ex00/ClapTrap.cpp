@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:10:14 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/06/13 16:53:04 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:30:48 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ bool	ClapTrap::check_energy(std::string Action)
 		std::cout	<< "ClapTrap " << _Name 
 					<< " Can't " << Action
 					<< " becouse it has no energy" << std::endl;
+		return (false);
+	}
+	else if (_Hit_points <= 0)
+	{
+		std::cout	<< "ClapTrap " << _Name 
+					<< " Can't " << Action
+					<< " becouse it's dead" << std::endl;
 		return (false);
 	}
 	return (true);

@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 10:49:13 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/06/17 10:50:29 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2024/06/19 12:40:10 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 /*					Constructors					*/
-ScavTrap::ScavTrap(void)
+ScavTrap::ScavTrap(void): ClapTrap()
 {
     std::cout << "Scaptrap Default constructor called" << std::endl;
-    _Name = "Default Name";
     _Hit_points = 100;
     _Energy_points = 50;
     _Attack_damage = 20;
@@ -31,8 +30,9 @@ ScavTrap::ScavTrap(const ScavTrap &src)
     _Attack_damage = src._Attack_damage;
 }
 
-ScavTrap::ScavTrap(std::string Name)
+ScavTrap::ScavTrap(std::string Name): ClapTrap(Name)
 {
+    std::cout << "Scaptrap constructor called" << std::endl;
     _Name = Name;
     _Hit_points = 100;
     _Energy_points = 50;
@@ -48,10 +48,11 @@ void    ScavTrap::guardGate(void)
 ScavTrap&   ScavTrap::operator=(const ScavTrap &src)
 {
     std::cout << "Scaptrap Copy Assigment constructor called" << std::endl;
-    _Name = src._Name;
-    _Hit_points = src._Hit_points;
-    _Energy_points = src._Energy_points;
-    _Attack_damage = src._Attack_damage;
+    this->_Name = src._Name;
+    this->_Hit_points = src._Hit_points;
+    this->_Energy_points = src._Energy_points;
+    this->_Attack_damage = src._Attack_damage;
+    return (*this);
 }
 
 ScavTrap::~ScavTrap(void)
