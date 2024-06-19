@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 10:49:13 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/06/19 14:36:48 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/19 19:10:50 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ ScavTrap&   ScavTrap::operator=(const ScavTrap &src)
     this->_Energy_points = src._Energy_points;
     this->_Attack_damage = src._Attack_damage;
     return (*this);
+}
+void ScavTrap::attack(const std::string& target)
+{
+    if (!check_energy("Attack"))
+		return ;
+	std::cout	<< "ScavTrap 🦕" << _Name 
+				<< " attacks " << target
+				<< " causing " << _Attack_damage
+				<< " points of damage!" << std::endl;
+	_Energy_points -= 1;
 }
 
 ScavTrap::~ScavTrap(void)
