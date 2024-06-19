@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 10:49:13 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/06/19 12:56:08 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:36:48 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,3 @@ ScavTrap::~ScavTrap(void)
 {
     std::cout << "Scaptrap Destructor called" << std::endl;
 }
-
-#include "ScavTrap.hpp"

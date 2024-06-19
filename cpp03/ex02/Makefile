@@ -3,7 +3,9 @@ NAME = clap_trap
 OBJ_DIR =	obj
 SOURCES =	main.cpp \
 			ClapTrap.cpp \
-			ScavTrap.cpp
+			ScavTrap.cpp \
+			FragTrap.cpp
+
 
 MAKE_DIR = mkdir -p
 SRC = $(SOURCES)
