@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 10:49:13 by fabriciolop       #+#    #+#             */
-/*   Updated: 2024/06/19 18:54:58 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:10:45 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ FragTrap&   FragTrap::operator=(const FragTrap &src)
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << "Scaptrap Destructor called" << std::endl;
+	std::cout << "Fragtrap Destructor called" << std::endl;
 }
