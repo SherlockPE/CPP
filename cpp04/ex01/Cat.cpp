@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:00:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 12:28:23 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 14:39:00 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 Cat::Cat(void)
 {
 	std::cout << "Cat 😺 constructor called\n";
+	_brain = new Brain();
 	this->type = "Cat";
 }
 Cat::Cat(const Cat &src)
 {
 	std::cout << "Copy Cat 😺 constructor called\n";
-	this->type = src.type;
+	*this = src;
 }
 
 /*					Metods						*/
@@ -35,6 +36,7 @@ void		Cat::makeSound(void) const
 Cat	&Cat::operator=(const Cat &src)
 {
 	this->type = src.type;
+	_brain = new Brain(*src._brain);
 	return (*this);
 }
 
@@ -42,4 +44,5 @@ Cat	&Cat::operator=(const Cat &src)
 Cat::~Cat()
 {
 	std::cout << "Cat 😺 Destructor called\n";
+	delete _brain;
 }

@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:59:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 12:28:38 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 13:17:56 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* 					Constructor					 */
 Dog::Dog(void)
 {
-	std::cout << "Copy Dog 🐕 constructor called\n";
+	std::cout << "Dog 🐕 constructor called\n";
 	this->type = "Dog";
 }
 Dog::Dog(const Dog &src)

@@ -6,22 +6,23 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:59:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 12:28:38 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 14:18:36 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 /* 					Constructor					 */
-Dog::Dog(void)
+Dog::Dog(void) : _brain(new Brain)
 {
-	std::cout << "Copy Dog 🐕 constructor called\n";
+	std::cout << "Dog 🐕 constructor called\n";
+	// _brain = new Brain();
 	this->type = "Dog";
 }
 Dog::Dog(const Dog &src)
 {
 	std::cout << "Copy Dog 🐕 constructor called\n";
-	this->type = src.type;
+	*this = src;
 }
 
 /*					Metods						*/
@@ -34,6 +35,7 @@ void	Dog::makeSound(void) const
 Dog	&Dog::operator=(const Dog &src)
 {
 	this->type = src.type;
+	_brain = new Brain(*src._brain);
 	return (*this);
 }
 
@@ -41,4 +43,5 @@ Dog	&Dog::operator=(const Dog &src)
 Dog::~Dog()
 {
 	std::cout << "Dog 🐕 Destructor called\n";
+	delete _brain;
 }

@@ -5,6 +5,7 @@ SOURCES =	main.cpp \
 			Animal.cpp \
 			WrongAnimal.cpp \
 			WrongCat.cpp \
+			Brain.cpp \
 			Cat.cpp \
 			Dog.cpp
 

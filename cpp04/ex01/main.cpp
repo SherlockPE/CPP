@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:09:44 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 12:33:15 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 14:20:23 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,39 @@
 int main()
 {
 	{
-		std::cout << "===============Correct Animal===============\n";
-		const Animal* meta = new Animal();
-		const Animal* kitten = new Cat();
-		// const Animal* doggy = new Dog();
-		// std::cout << doggy->getType() << std::endl;
-		std::cout << kitten->getType() << std::endl;
-		kitten->makeSound(); //will output the cat sound!
-		// doggy->makeSound(); //will output the Dog sound!
-		meta->makeSound();
+		std::cout << "===============Subject Test===============\n";
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+		delete j;//should not create a leak
+		delete i;
 	}
 	{
-		std::cout << "===============Incorrect Animal===============\n";
-		const WrongAnimal* meta = new WrongAnimal();
-		const WrongAnimal* kitten = new WrongCat();
-		std::cout << kitten->getType() << " " << std::endl;
-		kitten->makeSound(); //will output the cat Wrong animal sound!
-		meta->makeSound();
+		std::cout << "===============Leaks Test===============\n";
+		Animal	*animals[10];
+		size_t	cant = 6;
+		std::cout << "--------------Constructors--------------" << std::endl;
+		for (size_t i = 0; i < cant; i++)
+		{
+			std::cout << "__________"<< std::endl;
+			std::cout << "value: " << i + 1 << std::endl;
+			if (i < (cant / 2))
+				animals[i] = new Cat();
+			else
+				animals[i] = new Dog();
+			std::cout << "__________"<< std::endl;
+		}
+		std::cout << "--------------Destructors--------------" << std::endl;
+		for (size_t i = 0; i < cant; i++)
+		{
+			std::cout << "__________"<< std::endl;
+			std::cout << "value: " << i + 1 << std::endl;
+			delete animals[i];
+			std::cout << "__________"<< std::endl;
+		}
+	}
+	{
+		std::cout << "===============Deep copy Test===============\n";
+		Dog doggy;
 	}
 	return 0;
 }
