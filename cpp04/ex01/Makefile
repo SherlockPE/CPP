@@ -6,8 +6,7 @@ SOURCES =	main.cpp \
 			WrongAnimal.cpp \
 			WrongCat.cpp \
 			Cat.cpp \
-			Dog.cpp \
-			Brain.cpp
+			Dog.cpp
 
 MAKE_DIR = mkdir -p
 SRC = $(SOURCES)

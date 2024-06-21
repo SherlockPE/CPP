@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:00:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 14:11:58 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:32:46 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 /* 					Constructor					 */
 WrongCat::WrongCat(void)
 {
+	std::cout << "WrongCat 😺 constructor called\n";
 	this->type = "WrongCat";
 }
 WrongCat::WrongCat(const WrongCat &src)

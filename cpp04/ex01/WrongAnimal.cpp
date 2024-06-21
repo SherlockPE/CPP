@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:58:12 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 13:58:16 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:31:46 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 /* 					Constructor					 */
 WrongAnimal::WrongAnimal(void) : type("")
 {
-	std::cout << "WrongAnimal Default constructor called\n";
+	std::cout << "WrongAnimal 🌲 Default constructor called\n";
 }
 
 /*					Metods						*/
 void	WrongAnimal::makeSound(void) const
 {
-	std::cout << "*WrongAnimal sounds*\n";
+	std::cout << "*WrongAnimal 🌲 sounds*\n";
 }
 
 std::string	WrongAnimal::getType(void) const
@@ -31,7 +31,7 @@ std::string	WrongAnimal::getType(void) const
 
 WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
-	std::cout << "WrongAnimal Copy constructor called\n";
+	std::cout << "WrongAnimal 🌲 Copy constructor called\n";
 	this->type = src.type;
 }
 
@@ -45,5 +45,5 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
 /* 					Destructor					 */
 WrongAnimal::~WrongAnimal(void)
 {
-	std::cout << "WrongAnimal Destructor called\n";
+	std::cout << "WrongAnimal 🌲 Destructor called\n";
 }

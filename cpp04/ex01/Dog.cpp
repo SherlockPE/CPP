@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:59:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/15 14:56:51 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:28:38 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 /* 					Constructor					 */
 Dog::Dog(void)
 {
+	std::cout << "Copy Dog 🐕 constructor called\n";
 	this->type = "Dog";
-	_brain = new Brain();
 }
 Dog::Dog(const Dog &src)
 {
-	std::cout << "Copy Dog constructor called\n";
+	std::cout << "Copy Dog 🐕 constructor called\n";
 	this->type = src.type;
 }
 
 /*					Metods						*/
 void	Dog::makeSound(void) const
 {
-	std::cout << "*Woof Woof!*\n";
+	std::cout << "*Woof Woof 🐕!*\n";
 }
 
 /* 					Operator					 */
@@ -40,6 +40,5 @@ Dog	&Dog::operator=(const Dog &src)
 /* 					Destructor					 */
 Dog::~Dog()
 {
-	std::cout << "Dog Destructor called\n";
-	delete	_brain;
+	std::cout << "Dog 🐕 Destructor called\n";
 }
