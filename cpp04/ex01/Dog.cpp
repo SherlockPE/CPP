@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:59:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 15:00:00 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:00:24 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	Dog::printIdeas(void)
 Dog	&Dog::operator=(const Dog &src)
 {
 	this->type = src.type;
+	delete _brain;
 	_brain = new Brain(*src._brain);
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:52:07 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 15:21:31 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:09:21 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*					Constructor					*/
 Brain::Brain(void)
 {
+	_last_idea  = 0;
 	std::cout << "Brain Default 🧠 constructor called\n";
 }
 
@@ -37,7 +38,7 @@ void	Brain::printIdeas(void)
 	for (int i = 0; i < _last_idea; i++)
 		std::cout	<< "Idea " << i + 1 << ": "
 					<< _ideas[i] 
-					<< " | " << &_ideas[i] << "\n";
+					<< " │ " << &_ideas[i] << "\n";
 }
 
 

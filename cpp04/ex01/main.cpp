@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:09:44 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 15:19:25 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:24:32 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,33 @@ int main()
 	// }
 	{
 		std::cout << "===============Deep copy Test===============\n";
+		std::cout << "===============Dog deep copy Test===============\n";
 		Dog Doggy;
 		Dog Tato;
-
 		for (int i = 0; i < 6; i++)
 			Doggy.setIdeas("hola", i);
 		std::cout << "-------------Ideas de doggy--------------\n";
 		Doggy.printIdeas();
 		std::cout << "-----------------------------------------\n";
-
-
 		Tato = Doggy;
 		std::cout << "\n-------------Ideas de Tato--------------\n";
 		Tato.printIdeas();
+		std::cout << "-----------------------------------------\n";
+
+
+		std::cout << "===============Cat deep copy Test===============\n";
+		Cat Kitty;
+		Cat manchita;
+		for (int i = 0; i < 6; i++)
+			Kitty.setIdeas("hola", i);
+		std::cout << "-------------Ideas de Kitty--------------\n";
+		Kitty.printIdeas();
+		std::cout << "-----------------------------------------\n";
+
+
+		manchita = Kitty;
+		std::cout << "\n-------------Ideas de manchita--------------\n";
+		manchita.printIdeas();
 		std::cout << "-----------------------------------------\n";
 	}
 	return 0;
