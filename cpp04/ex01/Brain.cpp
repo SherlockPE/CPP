@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:52:07 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 15:18:08 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:21:31 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void	Brain::setIdeas(std::string new_idea, int position)
 void	Brain::printIdeas(void)
 {
 	for (int i = 0; i < _last_idea; i++)
-		std::cout << "Idea " << i + 1 << ": " << _ideas[i] << "\n";
+		std::cout	<< "Idea " << i + 1 << ": "
+					<< _ideas[i] 
+					<< " | " << &_ideas[i] << "\n";
 }
 
 
