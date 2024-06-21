@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:59:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 14:18:36 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:00:00 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ Dog::Dog(const Dog &src)
 void	Dog::makeSound(void) const
 {
 	std::cout << "*Woof Woof 🐕!*\n";
+}
+
+void	Dog::setIdeas(std::string idea, int position)
+{
+	_brain->setIdeas(idea, position);
+}
+void	Dog::printIdeas(void)
+{
+	_brain->printIdeas();
 }
 
 /* 					Operator					 */

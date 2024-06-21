@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:46:59 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 13:06:16 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/21 14:53:58 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class Dog : public Animal
 		Dog(const Dog &src);
 		/*					Metods						*/
 		void	makeSound(void) const;
+		void	setIdeas(std::string idea, int position);
+		void	printIdeas(void);
 
 		/* 					Operator					 */
 		Dog		&operator=(const Dog &src);
