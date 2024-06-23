@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 14:14:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 16:18:00 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/23 16:44:04 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void				Character::use(int idx, ICharacter& target)
 		<< "Class Character only have 4 spaces in his inventory, Nothing Done\n" << NC;
 		return ;
 	}
-	m_inventory[idx]->use(target);
+	else if (m_inventory[idx])
+		m_inventory[idx]->use(target);
 }
 
 

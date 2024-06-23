@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:18:30 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 13:40:37 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/23 16:56:23 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,13 @@ std::string	const & AMateria::getType() const //Returns the materia type
 	return(m_type);
 }
 
-AMateria	*AMateria::clone() const
-{
-}
-
 void AMateria::use(ICharacter& target)
 {
+	std::cout << "Using Amateria\n";
 }
 
 /*					Destructor					*/
 AMateria::~AMateria(void)
 {
-	std::cout << RED << "AMateria constructor called\n" << NC;
+	std::cout << RED << "AMateria Destructor called\n" << NC;
 }

@@ -6,31 +6,32 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 12:09:25 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 13:32:19 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/23 17:09:35 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
 /*					Constructors					*/
-Ice::Ice(void) : AMateria("ice 🧊")
+Ice::Ice(void) : AMateria("ice")
 {
 	std::cout << GREEN "Ice 🧊 default constructor called" NC << std::endl;
 }
 
 Ice::Ice(Ice const &other)
 {
+	(void)other;
 	std::cout << GREEN "Ice 🧊 copy constructor called" NC << std::endl;
-	*this = other;
+	// *this = other;
 }
 
 /*					Operators					*/
 Ice &Ice::operator=(Ice const &other)
 {
-	if (this == &other){
-		return (*this);
-	}
-	// DO THINGS
+	// if (this == &other){
+	// 	return (*this);
+	// }
+	// // DO THINGS
 	return (*this);
 }
 
@@ -53,5 +54,6 @@ Ice*	Ice::clone() const
 
 void	Ice::use(ICharacter &target)
 {
-	std::cout << "* shoots an ice bolt at <name> *\n";
+	std::cout	<< "* shoots an " << CYAN "Ice bolt ❄️ " << NC 
+				<< "at " << target.getName() << " *\n";
 }

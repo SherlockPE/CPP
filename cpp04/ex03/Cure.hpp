@@ -19,8 +19,7 @@
 # include <iostream>
 # include "AMateria.hpp"
 
-
-class Cure : public Amateria
+class Cure : public AMateria
 {
 	public:
 		/*					Constructors					*/

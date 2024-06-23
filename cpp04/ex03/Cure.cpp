@@ -1,24 +1,25 @@
 #include "Cure.hpp"
 
 /*					Constructors					*/
-Cure::Cure(void)
+Cure::Cure(void) : AMateria("cure")
 {
 	std::cout << GREEN "Cure 🚑 default constructor called" NC << std::endl;
 }
 
 Cure::Cure(Cure const &other)
 {
+	(void)other;
 	std::cout << GREEN "Cure 🚑 copy constructor called" NC << std::endl;
-	*this = other;
+	// *this = other;
 }
 
 /*					Operators					*/
 Cure &Cure::operator=(Cure const &other)
 {
-	if (this == &other){
-		return (*this);
-	}
-	// DO THINGS
+	// if (this == &other){
+	// 	return (*this);
+	// }
+	// // DO THINGS
 	return (*this);
 }
 
@@ -34,7 +35,7 @@ Cure*	Cure::clone() const
 	Cure	*result = new Cure();
 	if (!result)
 	{
-		std::cout << RED << "Fail trying to clone an Cure 🧊 object\n" << NC;
+		std::cout << RED << "Fail trying to clone an Cure 🚑 object\n" << NC;
 		return (NULL);
 	}
 	return (result);
@@ -42,5 +43,6 @@ Cure*	Cure::clone() const
 
 void	Cure::use(ICharacter& target)
 {
-	std::cout << "* Heals <name>'s wounds*\n";
+	std::cout	<< "* " << GREEN << "Heals" << NC
+				<< target.getName() << "'s wounds*\n";
 }

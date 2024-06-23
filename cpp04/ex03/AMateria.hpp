@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:18:28 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 12:05:41 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/23 16:29:11 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ class AMateria
 	public:
 		/*					Constructors					*/
 		AMateria(void);
-		AMateria(std::string const & type);
 		AMateria(const AMateria &src);
+		AMateria(std::string const & type);
 
-		/*					Metods					*/
+		/*					Operators					*/
 		AMateria &operator=(const AMateria &src);
+		
+		/*					Metods					*/
 		std::string	const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);

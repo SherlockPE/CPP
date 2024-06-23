@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 12:04:44 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 14:12:58 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/23 16:39:07 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class ICharacter
 {
 	public:
 		/*					Destructor					*/
-		~ICharacter(void);
+		virtual ~ICharacter(void){};
 
 		/*					Metods					*/
 		virtual std::string const & getName() const = 0;
