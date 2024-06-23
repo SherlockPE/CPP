@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 12:04:44 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 14:12:58 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/06/23 12:09:29 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/06/23 13:19:24 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,32 @@
 
 #endif // !_COLORS
 
-// ICharacter declaration --------------------------------------------------------
+// Ice declaration --------------------------------------------------------
 
 
 #pragma once
-#ifndef _ICHARACTER_HPP
-# define _ICHARACTER_HPP
+#ifndef _ICE_HPP
+# define _ICE_HPP
 # include <iostream>
 # include "AMateria.hpp"
 
-class ICharacter
+
+class Ice : public AMateria
 {
 	public:
-		/*					Destructor					*/
-		~ICharacter(void);
+		/*					Constructors					*/
+		Ice(void);
+		Ice(Ice const &other);
+
+		/*					Operators					*/
+		Ice		&operator=(Ice const &other);
 
 		/*					Metods					*/
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
+		Ice*	clone() const;
+		void	use(ICharacter& target);
+
+		/*					Destructor					*/
+		~Ice(void);
 };
 
-#endif // !_ICHARACTER_HPP
+#endif // !_ICE_HPP

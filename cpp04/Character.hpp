@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 12:04:44 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 14:12:58 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/06/23 14:14:50 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/06/23 14:47:42 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,36 @@
 
 #endif // !_COLORS
 
-// ICharacter declaration --------------------------------------------------------
-
-
+// Character declaration --------------------------------------------------------
 #pragma once
-#ifndef _ICHARACTER_HPP
-# define _ICHARACTER_HPP
+#ifndef _CHARACTER_HPP
+# define _CHARACTER_HPP
 # include <iostream>
+# include "ICharacter.hpp"
 # include "AMateria.hpp"
 
-class ICharacter
+class Character : public ICharacter
 {
+	private:
+		AMateria	*m_inventory[4];
+		std::string	m_name;
 	public:
-		/*					Destructor					*/
-		~ICharacter(void);
+		/*					Constructors					*/
+		Character(void);
+		Character(std::string name);
+		Character(Character const &other);
+
+		/*					Operators					*/
+		Character &operator=(Character const &other);
 
 		/*					Metods					*/
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
+		std::string const & getName() const;
+		void				equip(AMateria* m);
+		void				unequip(int idx);
+		void				use(int idx, ICharacter& target);
+
+		/*					Destructor					*/
+		~Character(void);
 };
 
-#endif // !_ICHARACTER_HPP
+#endif // !_CHARACTER_HPP
