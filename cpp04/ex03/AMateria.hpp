@@ -6,25 +6,31 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:18:28 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/21 20:17:42 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/23 12:05:41 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef _COLORS
+# define _COLORS
+# define BLACK "\033[1;30m"
+# define RED "\033[1;31m"
+# define GREEN "\033[1;32m"
+# define YELLOW "\033[1;33m"
+# define BLUE "\033[1;34m"
+# define MAGENTA "\033[1;35m"
+# define CYAN "\033[1;36m"
+# define WHITE "\033[1;37m"
+# define NC "\033[0m"
+
+#endif // !_COLORS
+
+// AMateria declaration -------------------------------------------------------
 
 #pragma once
 #ifndef A_MATERIA_HPP
 # define A_MATERIA_HPP
-
-# define RED "\033[0;31m"
-# define GREEN "\033[0;32m"
-# define YELLOW "\033[0;33m"
-# define BLUE "\033[0;34m"
-# define MAGENTA "\033[0;35m"
-# define CYAN "\033[0;36m"
-# define WHITE "\033[1;97m"
-# define RESET "\033[0m"
-# define ORANGE "\033[38;5;208m"
-
-#include <iostream>
+# include <iostream>
+# include "ICharacter.hpp"
 
 class AMateria
 {
