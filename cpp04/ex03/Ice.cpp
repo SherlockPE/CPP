@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 12:09:25 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/24 10:14:19 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:39:55 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,13 @@ Ice::Ice(Ice const &other)
 /*					Operators					*/
 Ice &Ice::operator=(Ice const &other)
 {
-	// if (this == &other){
-	// 	return (*this);
-	// }
-	// // DO THINGS
 	(void)other;
 	return (*this);
 }
 
 /*					Destructor					*/
-Ice::~Ice(void) {
+Ice::~Ice(void)
+{
 	std::cout << RED "Ice 🧊 destructor called" NC << std::endl;
 }
 
