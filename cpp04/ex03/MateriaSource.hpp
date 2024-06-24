@@ -23,6 +23,7 @@ class MateriaSource : public IMateriaSource
 {
 	private:
 		AMateria	*m_known_materias[4];
+		int			pos;
 	public:
 		/*					Constructors					*/
 		MateriaSource(void);

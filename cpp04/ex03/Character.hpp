@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 14:14:50 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 14:47:42 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:16:48 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 class Character : public ICharacter
 {
 	private:
+		int			pos;
 		AMateria	*m_inventory[4];
 		std::string	m_name;
 	public:

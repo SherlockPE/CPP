@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:18:28 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/24 10:15:02 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/24 12:07:50 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class AMateria
 		virtual void use(ICharacter& target);
 
 		/*					Destructor					*/
-		~AMateria(void);
+		virtual ~AMateria(void);
 };
 
 #endif

@@ -16,9 +16,12 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 INCLUDES := -I includes
 CPPC = c++
 CPPVERSION = -std=c++98
-CPPFLAGS = -Wall -Wextra -Werror $(CPPVERSION)
+CPPFLAGS = -Wall -Wextra -Werror $(CPPVERSION) #-g3 -fsanitize=address 
 
 all: c_dir $(NAME)
+
+leaks: $(NAME)
+	valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file="leaks.log" ./$(NAME)
 
 $(NAME): $(OBJ)
 	$(CPPC) $(CPPFLAGS) $(OBJ) -o $@
@@ -31,6 +34,7 @@ c_dir:
 
 clean:
 	rm -rf $(OBJ_DIR)
+	rm -rf leaks.log
 
 fclean: clean
 	rm -f $(NAME)

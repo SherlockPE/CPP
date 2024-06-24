@@ -6,19 +6,19 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 14:14:46 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 16:44:04 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:25:55 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 /*					Constructors					*/
-Character::Character(void)
+Character::Character(void) : pos(0), m_name("Unknown") 
 {
 	std::cout << GREEN "Character default constructor called" NC << std::endl;
 }
 
-Character::Character(std::string name) : m_name(name)
+Character::Character(std::string name) : pos(0), m_name(name)
 {
 	std::cout << GREEN "Character Name constructor called" NC << std::endl;
 }
@@ -58,16 +58,13 @@ std::string const & Character::getName() const
 
 void				Character::equip(AMateria* m)
 {
-	int	i = 0;
-	while (i < 4)
+	if (pos >= 3)		
 	{
-		if (!m_inventory[i])
-		{
-			m_inventory[i] = m;
-			break;
-		}
-		i++;
+		std::cout << RED << "Failure: No space left on the inventory of " << m_name << std::endl;
+		return ;
 	}
+	m_inventory[pos] = m;
+	pos++;
 }
 
 void				Character::unequip(int idx)
@@ -95,6 +92,9 @@ void				Character::use(int idx, ICharacter& target)
 
 
 /*					Destructor					*/
-Character::~Character(void) {
+Character::~Character(void)
+{
 	std::cout << RED "Character destructor called" NC << std::endl;
+	for (int i = 0; i < pos; i++)
+		delete m_inventory[i];
 }

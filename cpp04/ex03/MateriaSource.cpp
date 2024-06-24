@@ -1,7 +1,7 @@
 #include "MateriaSource.hpp"
 
 /*					Constructors					*/
-MateriaSource::MateriaSource(void)
+MateriaSource::MateriaSource(void) : pos(0)
 {
 	std::cout << GREEN "MateriaSource default constructor called" NC << std::endl;
 }
@@ -15,41 +15,35 @@ MateriaSource::MateriaSource(MateriaSource const &other)
 /*					Operators					*/
 MateriaSource &MateriaSource::operator=(MateriaSource const &other)
 {
-	if (this == &other){
-		return (*this);
-	}
-	// DO THINGS
+	(void)other;
 	return (*this);
 }
 
 /*					Destructor					*/
 MateriaSource::~MateriaSource(void) {
 	std::cout << RED "MateriaSource destructor called" NC << std::endl;
+	for (int i = 0; i < pos; i++)
+		delete m_known_materias[i];
 }
 
 /*					Metods					*/
 void	MateriaSource::learnMateria(AMateria* materia_random)
 {
-	int	i = 0;
-	while (i < 4)
+	if (pos >= 3)
 	{
-		if (!m_known_materias[i])
-		{
-			m_known_materias[i] = materia_random;
-			break ;
-		}
-		i++;
-	}
-	if (i == 4)
 		std::cout << RED << "Class MateriaSource only have space for 4 materias\n" << NC;
+		return ;
+	}
+	m_known_materias[pos] = materia_random;
+	pos++;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type)
 {
 	int i = 0;
-	while (i < 4)
+	while (i < pos)
 	{
-		if (m_known_materias[i] && (m_known_materias[i]->getType() == type))
+		if (m_known_materias[i]->getType() == type)
 			return (m_known_materias[i]->clone());
 		i++;
 	}
