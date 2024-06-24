@@ -29,12 +29,12 @@ MateriaSource::~MateriaSource(void) {
 /*					Metods					*/
 void	MateriaSource::learnMateria(AMateria* materia_random)
 {
-	if (pos >= 3)
+	if (pos >= 4)
 	{
 		std::cout << RED << "Class MateriaSource only have space for 4 materias\n" << NC;
 		return ;
 	}
-	m_known_materias[pos] = materia_random;
+	m_known_materias[pos] = materia_random->clone();
 	pos++;
 }
 
@@ -47,8 +47,8 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 			return (m_known_materias[i]->clone());
 		i++;
 	}
-	std::cout	<< RED << "Failure trying to create a new materia: <" << NC
-				<< YELLOW << type << "> " << NC 
+	std::cout	<< RED << "Failure trying to create a new materia:" << NC
+				<< YELLOW << " <" << type << "> " << NC 
 				<< "Not found in the learned materias" << std::endl;
 	return (NULL);
 }

@@ -21,7 +21,7 @@ CPPFLAGS = -Wall -Wextra -Werror $(CPPVERSION) #-g3 -fsanitize=address
 all: c_dir $(NAME)
 
 leaks: $(NAME)
-	valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file="leaks.log" ./$(NAME) # --verbose
+	valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file="leaks.log" ./$(NAME) && less leaks.log && tail leaks.log
 
 $(NAME): $(OBJ)
 	$(CPPC) $(CPPFLAGS) $(OBJ) -o $@
