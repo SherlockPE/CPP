@@ -1,15 +1,14 @@
 NAME = polymorph
 
 OBJ_DIR =	obj
-SOURCES =	main.cpp \
-			Animal.cpp \
-			WrongAnimal.cpp \
-			WrongCat.cpp \
-			Brain.cpp \
-			Cat.cpp \
-			Dog.cpp
+SOURCES =	AMateria.cpp \
+			Character.cpp \
+			Cure.cpp \
+			Ice.cpp \
+			main.cpp \
+			MateriaSource.cpp \
 
-MAKE_DIR = mkdir -p
+MAKE_DIR = mkdir -p 
 SRC = $(SOURCES)
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))

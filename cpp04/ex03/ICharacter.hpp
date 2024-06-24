@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 12:04:44 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 16:39:07 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:13:50 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define _ICHARACTER_HPP
 # include <iostream>
 # include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

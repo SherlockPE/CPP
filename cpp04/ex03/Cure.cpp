@@ -20,6 +20,7 @@ Cure &Cure::operator=(Cure const &other)
 	// 	return (*this);
 	// }
 	// // DO THINGS
+	(void)other;
 	return (*this);
 }
 
@@ -43,6 +44,6 @@ Cure*	Cure::clone() const
 
 void	Cure::use(ICharacter& target)
 {
-	std::cout	<< "* " << GREEN << "Heals" << NC
-				<< target.getName() << "'s wounds*\n";
+	std::cout	<< "* " << YELLOW << "Heals " << NC
+				<< target.getName() << "'s wounds 🩸*\n";
 }

@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 12:09:25 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/06/23 17:09:35 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:14:19 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Ice &Ice::operator=(Ice const &other)
 	// 	return (*this);
 	// }
 	// // DO THINGS
+	(void)other;
 	return (*this);
 }
 
