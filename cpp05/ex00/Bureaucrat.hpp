@@ -36,6 +36,8 @@ class Bureaucrat
 		Bureaucrat &operator=(Bureaucrat const &other);
 
 		/*					Metods					*/
+		void		addGrade(void);
+		void		subGrade(void);
 		std::string	getName(void) const;
 		int			getGrade(void) const;
 

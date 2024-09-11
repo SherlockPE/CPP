@@ -18,7 +18,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : m_name(name)
 	m_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &other)
+Bureaucrat::Bureaucrat(Bureaucrat const &other) : m_name(other.m_name)
 {
 	std::cout << GREEN "Bureaucrat copy constructor called" NC << std::endl;
 	*this = other;
@@ -32,13 +32,6 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
 	}
 	m_grade = other.m_grade;
 	return (*this);
-}
-
-std::ostream	&operator<<(std::ostream &os, const Bureaucrat &src)
-{
-	os << BLUE << src.getName() << 
-	CYAN << ", bureaucrat grade: " << src.getGrade() << NC << std::endl;
-	return (os);
 }
 
 /*					Destructor					*/
@@ -58,4 +51,26 @@ int	Bureaucrat::getGrade(void) const
 {
 	// std::cout << YELLOW "Bureaucrat getGrade metod called" NC << std::endl;
 	return (m_grade);
+}
+
+void	 Bureaucrat::addGrade(void)
+{
+	m_grade--;
+	if (m_grade < 1)
+		throw (GradeToHighException());
+	std::cout << YELLOW << "upgrading bureaucreat " << m_name << NC << std::endl;
+}
+void	 Bureaucrat::subGrade(void)
+{
+	m_grade++;
+	if (m_grade > 150)
+		throw (GradeTooLowException());
+	std::cout << YELLOW << "demoting bureaucreat " << m_name << NC << std::endl;
+}
+
+std::ostream	&operator<<(std::ostream &os, const Bureaucrat &src)
+{
+	os << BLUE << src.getName() << 
+	CYAN << ", bureaucrat grade: " << src.getGrade() << NC << std::endl;
+	return (os);
 }
