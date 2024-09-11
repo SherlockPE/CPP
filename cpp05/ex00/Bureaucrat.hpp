@@ -13,11 +13,13 @@
 #endif // !_COLORS
 
 // Bureaucrat declaration --------------------------------------------------------
-#pragma onceT
+#pragma once
 
 #ifndef _BUREAUCRAT_HPP
 # define _BUREAUCRAT_HPP
 # include <iostream>
+# include "GradeToHighException.hpp"
+# include "GradeTooLowException.hpp"
 
 class Bureaucrat
 {
@@ -34,14 +36,11 @@ class Bureaucrat
 		Bureaucrat &operator=(Bureaucrat const &other);
 
 		/*					Metods					*/
-		std::string getName(void);
-		int			getGrade(void);
+		std::string	getName(void) const;
+		int			getGrade(void) const;
 
 		/*					Destructor					*/
 		~Bureaucrat(void);
-
-		/* 					Exeptions					 */
-
 };
 
 std::ostream	&operator<<(std::ostream &os, const Bureaucrat &src);
