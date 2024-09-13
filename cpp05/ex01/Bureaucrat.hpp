@@ -7,8 +7,10 @@
 # define BLUE "\033[1;34m"
 # define MAGENTA "\033[1;35m"
 # define CYAN "\033[1;36m"
+# define LIGHT_CYAN "\033[1;96m"
 # define WHITE "\033[1;37m"
 # define NC "\033[0m"
+
 
 #endif // !_COLORS
 
@@ -20,6 +22,9 @@
 # include <iostream>
 # include "GradeToHighException.hpp"
 # include "GradeTooLowException.hpp"
+//# include "Form.hpp"
+class Form; // <--- Forward declaration 
+//Evitar dependencias circulares
 
 class Bureaucrat
 {
@@ -40,6 +45,7 @@ class Bureaucrat
 		void		subGrade(void);
 		std::string	getName(void) const;
 		int			getGrade(void) const;
+		void		signForm(Form &form);
 
 		/*					Destructor					*/
 		~Bureaucrat(void);

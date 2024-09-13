@@ -1,6 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "GradeToHighException.hpp"
-#include "GradeTooLowException.hpp"
+#include "Form.hpp"
 
 /*					Constructors					*/
 Bureaucrat::Bureaucrat(void) : m_name("I_dont_have_a_name"), m_grade(150)
@@ -66,6 +65,13 @@ void	 Bureaucrat::subGrade(void)
 	if (m_grade > 150)
 		throw (GradeTooLowException());
 	std::cout << YELLOW << "demoting bureaucreat " << m_name << NC << std::endl;
+}
+
+void		Bureaucrat::signForm(Form &form)
+{
+	if (m_grade <= form.get_grade_to_sign())
+		std::cout	<< LIGHT_CYAN << m_name << "signed" << form.get_form_name()
+					<< NC << std::endl;
 }
 
 std::ostream	&operator<<(std::ostream &os, const Bureaucrat &src)

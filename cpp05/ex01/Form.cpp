@@ -6,11 +6,12 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:02:36 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/12 18:00:59 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/13 19:17:10 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 /*					Constructors					*/
 Form::Form(std::string name, int sign_grade, int exec_grade) : m_name(name), m_sign_grade(sign_grade), m_exec_grade(exec_grade)
@@ -41,18 +42,25 @@ Form &Form::operator=(Form const &other)
 
 std::ostream	&operator<<(std::ostream &os, const Form other)
 {
-	os	<< "┌──────────" << "FORM - " << other.get_form_name() << "──────────┐\n"
-		<< "│																 │\n"
-		<< "│	Grade required to sign it : " << other.get_grade_to_sign() <<  "│\n"
-		<< "│	Grade required to execute it : " << other.get_grade_to_exec() <<  "│\n"
-		<< "│	Signed : " ;
+	int lenght = (other.get_form_name()).length() + 10;
+
+	std::cout << "lenght --> " << lenght << std:: endl;
+
+	os	<< "┌─── " << "FORM - " << CYAN << other.get_form_name() << NC"\n"
+		<< "│\n"
+		<< "│" << std::setw(lenght) << "Grade to sign it: " << YELLOW << other.get_grade_to_sign() << NC << "\n"
+		<< "│" << std::setw(lenght) << "Grade to execute it: " << YELLOW << other.get_grade_to_exec() << NC << "\n"
+		<< "│" << std::setw(lenght) << "Signed : " ;
 	if (other.get_signed_value())
-		os << GREEN << "YES" << NC;
+		os << GREEN << "YES\n" << NC;
 	else
-		os << RED << "NO" << NC;
+		os << RED << "NO\n" << NC;
+	os << "└";
+	for (int i = 0; i < lenght; i++)
+		os << "─";
+	os << ">" << std::endl;
 	return (os);
 }
-
 
 /*					Destructor					*/
 Form::~Form(void) {
@@ -64,3 +72,11 @@ int			Form::get_grade_to_sign(void) const {return (m_sign_grade);}
 int			Form::get_grade_to_exec(void) const {return (m_exec_grade);}
 bool		Form::get_signed_value(void) const {return (m_sign);}
 std::string	Form::get_form_name(void) const {return (m_name);}
+void		Form::beSigned(Bureaucrat &buro)
+{
+	if (buro.getGrade() > m_sign_grade)
+		throw (GradeTooLowException());
+	else if (buro.getGrade() <= m_sign_grade)
+		m_sign = true;
+	buro.signForm(*this);
+}
