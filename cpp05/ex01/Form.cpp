@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:02:36 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/16 12:18:16 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/16 14:20:09 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 #include "Bureaucrat.hpp"
 
 /*					Constructors					*/
-Form::Form(std::string name, int sign_grade, int exec_grade) : m_name(name), m_sign_grade(sign_grade), m_exec_grade(exec_grade)
+Form::Form(std::string name, int sign_grade, int exec_grade) :
+	m_name(name),
+	m_sign_grade(sign_grade),
+	m_exec_grade(exec_grade)
 {
 	if (sign_grade < 1 || exec_grade < 1)
 		throw (GradeToHighException());
@@ -24,7 +27,10 @@ Form::Form(std::string name, int sign_grade, int exec_grade) : m_name(name), m_s
 	std::cout << GREEN "Form default constructor called" NC << std::endl;
 }
 
-Form::Form(Form const &other) : m_name(other.m_name) , m_sign_grade(other.m_sign_grade), m_exec_grade(other.m_exec_grade)
+Form::Form(Form const &other) :
+	m_name(other.m_name),
+	m_sign_grade(other.m_sign_grade),
+	m_exec_grade(other.m_exec_grade)
 {
 	std::cout << GREEN "Form copy constructor called" NC << std::endl;
 	*this = other;
@@ -39,11 +45,9 @@ Form &Form::operator=(Form const &other)
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &os, const Form other)
+std::ostream	&operator<<(std::ostream &os, const Form &other)
 {
 	int lenght = (other.get_form_name()).length() + 10;
-
-	std::cout << "lenght --> " << lenght << std:: endl;
 
 	os	<< "┌─── " << "FORM - " << CYAN << other.get_form_name() << NC"\n"
 		<< "│\n"

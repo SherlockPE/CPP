@@ -74,16 +74,23 @@ void	 Bureaucrat::subGrade(void)
 void		Bureaucrat::signForm(Form &formulary)
 {
 	std::cout << BLUE << m_name << NC;
-	if (m_grade <= formulary.get_grade_to_sign())
+	if (m_grade > formulary.get_grade_to_sign())
+	{
+		std::cout << " couldn't sign " << CYAN << formulary.get_form_name() << NC
+		<< " because his grade is to low" << std::endl;
+		return ;
+	}
+	else if (formulary.get_signed_value())
+	{
+		std::cout << " couldn't sign " << CYAN << formulary.get_form_name() << NC
+		<< " because its alredy signed" << std::endl;
+		return ;
+	}
+	else if (m_grade <= formulary.get_grade_to_sign())
 	{
 		std::cout << " signed " << CYAN << formulary.get_form_name() << NC
 		<< std::endl;
-	}
-	if (formulary.get_signed_value())
-	{
-		std::cout << " couldn’t sign " << CYAN << formulary.get_form_name() << NC
-		<< " because its alredy signed" << std::endl;
-		return ;
+		formulary.beSigned(*this);
 	}
 }
 

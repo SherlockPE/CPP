@@ -55,6 +55,6 @@ class Form
 		~Form(void);
 };
 
-std::ostream	&operator<<(std::ostream &os, const Form other);
+std::ostream	&operator<<(std::ostream &os, const Form &other);
 
 #endif // !_FORM_HPP
