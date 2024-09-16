@@ -1,6 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "GradeToHighException.hpp"
-#include "GradeTooLowException.hpp"
 
 /*					Constructors					*/
 Bureaucrat::Bureaucrat(void) : m_name("I_dont_have_a_name"), m_grade(150)
@@ -39,6 +37,12 @@ Bureaucrat::~Bureaucrat(void)
 {
 	std::cout << RED "Bureaucrat destructor called" NC << std::endl;
 }
+std::ostream	&operator<<(std::ostream &os, const Bureaucrat &src)
+{
+	os << BLUE << src.getName() << 
+	CYAN << ", bureaucrat grade: " << src.getGrade() << NC << std::endl;
+	return (os);
+}
 
 /*					Metods					*/
 std::string	Bureaucrat::getName(void) const
@@ -68,9 +72,14 @@ void	 Bureaucrat::subGrade(void)
 	std::cout << YELLOW << "demoting bureaucreat " << m_name << NC << std::endl;
 }
 
-std::ostream	&operator<<(std::ostream &os, const Bureaucrat &src)
+/*					Exceptions					*/
+
+const char *	Bureaucrat::GradeToHighException::what() const throw()
 {
-	os << BLUE << src.getName() << 
-	CYAN << ", bureaucrat grade: " << src.getGrade() << NC << std::endl;
-	return (os);
+	return ("The grade is to high");
+}
+
+const char *	Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("The grade is to low");
 }

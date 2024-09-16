@@ -16,9 +16,6 @@
 #ifndef _FORM_HPP
 # define _FORM_HPP
 # include <iostream>
-# include "GradeToHighException.hpp"
-# include "GradeTooLowException.hpp"
-// # include "Bureaucrat.hpp"
 # include <iomanip>
 
 class Bureaucrat;
@@ -37,6 +34,17 @@ class Form
 		Form(Form const &other);
 		/*					Operators					*/
 		Form &operator=(Form const &other);
+		/*					Exceptions					*/
+		class GradeToHighException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
 		/*					Metods					*/
 		int			get_grade_to_sign(void) const;
 		int			get_grade_to_exec(void) const;

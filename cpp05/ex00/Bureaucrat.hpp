@@ -18,8 +18,6 @@
 #ifndef _BUREAUCRAT_HPP
 # define _BUREAUCRAT_HPP
 # include <iostream>
-# include "GradeToHighException.hpp"
-# include "GradeTooLowException.hpp"
 
 class Bureaucrat
 {
@@ -41,6 +39,17 @@ class Bureaucrat
 		std::string	getName(void) const;
 		int			getGrade(void) const;
 
+		/*					Exceptions					*/
+		class GradeToHighException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
 		/*					Destructor					*/
 		~Bureaucrat(void);
 };

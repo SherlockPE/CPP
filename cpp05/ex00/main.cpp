@@ -6,17 +6,14 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:26:33 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/11 18:48:46 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/16 11:56:09 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int main(int argc, char const *argv[])
+int main(void)
 {
-	(void)argc;
-	(void)argv;
-
 	{
 		std::cout << YELLOW << "\nPrimera prueba\n" << NC ;
 		try

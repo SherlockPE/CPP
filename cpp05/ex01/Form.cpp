@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:02:36 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/13 19:17:10 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/16 12:18:16 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ Form::Form(Form const &other) : m_name(other.m_name) , m_sign_grade(other.m_sign
 /*					Operators					*/
 Form &Form::operator=(Form const &other)
 {
-	if (this == &other){
+	if (this == &other)
 		return (*this);
-	}
 	this->m_sign = other.m_sign;
 	return (*this);
 }
@@ -68,15 +67,38 @@ Form::~Form(void) {
 }
 
 /*					Metods					*/
-int			Form::get_grade_to_sign(void) const {return (m_sign_grade);}
-int			Form::get_grade_to_exec(void) const {return (m_exec_grade);}
-bool		Form::get_signed_value(void) const {return (m_sign);}
-std::string	Form::get_form_name(void) const {return (m_name);}
+int			Form::get_grade_to_sign(void) const
+{
+	return (m_sign_grade);
+}
+int			Form::get_grade_to_exec(void) const
+{
+	return (m_exec_grade);
+}
+bool		Form::get_signed_value(void) const
+{
+	return (m_sign);
+}
+std::string	Form::get_form_name(void) const
+{
+	return (m_name);
+}
+
 void		Form::beSigned(Bureaucrat &buro)
 {
 	if (buro.getGrade() > m_sign_grade)
 		throw (GradeTooLowException());
 	else if (buro.getGrade() <= m_sign_grade)
 		m_sign = true;
-	buro.signForm(*this);
+}
+
+/*					Exceptions					*/
+const char *Form::GradeToHighException::what() const throw()
+{
+	return ("Form: The Grade is to High");
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return ("Form: The Grade is to Low");
 }
