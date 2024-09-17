@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:15:41 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/17 18:20:48 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:28:37 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 PresidentialPardonForm::PresidentialPardonForm(std::string name, int sign_grade, int exec_grade) :
 	AForm(name, sign_grade, exec_grade)
 {
+	if (sign_grade < 1 || exec_grade < 1)
+		throw (GradeToHighException());
+	if (sign_grade > 25 || exec_grade > 5)
+		throw (GradeTooLowException());
 	std::cout << GREEN "PresidentialPardonForm default constructor called" NC << std::endl;
 }
 

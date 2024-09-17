@@ -1,13 +1,12 @@
-/* ********************************	std::cout << GREEN "RobotomyRequestForm copy constructor called" NC << std::endl;
-	*this = other;****************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 16:25:25 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/17 16:29:22 by flopez-r         ###   ########.fr       */
+/*   Created: 2024/09/17 18:24:25 by flopez-r          #+#    #+#             */
+/*   Updated: 2024/09/17 18:28:20 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +17,10 @@
 RobotomyRequestForm::RobotomyRequestForm(std::string name, int sign_grade, int exec_grade) :
 	AForm(name, sign_grade, exec_grade)
 {
+	if (sign_grade < 1 || exec_grade < 1)
+		throw (GradeToHighException());
+	if (sign_grade > 72 || exec_grade > 45)
+		throw (GradeTooLowException());
 	std::cout << GREEN "RobotomyRequestForm default constructor called" NC << std::endl;
 }
 

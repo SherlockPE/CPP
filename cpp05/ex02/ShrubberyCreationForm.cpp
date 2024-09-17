@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:45:28 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/17 16:34:35 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:27:52 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int sign_grade, int exec_grade) : 
 	AForm(name, sign_grade, exec_grade)
 {
+	if (sign_grade < 1 || exec_grade < 1)
+		throw (GradeToHighException());
+	if (sign_grade > 145 || exec_grade > 137)
+		throw (GradeTooLowException());
 	std::cout << GREEN "ShrubberyCreationForm default constructor called" NC << std::endl;
 }
 
