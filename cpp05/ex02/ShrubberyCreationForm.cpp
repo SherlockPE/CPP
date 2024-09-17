@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:45:28 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/17 16:02:01 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:34:35 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other)
 /*					Operators					*/
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &other)
 {
-	if (this == &other){
+	if (this == &other)
 		return (*this);
-	}
 	set_signed_value(other.get_signed_value());
 	return (*this);
 }
@@ -56,7 +55,7 @@ void		ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		std::cout << executor.getName() << MAGENTA << "Can't execute the Form becouse it doesnt have enought grade" << NC << std::endl;
 		throw (GradeTooLowException());
 	}
-
+	//Execution
 	std::string		name_archive = get_form_name() + "_shrubbery";
 	std::string		tree_draw = "\
 	               ,@@@@@@@,\n\

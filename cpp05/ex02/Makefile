@@ -6,7 +6,7 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/11 12:36:14 by flopez-r          #+#    #+#              #
-#    Updated: 2024/09/17 14:59:18 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/09/17 17:01:05 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ OBJ_DIR =	obj
 SOURCES =	Bureaucrat.cpp \
 			AForm.cpp \
 			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp \
 			main.cpp
 
 MAKE_DIR = mkdir -p

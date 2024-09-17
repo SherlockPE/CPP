@@ -6,16 +6,41 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:26:33 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/17 15:12:58 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:13:04 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "AForm.hpp"
 
 int main(void)
 {
+	{
+		std::srand(time(0));
+		try
+		{
+			Bureaucrat				General("General", 1);
+			Bureaucrat				Novato("Novato", 150);
+			RobotomyRequestForm		Robot("Robot", 50, 1);
+
+			// Print group
+			std::cout << General << Novato << Robot << std::endl;
+
+			// Sign formulary
+			// Novato.signForm(Robot);
+			General.signForm(Robot);
+			std::cout << Robot;
+
+			// Execute Formulary
+			// Robot.execute(Novato);
+			Robot.execute(General);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
 	{
 		try
 		{		
