@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /*					Constructors					*/
 Bureaucrat::Bureaucrat(void) : m_name("I_dont_have_a_name"), m_grade(150)
@@ -71,14 +71,14 @@ void	 Bureaucrat::subGrade(void)
 	std::cout << YELLOW << "demoting bureaucreat " << m_name << NC << std::endl;
 }
 
-void		Bureaucrat::signForm(Form &formulary)
+void		Bureaucrat::signForm(AForm &formulary)
 {
 	std::cout << BLUE << m_name << NC;
 	if (m_grade > formulary.get_grade_to_sign())
 	{
 		std::cout << " couldn't sign " << CYAN << formulary.get_form_name() << NC
 		<< " because his grade is to low" << std::endl;
-		return ;
+		throw (GradeTooLowException());
 	}
 	else if (formulary.get_signed_value())
 	{

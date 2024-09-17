@@ -6,46 +6,39 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:26:33 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/16 15:18:45 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:12:58 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "AForm.hpp"
 
 int main(void)
 {
 	{
 		try
-		{
-			Form		Tratado("Tratado de paz", 5, 1);
-			Bureaucrat	General("General", 1);
-			Bureaucrat	Oficial("Oficial", 5);
-			Bureaucrat	Cadete("Cadete", 150);
+		{		
+			Bureaucrat				General("General", 1);
+			Bureaucrat				Novato("Novato", 150);
+			ShrubberyCreationForm	TreeForm("Arbustos", 50, 1);
 
-			std:: cout << Tratado;
-			std:: cout << General;
-			std:: cout << Oficial;
-			std:: cout << Cadete << "\n";
+			// Print group
+			std::cout << General << Novato << TreeForm << std::endl;
 
-			// Form beSigned()
-			// Tratado.beSigned(General);
-			// Tratado.beSigned(Oficial);
-			// Tratado.beSigned(Cadete);
-			
-			// Bureaucrat signForm()
-			General.signForm(Tratado);
-			// Oficial.signForm(Tratado);
-			// Cadete.signForm(Tratado);
+			// Sign formulary
+			// Novato.signForm(TreeForm);
+			General.signForm(TreeForm);
+			std::cout << TreeForm;
 
-
-			std:: cout << Tratado;
-			
+			// Execute Formulary
+			// TreeForm.execute(Novato);
+			TreeForm.execute(General);
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
-		}
+		}		
+		return (0);
 	}
-	return 0;
 }

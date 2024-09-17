@@ -18,7 +18,7 @@
 #ifndef _BUREAUCRAT_HPP
 # define _BUREAUCRAT_HPP
 # include <iostream>
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -39,7 +39,7 @@ class Bureaucrat
 		void		subGrade(void);
 		std::string	getName(void) const;
 		int			getGrade(void) const;
-		void		signForm(Form &formulary);
+		void		signForm(AForm &formulary);
 
 		/*					Exceptions					*/
 		class GradeToHighException : public std::exception

@@ -6,7 +6,7 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/11 12:36:14 by flopez-r          #+#    #+#              #
-#    Updated: 2024/09/13 19:15:31 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/09/17 14:59:18 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = burocrataaa
 
 OBJ_DIR =	obj
 SOURCES =	Bureaucrat.cpp \
-			Form.cpp \
+			AForm.cpp \
+			ShrubberyCreationForm.cpp \
 			main.cpp
 
 MAKE_DIR = mkdir -p
@@ -25,7 +26,7 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 INCLUDES := -I includes
 CPPC = c++
 CPPVERSION = -std=c++98
-CPPFLAGS = -Wall -Wextra -Werror $(CPPVERSION)
+CPPFLAGS = -Wall -Wextra -Werror -g3 $(CPPVERSION)
 
 all: c_dir $(NAME)
 

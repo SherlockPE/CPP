@@ -78,7 +78,7 @@ void		Bureaucrat::signForm(Form &formulary)
 	{
 		std::cout << " couldn't sign " << CYAN << formulary.get_form_name() << NC
 		<< " because his grade is to low" << std::endl;
-		return ;
+		throw (GradeTooLowException());
 	}
 	else if (formulary.get_signed_value())
 	{
