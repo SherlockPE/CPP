@@ -22,9 +22,11 @@
 
 class ShrubberyCreationForm : public AForm
 {
+	private:
+		std::string	_target;
 	public:
 		/*					Constructors					*/
-		ShrubberyCreationForm(std::string name, int sign_grade, int exec_grade);
+		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &other);
 
 		/*					Operators					*/

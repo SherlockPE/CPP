@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:15:41 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/17 18:28:37 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/18 11:02:52 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 #include "Bureaucrat.hpp"
 
 /*					Constructors					*/
-PresidentialPardonForm::PresidentialPardonForm(std::string name, int sign_grade, int exec_grade) :
-	AForm(name, sign_grade, exec_grade)
+PresidentialPardonForm::PresidentialPardonForm(void) :
+	AForm ("PresidentialPardonForm", 25, 5),
+	_target("Default")
 {
-	if (sign_grade < 1 || exec_grade < 1)
-		throw (GradeToHighException());
-	if (sign_grade > 25 || exec_grade > 5)
-		throw (GradeTooLowException());
 	std::cout << GREEN "PresidentialPardonForm default constructor called" NC << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target) :
+	AForm ("PresidentialPardonForm", 25, 5),
+	_target(target)
+{
+	std::cout << GREEN "PresidentialPardonForm target constructor called" NC << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other) :
@@ -34,10 +38,10 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &oth
 /*					Operators					*/
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &other)
 {
-	if (this == &other){
+	if (this == &other)
 		return (*this);
-	}
 	set_signed_value(other.get_signed_value());
+	this->_target = other._target;
 	return (*this);
 }
 

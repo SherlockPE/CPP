@@ -21,9 +21,12 @@
 
 class PresidentialPardonForm : public AForm
 {
+	private:
+		std::string _target;
 	public:
 		/*					Constructors					*/
-		PresidentialPardonForm(std::string name, int sign_grade, int exec_grade);
+		PresidentialPardonForm(void);
+		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(PresidentialPardonForm const &other);
 
 		/*					Operators					*/

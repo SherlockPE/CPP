@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:25:28 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/17 16:57:30 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/18 11:01:39 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@
 
 class RobotomyRequestForm : public AForm
 {
+	private:
+		std::string _target;
 	public:
 		/*					Constructors					*/
-		RobotomyRequestForm(std::string name, int sign_grade, int exec_grade);
+		RobotomyRequestForm(void);
+		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(RobotomyRequestForm const &other);
 
 		/*					Operators					*/

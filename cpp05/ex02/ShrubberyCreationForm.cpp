@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:45:28 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/17 18:27:52 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/18 11:06:07 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 #include "Bureaucrat.hpp"
 
 /*					Constructors					*/
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int sign_grade, int exec_grade) : 
-	AForm(name, sign_grade, exec_grade)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) :
+	AForm("ShrubberyCreationForm", 145, 137),
+	_target(target)
 {
-	if (sign_grade < 1 || exec_grade < 1)
-		throw (GradeToHighException());
-	if (sign_grade > 145 || exec_grade > 137)
-		throw (GradeTooLowException());
 	std::cout << GREEN "ShrubberyCreationForm default constructor called" NC << std::endl;
 }
 
@@ -37,6 +34,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 	if (this == &other)
 		return (*this);
 	set_signed_value(other.get_signed_value());
+	this->_target = _target;
 	return (*this);
 }
 
@@ -60,7 +58,7 @@ void		ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		throw (GradeTooLowException());
 	}
 	//Execution
-	std::string		name_archive = get_form_name() + "_shrubbery";
+	std::string		name_archive = _target + "_shrubbery";
 	std::string		tree_draw = "\
 	               ,@@@@@@@,\n\
 	       ,,,.   ,@@@@@@/@@,  .oo8888o.\n\

@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:24:25 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/17 18:28:20 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/18 11:02:33 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 #include "Bureaucrat.hpp"
 
 /*					Constructors					*/
-RobotomyRequestForm::RobotomyRequestForm(std::string name, int sign_grade, int exec_grade) :
-	AForm(name, sign_grade, exec_grade)
+RobotomyRequestForm::RobotomyRequestForm(void) :
+	AForm("RobotomyRequestForm", 72, 45),
+	_target("default")
 {
-	if (sign_grade < 1 || exec_grade < 1)
-		throw (GradeToHighException());
-	if (sign_grade > 72 || exec_grade > 45)
-		throw (GradeTooLowException());
 	std::cout << GREEN "RobotomyRequestForm default constructor called" NC << std::endl;
+}
+RobotomyRequestForm::RobotomyRequestForm(std::string target) :
+	AForm("RobotomyRequestForm", 72, 45),
+	_target(target)
+{
+	std::cout << GREEN "RobotomyRequestForm target constructor called" NC << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other):
@@ -37,6 +40,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &o
 	if (this == &other)
 		return (*this);
 	set_signed_value(other.get_signed_value());
+	this->_target = other._target;
 	return (*this);
 }
 
