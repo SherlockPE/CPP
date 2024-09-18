@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:45:28 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/18 11:06:07 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/18 11:09:43 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 	if (this == &other)
 		return (*this);
 	set_signed_value(other.get_signed_value());
-	this->_target = _target;
+	this->_target = other._target;
 	return (*this);
 }
 

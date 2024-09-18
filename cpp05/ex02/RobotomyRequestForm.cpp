@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:24:25 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/18 11:02:33 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/18 11:37:43 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ void		RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		throw (GradeTooLowException());
 	}
 	//Execution
-	int random_num = std::rand() % 3;
-	std::cout << "random number is--> " << random_num << "\n\n";
-	if (random_num <= 1)
-		std::cout << executor.getName() << " has been robotomized successfully 🤖" << std::endl;
+	std::srand(time(0));
+	int random_num = std::rand() % 2;
+	if (random_num < 1)
+		std::cout << _target << " has been robotomized successfully 🤖" << std::endl;
 	else
-		std::cout << executor.getName() << " has" << RED << " NOT " << NC << "been robotomized" << std::endl;
+		std::cout << _target << " has" << RED << " NOT " << NC << "been robotomized" << std::endl;
 }
