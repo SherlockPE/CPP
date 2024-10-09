@@ -57,7 +57,7 @@ class AForm
 		void				beSigned(Bureaucrat &buro);
 		virtual void		execute(Bureaucrat const &executor) const = 0; //Pure virtual function
 		/*					Destructor					*/
-		~AForm(void);
+		virtual ~AForm(void);
 };
 
 std::ostream	&operator<<(std::ostream &os, const AForm &other);

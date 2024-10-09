@@ -6,11 +6,11 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/11 12:36:14 by flopez-r          #+#    #+#              #
-#    Updated: 2024/10/09 14:25:59 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/10/09 15:08:19 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = burocrataaa
+NAME = Sad_intern
 
 OBJ_DIR =	obj
 SOURCES =	Bureaucrat.cpp \
