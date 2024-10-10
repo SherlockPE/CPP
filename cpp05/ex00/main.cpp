@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:26:33 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/16 11:56:09 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:23:51 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int main(void)
 {
 	{
-		std::cout << YELLOW << "\nPrimera prueba\n" << NC ;
+		std::cout << YELLOW << "\nCopy operator prueba\n" << NC ;
 		try
 		{
-			Bureaucrat not_name;
-			Bureaucrat Juan("Juan", 1);
+			Bureaucrat not_name; // default grade by 150
+			Bureaucrat Juan("Juan", 1); // Highest grade posibble
 
 			std::cout << not_name;
 			std::cout << Juan;
@@ -35,7 +35,7 @@ int main(void)
 		}
 	}
 	{
-		std::cout << YELLOW << "\nSegunda prueba\n" << NC ;
+		std::cout << YELLOW << "\nCopy constructor prueba\n" << NC ;
 		try
 		{
 			Bureaucrat	Michael("Michael", 1);
@@ -50,7 +50,7 @@ int main(void)
 		}
 	}
 	{
-		std::cout << YELLOW << "\nTercera prueba\n" << NC ;
+		std::cout << YELLOW << "\nTercera prueba -- subgrade metthod\n" << NC ;
 		try
 		{
 			Bureaucrat	Miguel("Miguel", 145);
@@ -66,7 +66,7 @@ int main(void)
 		}
 	}
 	{
-		std::cout << YELLOW << "\nCuarta prueba\n" << NC ;
+		std::cout << YELLOW << "\nCuarta prueba -- addgrade metthod\n" << NC ;
 		try
 		{
 			Bureaucrat	Pablo("Pablo", 5);

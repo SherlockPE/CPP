@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:02:36 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/17 15:52:46 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:39:41 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,10 @@ void		Form::beSigned(Bureaucrat &buro)
 	if (buro.getGrade() > m_sign_grade)
 		throw (GradeTooLowException());
 	else if (buro.getGrade() <= m_sign_grade)
+	{
 		m_sign = true;
+		std::cout << "FORM " << m_name << " signed by " << BLUE <<buro.getName() << NC << std::endl;
+	}
 }
 
 /*					Exceptions					*/

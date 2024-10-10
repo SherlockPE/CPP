@@ -3,7 +3,7 @@
 /*					Constructors					*/
 Bureaucrat::Bureaucrat(void) : m_name("I_dont_have_a_name"), m_grade(150)
 {
-	std::cout << GREEN "Bureaucrat default constructor called" NC << std::endl;
+	std::cout << GREEN "Bureaucrat default constructor called with a grade of 150" NC << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : m_name(name)
@@ -25,9 +25,8 @@ Bureaucrat::Bureaucrat(Bureaucrat const &other) : m_name(other.m_name)
 /*					Operators					*/
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
 {
-	if (this == &other){
+	if (this == &other)
 		return (*this);
-	}
 	m_grade = other.m_grade;
 	return (*this);
 }
@@ -37,6 +36,7 @@ Bureaucrat::~Bureaucrat(void)
 {
 	std::cout << RED "Bureaucrat destructor called" NC << std::endl;
 }
+
 std::ostream	&operator<<(std::ostream &os, const Bureaucrat &src)
 {
 	os << BLUE << src.getName() << 
