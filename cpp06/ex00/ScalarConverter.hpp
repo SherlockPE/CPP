@@ -60,10 +60,9 @@ class ScalarConverter
 
 		// METHODS AND MEMBER FUNCTIONS-----------------------------------------
 		static void	convert(std::string literal);
-		
+
 		// OPERATORS------------------------------------------------------------
 		ScalarConverter &operator=(ScalarConverter const &other){(void)other; return (*this);};
-
-};
+}; 
 
 #endif // !_SCALARCONVERTER_HPP
