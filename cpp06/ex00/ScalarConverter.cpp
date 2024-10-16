@@ -92,11 +92,53 @@ int	get_type_value(t_data_info info)
 	return (NOT_FOUND);
 }
 
+void	print_values(t_values values)
+{
+	std::cout	<< "char: " << values.character << "\n"
+				<< "int: " << values.integer << "\n"
+				<< "float: " << std::fixed << std::setprecision(1) << values.float_value << "f" << "\n"
+				<< "double: " << values.double_value << std::endl;
+}
+
+void	conver_from(t_values *values, int data_type, std::string literal)
+{
+	if (data_type == CHAR) //Gracias Paula <3
+	{
+		values->character = literal[0];
+		values->integer = static_cast<int> (values->character /* - '0' */);
+		values->float_value = static_cast<float> (values->character /* - '0' */);
+		values->double_value = static_cast<double> (values->character /* - '0' */); 
+	}
+	else if (data_type == INT) //Gracias Paula <3
+	{
+		values->integer = (atoi(literal.c_str()));
+		values->character = values->integer;
+		values->float_value = static_cast<float>(values->integer);
+		values->double_value = values->integer;
+	}
+	else if (data_type == FLOAT)
+	{
+		std::cout << "me llega: " << literal << "\n";
+		values->float_value = static_cast<float>(atof(literal.c_str()));
+		values->character = static_cast<char> (values->float_value);
+		values->integer = static_cast<int> (values->float_value);
+		values->double_value = static_cast<double> (values->float_value);
+	}
+	else if (data_type == DOUBLE)
+	{
+		values->double_value = static_cast<double>(atof(literal.c_str()));
+		values->character = static_cast<char>(values->double_value);
+		values->integer = static_cast<int>(values->double_value);
+		values->float_value = static_cast<float>(values->double_value);
+	}
+}
+
+
 void	ScalarConverter::convert(std::string literal)
 {
 	int			type;
 	t_data_info info;
-	// t_values	values;
+	t_values	values;
 
 	if (get_type_info(literal, &info))
 	{
@@ -104,10 +146,6 @@ void	ScalarConverter::convert(std::string literal)
 		return ;
 	}
 	type = get_type_value(info);
-	std::cout << "INFO RECEIBED"
-	<< "\ndecimals: " << info.has_decimal
-	<< "\nf's: " << info.has_f
-	<< "\nletters: " << info.has_letter << std::endl;
 	switch (type)
 	{
 		case NOT_FOUND:
@@ -115,19 +153,23 @@ void	ScalarConverter::convert(std::string literal)
 			break;
 		case CHAR:
 			std::cout << "is a char!!\n";
+			conver_from(&values, CHAR, literal);
 			break;
 		case INT:
 			std::cout << "is a INT!!\n";
+			conver_from(&values, INT, literal);
 			break;
 		case FLOAT:
+			conver_from(&values, FLOAT, literal);
 			std::cout << "is a FLOAT!!\n";
 			break;
 		case DOUBLE:
+			conver_from(&values, DOUBLE, literal);
 			std::cout << "is a DOUBLE!!\n";
 			break;
 		default:
 			std::cout << "weird error ocurred\n";
 			break;
 	}
-
+	print_values(values);
 }
