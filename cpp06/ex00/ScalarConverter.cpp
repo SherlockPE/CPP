@@ -18,7 +18,8 @@ static int	get_type_info(std::string literal, t_data_info *info)
 	info->has_letter = 0;
 	info->has_nums = 0;
 	if (literal == "-inff" || literal == "+inff" || literal == "inff" || 
-		literal == "-inf" || literal == "+inf" || literal == "inf")
+		literal == "-inf" || literal == "+inf" || literal == "inf" || 
+		literal == "nan" || literal == "nanf")
 		return (EXIT_SUCCESS);
 	for (size_t i = 0; i < literal.length(); i++)
 	{
