@@ -8,11 +8,9 @@
 // Con esta función obtengo la info que tiene mi string
 static int	get_type_info(std::string literal, t_data_info *info)
 {
-	int has_sign;
-
 	if (!literal[0])
 		return (EXIT_FAILURE);
-	has_sign = 0;
+	info->has_sign = 0;
 	info->has_decimal = 0;
 	info->has_f = 0;
 	info->has_letter = 0;
@@ -24,7 +22,7 @@ static int	get_type_info(std::string literal, t_data_info *info)
 	for (size_t i = 0; i < literal.length(); i++)
 	{
 		if (literal[i] == '+' || literal[i] == '-')
-			(has_sign)++, (info->has_letter)--;
+			(info->has_sign)++, (info->has_letter)--;
 		if (literal[i] == '.')
 			(info->has_decimal)++,(info->has_letter)--;
 		if (literal[i] == 'f' || literal[i] == 'F')
@@ -33,7 +31,7 @@ static int	get_type_info(std::string literal, t_data_info *info)
 			(info->has_letter)++;
 		if ((literal[i] >= '0' && literal[i] <= '9'))
 			(info->has_nums)++;
-		if ((has_sign > 1 || info->has_decimal > 1 || info->has_f > 1) ||
+		if ((info->has_sign > 1 || info->has_decimal > 1 || info->has_f > 1) ||
 			(info->has_letter > 1))
 			return (EXIT_FAILURE);
 	}
@@ -60,7 +58,9 @@ static int	get_type_info(std::string literal, t_data_info *info)
 // "99999999999999.0" -----> double
 static int	get_type_value(t_data_info info)
 {
-	if (info.has_letter == 1 && !info.has_decimal && !info.has_f)
+	if ((info.has_letter == 1 && !info.has_decimal && !info.has_f) || 
+		(info.has_sign == 1 && !info.has_decimal && !info.has_f && 
+		!info.has_letter && !info.has_nums))
 		return (CHAR);
 	if (info.has_nums && !info.has_decimal && !info.has_f && !info.has_letter)
 		return (INT);

@@ -37,6 +37,7 @@ enum types
 typedef struct s_data_info
 {
 	int		has_decimal;
+	int		has_sign;
 	int		has_f;
 	int		has_letter;
 	int		has_nums;
