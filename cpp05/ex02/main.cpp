@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:26:33 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/09/18 11:37:30 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/10/21 19:16:40 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int main(void)
 
 			// Execute Formulary
 			// TreeForm.execute(Novato);
-			TreeForm.execute(General);
+			// TreeForm.execute(General);
+			General.executeForm(TreeForm);
 		}
 		catch(const std::exception& e)
 		{
@@ -60,7 +61,8 @@ int main(void)
 
 			// Execute Formulary
 			// Robot.execute(Novato);
-			Robot.execute(General);
+			// Robot.execute(General);
+			General.executeForm(Robot);
 		}
 		catch(const std::exception& e)
 		{
@@ -85,7 +87,8 @@ int main(void)
 
 			// Execute Formulary
 			// PardonForm.execute(Novato);
-			PardonForm.execute(General);
+			// PardonForm.execute(General);
+			General.executeForm(PardonForm);
 		}
 		catch(const std::exception& e)
 		{

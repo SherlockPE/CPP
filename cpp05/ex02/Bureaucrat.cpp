@@ -94,6 +94,27 @@ void		Bureaucrat::signForm(AForm &formulary)
 	}
 }
 
+void		Bureaucrat::executeForm(AForm const & form)
+{
+	if (!form.get_signed_value())
+	{
+		std::cout	<< this->m_name << MAGENTA
+					<<"Can't execute 'couse the form need to be signed"
+					<< NC << std::endl;
+		return ;
+	}
+	if (m_grade <= form.get_grade_to_exec())
+	{
+		std::cout << this->m_name << MAGENTA << " executed " << form.get_form_name() << std::endl;
+		form.execute(*this);
+	}
+	else
+	{
+		std::cout << m_name << "Can't execute the Form becouse it doesnt have enought grade" << std::endl;
+		throw (GradeTooLowException());
+	}
+}
+
 /*					Exceptions					*/
 
 const char *	Bureaucrat::GradeToHighException::what() const throw()
