@@ -22,20 +22,7 @@
 
 class Base;
 
-#include <iostream>
-class A : public Base
-{
-	public:
-		// CONSTRUCTORS AND DESTRUCTORS-----------------------------------------
-		A(void);
-		A(A const& other);
-		~A(void);
-
-		// OPERATORS------------------------------------------------------------
-		A& operator=(A const& other);
-
-		// METHODS AND MEMBER FUNCTIONS-----------------------------------------
-};
+class A : public Base {};
 
 #endif // !_A_HPP
 

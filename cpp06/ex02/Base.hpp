@@ -20,7 +20,6 @@
 #ifndef _BASE_HPP
 # define _BASE_HPP
 
-#include <iostream>
 class Base
 {
 	public:

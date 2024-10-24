@@ -20,20 +20,9 @@
 #ifndef _B_HPP
 # define _B_HPP
 
-#include <iostream>
-class B
-{
-	public:
-		// CONSTRUCTORS AND DESTRUCTORS-----------------------------------------
-		B(void);
-		B(B const& other);
-		~B(void);
+class Base;
 
-		// OPERATORS------------------------------------------------------------
-		B& operator=(B const& other);
-
-		// METHODS AND MEMBER FUNCTIONS-----------------------------------------
-};
+class B : public Base {};
 
 #endif // !_B_HPP
 
