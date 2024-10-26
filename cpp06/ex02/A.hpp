@@ -20,7 +20,9 @@
 #ifndef _A_HPP
 # define _A_HPP
 
-class Base;
+// #pragma  once
+#include "Base.hpp"
+
 
 class A : public Base {};
 

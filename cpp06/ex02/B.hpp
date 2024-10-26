@@ -19,10 +19,12 @@
 
 #ifndef _B_HPP
 # define _B_HPP
+// #pragma  once
 
-class Base;
+#include "Base.hpp"
 
 class B : public Base {};
 
 #endif // !_B_HPP
+
 

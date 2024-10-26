@@ -24,7 +24,7 @@ class Base
 {
 	public:
 		// CONSTRUCTORS AND DESTRUCTORS-----------------------------------------
-		virtual ~Base(void);
+		virtual ~Base(void){};
 };
 
 #endif // !_BASE_HPP
