@@ -2,6 +2,7 @@
 # define _COLORS
 
 // clang-format off
+#include <cstddef>
 # define BLACK   "\033[1;30m"
 # define RED     "\033[1;31m"
 # define GREEN   "\033[1;32m"
@@ -23,9 +24,11 @@
 #include <iostream>
 
 template <typename T>
-void	iter(T &array, T lenght, T *(f)(T &c))
+void	iter(T *array,  size_t length, void (*f)(T &c))
 {
-
+	// int test = 0;
+	for (size_t i = 0; i < length; i++)
+		(*f)(array[i]);
 }
 
 #endif // !_ITER_HPP
