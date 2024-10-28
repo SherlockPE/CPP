@@ -33,7 +33,7 @@ int main(void)
 		return (EXIT_FAILURE);
 	}
 	else
-	std::cout << GREEN << "Son iguales" << NC << std::endl;
+		std::cout << GREEN << "Son iguales" << NC << std::endl;
 	delete original;
 	return (EXIT_SUCCESS);
 }

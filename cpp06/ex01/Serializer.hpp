@@ -21,6 +21,8 @@
 # define _SERIALIZER_HPP
 
 # include <iostream>
+# include <stdint.h>
+# include <cstdlib>
 
 struct Data
 {
