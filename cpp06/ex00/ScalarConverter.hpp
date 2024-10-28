@@ -41,6 +41,15 @@ typedef struct s_data_info
 	int		has_f;
 	int		has_letter;
 	int		has_nums;
+
+	s_data_info()
+	{
+		has_decimal = 0;
+		has_sign = 0;
+		has_f = 0;
+		has_letter = 0;
+		has_nums = 0;
+	}
 } t_data_info;
 
 typedef struct s_values
@@ -49,6 +58,14 @@ typedef struct s_values
 	int		integer;
 	float	float_value;
 	double	double_value;
+
+	s_values()
+	{
+		character = 0;
+		integer = 0;
+		float_value = 0;
+		double_value = 0;
+	}
 } t_values;
 
 class ScalarConverter
