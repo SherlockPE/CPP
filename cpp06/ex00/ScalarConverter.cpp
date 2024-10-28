@@ -15,12 +15,13 @@ static int	parse(std::string literal, t_data_info	*info)
 	for (size_t i = 0; i < literal.length(); i++)
 	{
 		if (literal[i] == '+' || literal[i] == '-')
-			(info->has_sign)++, (info->has_letter)--;
+			(info->has_sign)++;
 		if (literal[i] == '.')
 			(info->has_decimal)++,(info->has_letter)--;
 		if (literal[i] == 'f' || literal[i] == 'F')
 			(info->has_f)++, (info->has_letter)--;
-		if ((literal[i] >= 32 && literal[i] < 127) && (literal[i] < '0' || literal[i] > '9'))
+		if ((literal[i] >= 32 && literal[i] < 127) && (literal[i] < '0' || literal[i] > '9') 
+			&& (literal[i] != '+' || literal[i] != '-'))
 			(info->has_letter)++;
 		if ((literal[i] >= '0' && literal[i] <= '9'))
 			(info->has_nums)++;
