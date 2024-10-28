@@ -1,11 +1,5 @@
 #include "ScalarConverter.hpp"
 #include <climits>
-#include <cmath>
-#include <cstddef>
-#include <iomanip>
-#include <ios>
-#include <iostream>
-#include <iterator>
 
 
 // METHODS AND MEMBER FUNCTIONS-------------------------------------------------
