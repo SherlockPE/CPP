@@ -60,7 +60,9 @@ static void	print_values(t_values values)
 		std::cout << values.integer << "\n";
 	else
 		std::cout << "impossible\n";
+	// FLOAT
 	std::cout << std::fixed << "float: " << std::setprecision(1) << values.float_value << "f" << "\n";
+	// DOUBLE
 	std::cout << "double: " << std::setprecision(1) << values.double_value << "\n";
 }
 
