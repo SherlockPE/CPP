@@ -1,6 +1,7 @@
 #ifndef _COLORS
 # define _COLORS
 #include <cstddef>
+#include <cstring>
 # define BLACK   "\033[1;30m"
 # define RED     "\033[1;31m"
 # define GREEN   "\033[1;32m"
@@ -32,17 +33,20 @@ class Array
 		{
 			std::cout << GREEN "Array default constructor called" NC << std::endl;
 			_array = new Type[1];
+			// std::memset(_array, 0, _size);
 			_size = 1;
 		};
 		Array(unsigned int n)
 		{
 			std::cout << GREEN "Array default constructor called" NC << std::endl;
 			_array = new Type[n];
+			// std::memset(_array, 0, _size);
 			_size = n;
 		};
 		Array(Array const& other)
 		{
 			std::cout << GREEN "Array copy constructor called" NC << std::endl;
+			_array = NULL;
 			*this = other;
 		};
 		~Array(void)
@@ -55,10 +59,13 @@ class Array
 		{
 			if (this == &other)
 				return (*this);
+
 			delete [] _array;
 			_array = new Type[other._size];
 			for (size_t i = 0; i < other._size; i++)
 				_array[i] = other._array[i];
+
+			this->_size = other._size;
 			return (*this);
 		};
 		Type& operator[](size_t i)
@@ -75,10 +82,20 @@ class Array
 			size_t i = 0;
 			while (i < _size - 1)
 			{
-				std::cout << CYAN << _array[i] << NC ", ";
+				std::cout << CYAN << "[" << _array[i] << "]" << NC ", ";
 				i++;
 			}
-			std::cout << CYAN << _array[i] << NC << std::endl;
+			std::cout << CYAN << "[" << _array[i] << "]" << NC << std::endl;;
+		}
+		void	print_memory(void)
+		{
+			size_t i = 0;
+			while (i < _size - 1)
+			{
+				std::cout << CYAN << "[" << &_array[i] << "]" << NC ", ";
+				i++;
+			}
+			std::cout << CYAN << "[" << &_array[i] << "]" << NC << std::endl;
 		}
 };
 
