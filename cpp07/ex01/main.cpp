@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:14:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/10/28 15:24:14 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/10/29 11:39:46 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	main(void)
 	std::string array_of_string[6] = {"one", "two", "thre", "four", "five", "six"};
 
 	iter(array_of_ints, 6, print_function);
-	iter(array_of_char, 6, &print_function);
-	iter(array_of_string, 6, &print_function);
+	iter(array_of_char, 6, print_function);
+	iter(array_of_string, 6, print_function);
 }
