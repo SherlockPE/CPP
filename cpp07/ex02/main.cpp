@@ -6,13 +6,12 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 11:52:24 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/10/29 16:55:36 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:09:24 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 #include <cstddef>
-#include <iterator>
 
 
 int main(void)
@@ -83,6 +82,26 @@ int main(void)
 
 		thirth_int_list.print_list();
 		thirth_int_list.print_memory();
+	}
+	// DEEP COPY TEST
+	std::cout << WHITE <<  "\n--------THROW TEST--------" << NC << std::endl;
+	{
+		Array<int>	first_int_list(size_list);
+		for (size_t i = 0; i < first_int_list.size(); i++)
+			first_int_list[i] = i;
+		first_int_list.print_list();
+		try
+		{
+			first_int_list[6] = 255;
+			first_int_list.print_list();
+
+			first_int_list[7] = 42;
+			first_int_list.print_list();
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
 	return (0);
 }

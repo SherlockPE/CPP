@@ -2,6 +2,7 @@
 # define _COLORS
 #include <cstddef>
 #include <cstring>
+#include <exception>
 # define BLACK   "\033[1;30m"
 # define RED     "\033[1;31m"
 # define GREEN   "\033[1;32m"
@@ -70,6 +71,8 @@ class Array
 		};
 		Type& operator[](size_t i)
 		{
+			if (i >= _size)
+				throw BadAccessException();
 			return _array[i];
 		};
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
@@ -97,6 +100,14 @@ class Array
 			}
 			std::cout << CYAN << "[" << &_array[i] << "]" << NC << std::endl;
 		}
+		class	BadAccessException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw()
+				{
+					return (RED"Bad access of Array"NC);
+				};
+		};
 };
 
 #endif // !_ARRAY_HPP
