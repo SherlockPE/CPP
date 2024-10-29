@@ -34,14 +34,12 @@ class Array
 		{
 			std::cout << GREEN "Array default constructor called" NC << std::endl;
 			_array = new Type[1];
-			// std::memset(_array, 0, _size);
 			_size = 1;
 		};
 		Array(unsigned int n)
 		{
 			std::cout << GREEN "Array default constructor called" NC << std::endl;
 			_array = new Type[n];
-			// std::memset(_array, 0, _size);
 			_size = n;
 		};
 		Array(Array const& other)
