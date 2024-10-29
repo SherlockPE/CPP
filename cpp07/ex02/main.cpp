@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 11:52:24 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/10/29 17:09:24 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:43:36 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int main(void)
 			first_int_list[6] = 255;
 			first_int_list.print_list();
 
+			// BAD ACCESS EXCEPTION
 			first_int_list[7] = 42;
 			first_int_list.print_list();
 		}
