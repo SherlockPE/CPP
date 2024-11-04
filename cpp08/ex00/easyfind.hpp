@@ -26,7 +26,7 @@ class	notFound : public std::exception
 	public:
 		virtual const char * what() const throw()
 		{
-			return ("Not Found");
+			return (RED"Not Found ❌"NC);
 		};
 };
 
@@ -38,7 +38,7 @@ void	easyfind(T container, int ocurrence)
 	{
 		if (*i == ocurrence)
 		{
-			std::cout << GREEN << "Found [" << *i << "] " <</*  "in pos: " << i << */ NC << std::endl;
+			std::cout << GREEN << "Founded ✅" NC << std::endl;
 			return ;
 		}
 	}
