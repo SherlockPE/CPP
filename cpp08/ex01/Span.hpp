@@ -38,8 +38,10 @@ class Span
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
 
 		void			addNumber(int number);
+		void			addManyNumbers(int min_number, int max_number);
 		unsigned int	shortestSpan(void);
 		unsigned int	longestSpan(void);
+		void			print_list(void);
 
 		class noSpaceLeft : public std::exception
 		{

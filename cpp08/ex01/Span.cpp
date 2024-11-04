@@ -47,6 +47,20 @@ void	Span::addNumber(int number)
 		throw (noSpaceLeft());
 }
 
+void	Span::addManyNumbers(int min_number, int max_number)
+{
+	for (int i = min_number; i < max_number; i++)
+		addNumber(i);
+}
+
+void	Span::print_list(void)
+{
+	for (size_t i = 0; i < _array.size(); i++) {
+		std::cout << CYAN << "[" << _array[i] << "]" << NC " ";
+	}
+	std::cout << "\n";
+}
+
 unsigned int	Span::shortestSpan(void)
 {
 	int	short_num = std::abs(_array[0] - _array[_array.size() - 1]);
