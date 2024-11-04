@@ -6,14 +6,15 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/11 12:36:14 by flopez-r          #+#    #+#              #
-#    Updated: 2024/10/09 15:18:18 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/11/04 15:06:39 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Identify
 
 OBJ_DIR =	obj
-SOURCES =	main.cpp
+SOURCES =	main.cpp\
+			Span.cpp
 
 MAKE_DIR = mkdir -p
 SRC = $(SOURCES)

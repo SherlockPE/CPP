@@ -1,7 +1,5 @@
 #ifndef _COLORS
 # define _COLORS
-#include <cstddef>
-#include <exception>
 # define BLACK   "\033[1;30m"
 # define RED     "\033[1;31m"
 # define GREEN   "\033[1;32m"
@@ -19,6 +17,7 @@
 # define _EASYFIND_HPP
 
 #include <iostream>
+#include <exception>
 
 
 class	notFound : public std::exception
