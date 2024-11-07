@@ -6,18 +6,13 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:43:17 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/11/04 14:14:56 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:27:27 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "easyfind.hpp"
-#include <iostream>
 #include <cstdlib>
 #include <vector>
-#include <list>
-#include <deque>
 
 int	main(int argc, char **argv)
 {

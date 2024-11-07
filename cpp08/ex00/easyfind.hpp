@@ -18,6 +18,7 @@
 
 #include <iostream>
 #include <exception>
+#include <algorithm>
 
 
 class	notFound : public std::exception
@@ -32,16 +33,9 @@ class	notFound : public std::exception
 template <typename T>
 void	easyfind(T container, int ocurrence)
 {
-	typedef typename T::iterator  top;
-	for (top i = container.begin(); i != container.end(); i++)
-	{
-		if (*i == ocurrence)
-		{
-			std::cout << GREEN << "Founded ✅" NC << std::endl;
-			return ;
-		}
-	}
-	throw notFound();
+	if (std::find(container.begin(), container.end(), ocurrence) == container.end())
+		throw notFound();
+	std::cout << GREEN << "Founded ✅" NC << std::endl;
 }
 
 #endif // !_EASYFIND_HPP
