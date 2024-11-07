@@ -6,11 +6,11 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/11 12:36:14 by flopez-r          #+#    #+#              #
-#    Updated: 2024/11/04 15:06:39 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/11/07 16:55:46 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Identify
+NAME = Span
 
 OBJ_DIR =	obj
 SOURCES =	main.cpp\
@@ -24,7 +24,7 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 INCLUDES := -I includes
 CPPC = c++
 CPPVERSION = -std=c++98
-CPPFLAGS = -Wall -Wextra -Werror -g3 $(CPPVERSION) -fsanitize=address -g3
+CPPFLAGS = -Wall -Wextra -Werror -g3 $(CPPVERSION) # -fsanitize=address -g3
 
 all: c_dir $(NAME)
 

@@ -26,7 +26,7 @@ class	notFound : public std::exception
 	public:
 		virtual const char * what() const throw()
 		{
-			return (RED"Not Found ❌"NC);
+			return (RED"Not Found ❌" NC);
 		};
 };
 
