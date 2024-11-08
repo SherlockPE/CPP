@@ -25,9 +25,10 @@
 class BitcoinExchange
 {
 	private:
-		std::string		_data_file_name;
-		std::ifstream	_data_base_file;
-		std::ifstream	_input_file;
+		// std::ifstream	_data_base_file;
+		// std::ifstream	_input_file;
+		std::string	_data_base;
+		std::string	_input;
 
 		BitcoinExchange(void);
 
@@ -41,6 +42,8 @@ class BitcoinExchange
 		BitcoinExchange& operator=(BitcoinExchange const& other);
 
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
+		void	print_database(void);
+		void	print_input_file(void);
 
 		// EXCEPTIONS---------------------------------------------------------------
 		class openFail : public std::exception
@@ -49,9 +52,11 @@ class BitcoinExchange
 				std::string _msg;
 				std::string _name;
 			public:
-				openFail(std::string err_m, std::string name): _msg(err_m), _name(name)
+				openFail(std::string name): _name(name)
 				{
+					_msg = "Error: could not open the file [";
 					_msg.append(_name);
+					_msg.append("]");
 				};
 				virtual ~openFail() _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_NOTHROW{};
 				virtual const char * what() const throw()

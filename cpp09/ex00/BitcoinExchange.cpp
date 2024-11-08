@@ -6,13 +6,22 @@ BitcoinExchange::BitcoinExchange(char *input_file_name)
 {
 	std::cout << GREEN "BitcoinExchange constructor called" NC << std::endl;
 
-	// DATA FILE OPENING
-	_data_file_name = "data.csv";
+	std::ifstream	_data_base_file;
+	std::ifstream	_input_file;
 
 	// INPUT FILE OPENING
 	_input_file.open(input_file_name);
 	if (!_input_file.is_open())
-		throw (openFail("Error: could not open the file ", input_file_name));
+		throw (openFail(input_file_name));
+
+	// DATA BASE FILE OPENING
+	_data_base_file.open("data.csv");
+	if (!_input_file.is_open())
+		throw (openFail(input_file_name));
+
+	// GET CONTENT
+	std::getline(_data_base_file,  this->_data_base, '\0');
+	std::getline(_input_file,  this->_input, '\0');
 }
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const& other)
@@ -36,3 +45,11 @@ BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other)
 }
 
 // METHODS AND MEMBER FUNCTIONS-------------------------------------------------
+void	BitcoinExchange::print_database(void)
+{
+	std::cout << YELLOW << _data_base << NC << std::endl;
+}
+void	BitcoinExchange::print_input_file(void)
+{
+	std::cout << YELLOW << _input << NC << std::endl;
+}
