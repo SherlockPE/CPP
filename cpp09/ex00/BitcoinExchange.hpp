@@ -20,18 +20,16 @@
 # include <iostream>
 # include <fstream>
 # include <exception>
-
+# include <map>
 
 class BitcoinExchange
 {
 	private:
-		// std::ifstream	_data_base_file;
-		// std::ifstream	_input_file;
-		std::string	_data_base;
-		std::string	_input;
+		std::map<std::string, double>	_dict;
+		std::string						_data_base;
+		std::string						_input;
 
 		BitcoinExchange(void);
-
 	public:
 		// CONSTRUCTORS AND DESTRUCTORS---------------------------------------------
 		BitcoinExchange(char *input_file_name);

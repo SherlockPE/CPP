@@ -6,11 +6,13 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 08:49:08 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/11/08 13:09:14 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:58:43 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <vector>
+#include <algorithm>
 
 int	parse(int argc)
 {
@@ -31,12 +33,16 @@ int main (int argc, char **argv)
 	try
 	{
 		BitcoinExchange	bitcoin_convertion(argv[1]);
+		bitcoin_convertion.print_database();
+		bitcoin_convertion.print_input_file();
 	}
 	catch (std::exception &e)
 	{
 		std::cout << RED << e.what() << NC << std::endl;
 	}
 
+	std::vector<int> list;
+	
 	// // PRINTING TEST
 	// std::getline(input_file, input, '\0');
 	// std::getline(data_file, data_base, '\0');

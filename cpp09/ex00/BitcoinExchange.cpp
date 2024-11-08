@@ -16,11 +16,16 @@ BitcoinExchange::BitcoinExchange(char *input_file_name)
 
 	// DATA BASE FILE OPENING
 	_data_base_file.open("data.csv");
-	if (!_input_file.is_open())
-		throw (openFail(input_file_name));
+	if (!_data_base_file.is_open())
+		throw (openFail("data.csv"));
 
 	// GET CONTENT
-	std::getline(_data_base_file,  this->_data_base, '\0');
+	// while (std::getline(_data_base_file,  this->_data_base, '\0'))
+	// {
+		
+	// }
+	// std::getline(_data_base_file,  this->_data_base, '\0');
+
 	std::getline(_input_file,  this->_input, '\0');
 }
 
@@ -47,9 +52,9 @@ BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other)
 // METHODS AND MEMBER FUNCTIONS-------------------------------------------------
 void	BitcoinExchange::print_database(void)
 {
-	std::cout << YELLOW << _data_base << NC << std::endl;
+	std::cout << CYAN << _data_base << NC << std::endl;
 }
 void	BitcoinExchange::print_input_file(void)
 {
-	std::cout << YELLOW << _input << NC << std::endl;
+	std::cout << WHITE << _input << NC << std::endl;
 }
