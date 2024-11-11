@@ -43,6 +43,7 @@ class BitcoinExchange
 		void	print_database(void);
 		void	print_input_file(void);
 
+		void	get_content(std::string src, std::string &key, std::string &value);
 		// EXCEPTIONS---------------------------------------------------------------
 		class openFail : public std::exception
 		{
