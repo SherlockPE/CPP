@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 08:49:08 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/11/11 10:48:41 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/11/15 18:04:53 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ int main (int argc, char **argv)
 	// OPENING INPUT ARCHIVE
 	try
 	{
-		BitcoinExchange	bitcoin_convertion(argv[1]);
+		BitcoinExchange	bitcoin_convertion;
+
+		bitcoin_convertion.open_files(argv[1], "data.csv");
+		bitcoin_convertion.start_change();
 		// bitcoin_convertion.print_database();
 		// bitcoin_convertion.print_input_file();
 	}

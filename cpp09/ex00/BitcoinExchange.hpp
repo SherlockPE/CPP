@@ -22,17 +22,22 @@
 # include <exception>
 # include <map>
 
+typedef std::map<std::string, double> _dict;
+
 class BitcoinExchange
 {
 	private:
-		std::map<std::string, double>	_dict;
-		std::string						_data_base;
-		std::string						_input;
-
-		BitcoinExchange(void);
+		_dict			_change;
+		std::ifstream	_input_file;
+		// std::string		_data_base;
+		// std::string		_input;
+		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
+		void	extract_data_base(std::ifstream &archive);
+		void	print_change_dict(void);
+		
 	public:
 		// CONSTRUCTORS AND DESTRUCTORS---------------------------------------------
-		BitcoinExchange(char *input_file_name);
+		BitcoinExchange(void);
 		BitcoinExchange(BitcoinExchange const& other);
 		~BitcoinExchange(void);
 
@@ -40,24 +45,27 @@ class BitcoinExchange
 		BitcoinExchange& operator=(BitcoinExchange const& other);
 
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
+		void	open_files(const char *input, const char * data_base);
+		void	start_change(void);
+
+
 		void	print_database(void);
 		void	print_input_file(void);
 
 		void	get_content(std::string src, std::string &key, std::string &value);
 		// EXCEPTIONS---------------------------------------------------------------
-		class openFail : public std::exception
+		class ErrorException : public std::exception
 		{
 			private:
 				std::string _msg;
 				std::string _name;
 			public:
-				openFail(std::string name): _name(name)
+				ErrorException(std::string name): _name(name)
 				{
-					_msg = "Error: could not open the file [";
+					_msg = "Error: ";
 					_msg.append(_name);
-					_msg.append("]");
 				};
-				virtual ~openFail() _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_NOTHROW{};
+				virtual ~ErrorException() _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_NOTHROW{};
 				virtual const char * what() const throw()
 				{
 					return (_msg.c_str());
