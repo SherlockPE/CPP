@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <climits>
+# include <iostream>
 
 // CONSTRUCTORS AND DESTRUCTORS-------------------------------------------------
 BitcoinExchange::BitcoinExchange(void)
@@ -96,7 +97,6 @@ void	BitcoinExchange::extract_data_base(std::ifstream &archive)
 		if (i == 0)
 			continue;
 		get_values(all_line, date, change);
-		std::cout << "Inserting: " << date << "," << change << std::endl;
 		_change.insert(std::make_pair(date, std::atof(change.c_str())));
 	}
 }
@@ -121,6 +121,11 @@ void BitcoinExchange::open_files(const char *input, const char * data_base)
 	print_change_dict();
 }
 
+void	print_error(std::string msg)
+{
+	std::cout << RED "Error: " << msg << "." NC << std::endl;
+}
+
 void	start_convertion(std::string input)
 {
 	std::string	date;
@@ -133,22 +138,17 @@ void	start_convertion(std::string input)
 		std::cout << "Error: bad input => " << input << std::endl;
 		return ;
 	}
-	date = input.substr(0, found);
+	date = input.substr(0, found - 1);
 	change = atof((input.substr(found + 1)).c_str());
 	if (change < 0)
-	{
-		std::cout << "Error: not a positive number." << std::endl;
-		return ;
-	}
+		return(print_error("not a positive number"));
 	else if (change < INT_MIN || change > INT_MAX)
-	{
-		std::cout << "Error: too large number." << std::endl;
-		return ;
-	}
-
-	std::cout << WHITE "[" << input << ", " << change << "]" << std::endl;
+		return(print_error("too large number"));
+	std::cout << "[" << date << ", " << change << "]" << std::endl;
 }
 
+
+// Principal function
 void	BitcoinExchange::start_change(void)
 {
 	std::string input;

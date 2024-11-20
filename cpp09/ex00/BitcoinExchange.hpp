@@ -22,6 +22,21 @@
 # include <exception>
 # include <map>
 
+
+typedef struct s_data
+{
+	size_t	day;
+	size_t	month;
+	size_t	year;
+	s_data(void)
+	{
+		day = 0;
+		month = 0;
+		year = 0;
+	};
+}t_data ;
+
+
 typedef std::map<std::string, double> _dict;
 
 class BitcoinExchange
