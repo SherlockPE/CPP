@@ -37,12 +37,12 @@ typedef struct s_data
 }t_data ;
 
 
-typedef std::map<std::string, double> _dict;
+typedef std::map<t_data, double> _dict;
 
 class BitcoinExchange
 {
 	private:
-		_dict			_change;
+		_dict			_data_base;
 		std::ifstream	_input_file;
 		// std::string		_data_base;
 		// std::string		_input;
@@ -53,6 +53,7 @@ class BitcoinExchange
 	public:
 		// CONSTRUCTORS AND DESTRUCTORS---------------------------------------------
 		BitcoinExchange(void);
+		BitcoinExchange(const char *input, const char * data_base);
 		BitcoinExchange(BitcoinExchange const& other);
 		~BitcoinExchange(void);
 

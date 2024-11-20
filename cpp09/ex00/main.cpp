@@ -30,10 +30,10 @@ int main (int argc, char **argv)
 	// OPENING INPUT ARCHIVE
 	try
 	{
-		BitcoinExchange	bitcoin_convertion;
+		BitcoinExchange	bitcoin_convertion(argv[1], "data.csv");
 
-		bitcoin_convertion.open_files(argv[1], "data.csv");
-		bitcoin_convertion.start_change();
+		// bitcoin_convertion.open_files();
+		// bitcoin_convertion.start_change();
 		// bitcoin_convertion.print_database();
 		// bitcoin_convertion.print_input_file();
 	}
