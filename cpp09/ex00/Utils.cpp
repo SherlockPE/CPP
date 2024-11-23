@@ -1,4 +1,6 @@
 #include "BitcoinExchange.hpp"
+#include <string>
+#include <sstream> 
 
 void	BitcoinExchange::print_error(std::string msg1, std::string msg2)
 {
@@ -21,4 +23,12 @@ void	BitcoinExchange::ft_strtrim(std::string &str)
 		str.erase(str.begin());
 	while (str[str.size() - 1] == ' ')
 		str.resize(str.size() - 1);
+}
+
+std::string	BitcoinExchange::pass_days_to_str(t_data &date)
+{
+    std::ostringstream oss;
+
+    oss << date.year << "-" << date.month << "-" << date.day;
+    return oss.str();
 }

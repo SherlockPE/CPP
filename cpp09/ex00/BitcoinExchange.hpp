@@ -54,7 +54,6 @@ class BitcoinExchange
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
 		void		extract_data_base(std::ifstream &archive);
 
-
 		
 	public:
 		// CONSTRUCTORS AND DESTRUCTORS---------------------------------------------
@@ -68,10 +67,10 @@ class BitcoinExchange
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
 
 		// Utils
-		void	print_error(std::string msg1, std::string msg2);
-
-		void	print_change_dict(void);
-		void	ft_strtrim(std::string &str);
+		void		print_error(std::string msg1, std::string msg2);
+		std::string	pass_days_to_str(t_data &date);
+		void		print_change_dict(void);
+		void		ft_strtrim(std::string &str);
 
 		void	open_files(const char *input, const char * data_base);
 

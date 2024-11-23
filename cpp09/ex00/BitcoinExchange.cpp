@@ -22,8 +22,6 @@ BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other)
 
 // METHODS AND MEMBER FUNCTIONS-------------------------------------------------
 
-
-
 // UTILSS - EXTRACT ARCHIVE DATA.CSV
 /* 
 	Line's variable gonna be something like "2022-12-17"
@@ -35,36 +33,11 @@ BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other)
  */
 void	get_struct_value(std::string line, t_data &date)
 {
-	int i = 0;
-	std::size_t found;
-	std::size_t found_temp;
-
-	found_temp = 0;
-	found = line.find_first_of("-");
-	while (found!=std::string::npos)
-	{
-		if (i == 0)
-			date.year = std::atoi(line.substr(found_temp, found).c_str());
-		else if (i == 1)
-			date.month = std::atoi(line.substr(found_temp + 1, found - found_temp - 1).c_str());
-		else
-			break;
-		found_temp = found;
-		found= line.find_first_of("-", found+1);
-		i++;
-	}
-	date.day = std::atoi(line.substr(found_temp + 1, found).c_str());
+	date.year = std::atoi(line.c_str());
+	date.month = std::atoi(line.substr(5, 2).c_str());
+	date.day = std::atoi(line.substr(8, 2).c_str());
 }
 
-std::string	get_lower_day(std::string line)
-{
-	t_data		date;
-	std::string	final_date;
-
-	get_struct_value(line, date);
-
-	return ("2022-02-05");
-}
 
 /* 
 Esta funcion tiene que cambiar el valor de date al día más cercano que encuentre
@@ -77,7 +50,11 @@ void	BitcoinExchange::find_exchange(std::string &date, double &result)
 	it = _change.find(date);
 	while (it == _change.end())
 	{
-		get_lower_day(date);
+   		it = _change.lower_bound(date); // Encuentra el primer elemento que no es menor que 'date'
+    	--it;
+		date = it->first;
+		it = _change.find(date);
+		// get_lower_day(date);
 	}
 	result = it->second;
 }
@@ -105,7 +82,7 @@ void	BitcoinExchange::start_convertion(std::string input)
 
 	// YYYY-MM-DD => 3 = 0.9
 	std::cout << std::setprecision(0) << date << " => " << value << " = " ;
-	std::cout << std::fixed << std::setprecision(2) << value * result << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << value * result << std::endl;
 }
 
 // Principal function
