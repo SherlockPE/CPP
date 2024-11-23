@@ -21,13 +21,18 @@
 # include <fstream>
 # include <exception>
 # include <map>
-
+# include <iostream>
+# include <cstring>
+# include <iostream>
+# include <iomanip>
+# include <climits>
+# include <iostream>
 
 typedef struct s_data
 {
-	size_t	day;
-	size_t	month;
-	size_t	year;
+	int	day;
+	int	month;
+	int	year;
 	s_data(void)
 	{
 		day = 0;
@@ -47,8 +52,9 @@ class BitcoinExchange
 		// std::string		_data_base;
 		// std::string		_input;
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
-		void	extract_data_base(std::ifstream &archive);
-		void	print_change_dict(void);
+		void		extract_data_base(std::ifstream &archive);
+
+
 		
 	public:
 		// CONSTRUCTORS AND DESTRUCTORS---------------------------------------------
@@ -60,12 +66,21 @@ class BitcoinExchange
 		BitcoinExchange& operator=(BitcoinExchange const& other);
 
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
+
+		// Utils
+		void	print_error(std::string msg1, std::string msg2);
+
+		void	print_change_dict(void);
+		void	ft_strtrim(std::string &str);
+
 		void	open_files(const char *input, const char * data_base);
+
+		// Principal functions
 		void	start_change(void);
+		void	start_convertion(std::string input);
+		void	find_exchange(std::string &date, double &result);
 
 
-		void	print_database(void);
-		void	print_input_file(void);
 
 		void	get_content(std::string src, std::string &key, std::string &value);
 		// EXCEPTIONS---------------------------------------------------------------

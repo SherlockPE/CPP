@@ -13,8 +13,10 @@
 NAME = btc
 
 OBJ_DIR =	obj
-SOURCES =	main.cpp\
-			BitcoinExchange.cpp
+SOURCES =	main.cpp \
+			BitcoinExchange.cpp \
+			open_files.cpp \
+			Utils.cpp
 			
 
 MAKE_DIR = mkdir -p

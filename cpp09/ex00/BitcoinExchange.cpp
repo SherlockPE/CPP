@@ -1,27 +1,15 @@
 #include "BitcoinExchange.hpp"
-#include <iostream>
-#include <cstring>
-#include <iostream>
-#include <iomanip>
-#include <climits>
-# include <iostream>
+
 
 // CONSTRUCTORS AND DESTRUCTORS-------------------------------------------------
-BitcoinExchange::BitcoinExchange(void)
-{
-	std::cout << GREEN "BitcoinExchange constructor called" NC << std::endl;
-}
+BitcoinExchange::BitcoinExchange(void){}
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const& other)
 {
-	std::cout << GREEN "BitcoinExchange copy constructor called" NC << std::endl;
 	*this = other;
 }
 
-BitcoinExchange::~BitcoinExchange(void)
-{
-	std::cout << RED "BitcoinExchange destructor called" NC << std::endl;
-}
+BitcoinExchange::~BitcoinExchange(void){}
 
 // OPERATORS--------------------------------------------------------------------
 BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other)
@@ -34,119 +22,91 @@ BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other)
 
 // METHODS AND MEMBER FUNCTIONS-------------------------------------------------
 
-// bool	check_header(std::string	all_line)
-// {
-// 	size_t	pos;
 
-// 	pos = all_line.find("|");
 
-// 	if (std::find(all_line.begin(), all_line.end(), "date") == all_line.end())
-// 		return (false);
+// UTILSS - EXTRACT ARCHIVE DATA.CSV
+/* 
+	Line's variable gonna be something like "2022-12-17"
 
-// 	if (std::find(all_line.begin() + pos, all_line.end(), "value") == all_line.end())
-// 		return (false);
-// 	return (true);
-// }
-
-// void	check_date(std::string &date)
-// {
-// 	size_t	found;
-
-// 	found = date.find()
-// }
-
-void	get_values(std::string all_line, std::string &date, std::string &change)
+	At the end of the function the structure 'date' gonna be full like this:
+		-date.year 2022
+		-date.mont 12
+		-date.day 17
+ */
+void	get_struct_value(std::string line, t_data &date)
 {
-	size_t	found;
+	int i = 0;
+	std::size_t found;
+	std::size_t found_temp;
 
-	found = all_line.find(",");
-	if (found == std::string::npos)
+	found_temp = 0;
+	found = line.find_first_of("-");
+	while (found!=std::string::npos)
 	{
-		date = "";
-		change = "";
-		return ;
-	}
-	date = all_line.substr(0, found);
-	// check_date(date);
-	change = all_line.substr(found + 1);
-	// check_change(change);
-}
-
-void	BitcoinExchange::print_change_dict(void)
-{
-	_dict::iterator it;
-	for (it = _change.begin(); it != _change.end(); it++)
-	{
-		std::cout << GREEN << "[" << it->first << "]" <<  NC << std::setprecision(6) << CYAN << "[" << it->second << "]" <<  NC << std::endl;
-		// std::cout << std::setprecision(6) << it->first << "," << it->second << std::endl;
-	}
-}
-
-
-// Private function:
-void	BitcoinExchange::extract_data_base(std::ifstream &archive)
-{
-	std::string	all_line;
-	std::string	date;
-	std::string	change;
-	size_t		i = -1;
-
-	while (std::getline(archive, all_line))
-	{
-		i++;
 		if (i == 0)
-			continue;
-		get_values(all_line, date, change);
-		_change.insert(std::make_pair(date, std::atof(change.c_str())));
+			date.year = std::atoi(line.substr(found_temp, found).c_str());
+		else if (i == 1)
+			date.month = std::atoi(line.substr(found_temp + 1, found - found_temp - 1).c_str());
+		else
+			break;
+		found_temp = found;
+		found= line.find_first_of("-", found+1);
+		i++;
 	}
+	date.day = std::atoi(line.substr(found_temp + 1, found).c_str());
 }
 
-// Public function:
-void BitcoinExchange::open_files(const char *input, const char * data_base)
+std::string	get_lower_day(std::string line)
 {
-	std::ifstream	_data_base_file;
+	t_data		date;
+	std::string	final_date;
 
-	// INPUT FILE OPENING
-	_input_file.open(input);
-	if (!_input_file.is_open())
-		throw (ErrorException("Fail to open the input file"));
+	get_struct_value(line, date);
 
-	// DATA BASE FILE OPENING
-	_data_base_file.open(data_base);
-	if (!_data_base_file.is_open())
-		throw (ErrorException("Fail to open the data base file"));
-
-	// Extract information
-	extract_data_base(_data_base_file);
-	print_change_dict();
+	return ("2022-02-05");
 }
 
-void	print_error(std::string msg)
+/* 
+Esta funcion tiene que cambiar el valor de date al día más cercano que encuentre
+También debe cambiar el valor de result al valor correspondiente de ese día en la base de datos
+ */
+void	BitcoinExchange::find_exchange(std::string &date, double &result)
 {
-	std::cout << RED "Error: " << msg << "." NC << std::endl;
+	_dict::iterator	it;
+
+	it = _change.find(date);
+	while (it == _change.end())
+	{
+		get_lower_day(date);
+	}
+	result = it->second;
 }
 
-void	start_convertion(std::string input)
+void	BitcoinExchange::start_convertion(std::string input)
 {
 	std::string	date;
-	size_t	found;
-	double		change;
+	size_t		found = 0;
+	double		value = 0;
+	double		result = 0;
 
 	found = input.find("|");
 	if (found == std::string::npos)
-	{
-		std::cout << "Error: bad input => " << input << std::endl;
-		return ;
-	}
+		return(BitcoinExchange::print_error("bad input => ", input));
 	date = input.substr(0, found - 1);
-	change = atof((input.substr(found + 1)).c_str());
-	if (change < 0)
-		return(print_error("not a positive number"));
-	else if (change < INT_MIN || change > INT_MAX)
-		return(print_error("too large number"));
-	std::cout << "[" << date << ", " << change << "]" << std::endl;
-}
+	// value = atof((input.substr(found + 1)).c_str());
+	value = std::strtod((input.substr(found + 1)).c_str(), NULL);
+	if (value < 0)
+		return(BitcoinExchange::print_error("not a positive number", ""));
+	else if (value < INT_MIN || value > INT_MAX)
+		return(BitcoinExchange::print_error("too large number", ""));
 
+	//Find exchange:
+	find_exchange(date, result);
+
+	// YYYY-MM-DD => 3 = 0.9
+	std::cout << std::setprecision(0) << date << " => " << value << " = " ;
+	std::cout << std::fixed << std::setprecision(2) << value * result << std::endl;
+}
 
 // Principal function
 void	BitcoinExchange::start_change(void)
@@ -160,15 +120,7 @@ void	BitcoinExchange::start_change(void)
 		i++;
 		if (i == 0)
 			continue;
+		ft_strtrim(input);
 		start_convertion(input);
 	}
 }
-
-// void	BitcoinExchange::print_database(void)
-// {
-// 	std::cout << CYAN << _data_base << NC << std::endl;
-// }
-// void	BitcoinExchange::print_input_file(void)
-// {
-// 	std::cout << WHITE << _input << NC << std::endl;
-// }
