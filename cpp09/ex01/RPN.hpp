@@ -40,8 +40,16 @@ class RPN
 		RPN& operator=(RPN const& other);
 
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
-		static int	print_error(std::string msg);
+		// Principal
 		void		init(std::string msg);
+		void		start(void);
+
+		// UTILS
+		static int	print_error(std::string msg);
+		int			sum(int num1, int num2);
+		int			sub(int num1, int num2);
+		int			mul(int num1, int num2);
+		int			div(int num1, int num2);
 
 		// EXCEPTION CLASSES -------------------------------------------------------
 		class PolishError : public std::exception
