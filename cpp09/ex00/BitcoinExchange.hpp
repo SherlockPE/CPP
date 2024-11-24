@@ -77,7 +77,7 @@ class BitcoinExchange
 		// Principal functions
 		void	start_change(void);
 		void	start_convertion(std::string input);
-		void	find_exchange(std::string &date, double &result);
+		void	find_exchange(std::string date, double &result);
 
 
 

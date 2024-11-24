@@ -12,43 +12,23 @@
 
 #include "BitcoinExchange.hpp"
 
-int	parse(int argc)
+int main (int argc, char **argv)
 {
 	if (argc < 2 || argc >= 3)
 	{
 		std::cout << RED "Error: \nUsement: [program] [input_file]" NC << std::endl;
 		return (EXIT_FAILURE);
 	}
-	return (EXIT_SUCCESS);
-}
-
-int main (int argc, char **argv)
-{
-	if (parse(argc))
-		return (EXIT_FAILURE);
-
-	// OPENING INPUT ARCHIVE
 	try
 	{
 		BitcoinExchange	bitcoin_convertion;
 
 		bitcoin_convertion.open_files(argv[1], "data.csv");
 		bitcoin_convertion.start_change();
-		// bitcoin_convertion.print_database();
-		// bitcoin_convertion.print_input_file();
 	}
 	catch (std::exception &e)
 	{
 		std::cout << RED << e.what() << NC << std::endl;
 	}
-	
-	// // PRINTING TEST
-	// std::getline(input_file, input, '\0');
-	// std::getline(data_file, data_base, '\0');
-
-	// std::cout << YELLOW << data_base << NC << std::endl;
-	// std::cout << GREEN << input << NC << std::endl;
-
-
 	return (EXIT_SUCCESS);
 }	

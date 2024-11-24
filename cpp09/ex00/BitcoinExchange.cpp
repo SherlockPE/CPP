@@ -31,19 +31,18 @@ BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other)
 		-date.mont 12
 		-date.day 17
  */
-void	get_struct_value(std::string line, t_data &date)
-{
-	date.year = std::atoi(line.c_str());
-	date.month = std::atoi(line.substr(5, 2).c_str());
-	date.day = std::atoi(line.substr(8, 2).c_str());
-}
-
+// void	get_struct_value(std::string line, t_data &date)
+// {
+// 	date.year = std::atoi(line.c_str());
+// 	date.month = std::atoi(line.substr(5, 2).c_str());
+// 	date.day = std::atoi(line.substr(8, 2).c_str());
+// }
 
 /* 
 Esta funcion tiene que cambiar el valor de date al día más cercano que encuentre
 También debe cambiar el valor de result al valor correspondiente de ese día en la base de datos
  */
-void	BitcoinExchange::find_exchange(std::string &date, double &result)
+void	BitcoinExchange::find_exchange(std::string date, double &result)
 {
 	_dict::iterator	it;
 
@@ -66,12 +65,17 @@ void	BitcoinExchange::start_convertion(std::string input)
 	double		value = 0;
 	double		result = 0;
 
+	// Example --> [2011-01-03 | 3]
 	found = input.find("|");
 	if (found == std::string::npos)
 		return(BitcoinExchange::print_error("bad input => ", input));
 	date = input.substr(0, found - 1);
-	// value = atof((input.substr(found + 1)).c_str());
 	value = std::strtod((input.substr(found + 1)).c_str(), NULL);
+
+	// At this point:
+	// 		date	= 2011-01-03
+	//		value	= 3
+
 	if (value < 0)
 		return(BitcoinExchange::print_error("not a positive number", ""));
 	else if (value < INT_MIN || value > INT_MAX)
@@ -81,8 +85,8 @@ void	BitcoinExchange::start_convertion(std::string input)
 	find_exchange(date, result);
 
 	// YYYY-MM-DD => 3 = 0.9
-	std::cout << std::setprecision(0) << date << " => " << value << " = " ;
-	std::cout << std::fixed << std::setprecision(1) << value * result << std::endl;
+	std::cout << std::setprecision(0) << date << " => " << std::setprecision(2) << value << " = " ;
+	std::cout << std::fixed << std::setprecision(2) << value * result << std::endl;
 }
 
 // Principal function
