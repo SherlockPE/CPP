@@ -45,11 +45,15 @@ void BitcoinExchange::open_files(const char *input, const char * data_base)
 	_input_file.open(input);
 	if (!_input_file.is_open())
 		throw (ErrorException("Fail to open the input file"));
+	if (_input_file.peek() == std::ifstream::traits_type::eof())
+		throw (ErrorException("Empty input"));
 
 	// DATA BASE FILE OPENING
 	_data_base_file.open(data_base);
 	if (!_data_base_file.is_open())
 		throw (ErrorException("Fail to open the data base file"));
+	if (_data_base_file.peek() == std::ifstream::traits_type::eof())
+		throw (ErrorException("Empty data base"));
 
 	// Extract information
 	extract_data_base(_data_base_file);

@@ -24,6 +24,7 @@
 # include <iostream>
 # include <cstring>
 # include <iostream>
+#include <algorithm>
 # include <iomanip>
 # include <climits>
 # include <iostream>
@@ -71,7 +72,12 @@ class BitcoinExchange
 		std::string	pass_days_to_str(t_data &date);
 		void		print_change_dict(void);
 		void		ft_strtrim(std::string &str);
+		int 		parse_digit(std::string str);
+		int			validate_date(std::string &date);
 
+
+
+		int	get_struct_value(std::string line);
 		void	open_files(const char *input, const char * data_base);
 
 		// Principal functions
