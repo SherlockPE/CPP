@@ -75,11 +75,9 @@ class BitcoinExchange
 		void	open_files(const char *input, const char * data_base);
 
 		// Principal functions
-		void	start_change(void);
-		void	start_convertion(std::string input);
-		void	find_exchange(std::string date, double &result);
-
-
+		void		start_change(void);
+		void		start_convertion(std::string input);
+		std::string	find_exchange(std::string date, double &result);
 
 		void	get_content(std::string src, std::string &key, std::string &value);
 		// EXCEPTIONS---------------------------------------------------------------

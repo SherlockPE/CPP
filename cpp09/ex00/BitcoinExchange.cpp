@@ -42,7 +42,7 @@ BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other)
 Esta funcion tiene que cambiar el valor de date al día más cercano que encuentre
 También debe cambiar el valor de result al valor correspondiente de ese día en la base de datos
  */
-void	BitcoinExchange::find_exchange(std::string date, double &result)
+std::string	BitcoinExchange::find_exchange(std::string date, double &result)
 {
 	_dict::iterator	it;
 
@@ -53,14 +53,16 @@ void	BitcoinExchange::find_exchange(std::string date, double &result)
     	--it;
 		date = it->first;
 		it = _change.find(date);
-		// get_lower_day(date);
 	}
 	result = it->second;
+	return (date);
 }
 
 void	BitcoinExchange::start_convertion(std::string input)
 {
 	std::string	date;
+	std::string	date_used;
+	std::string	val_money;
 	size_t		found = 0;
 	double		value = 0;
 	double		result = 0;
@@ -70,7 +72,11 @@ void	BitcoinExchange::start_convertion(std::string input)
 	if (found == std::string::npos)
 		return(BitcoinExchange::print_error("bad input => ", input));
 	date = input.substr(0, found - 1);
-	value = std::strtod((input.substr(found + 1)).c_str(), NULL);
+	ft_strtrim(date);
+
+	val_money = input.substr(found + 1);
+	ft_strtrim(val_money);
+	value = std::strtod(val_money.c_str(), NULL);
 
 	// At this point:
 	// 		date	= 2011-01-03
@@ -82,11 +88,13 @@ void	BitcoinExchange::start_convertion(std::string input)
 		return(BitcoinExchange::print_error("too large number", ""));
 
 	//Find exchange:
-	find_exchange(date, result);
+	date_used = find_exchange(date, result);
 
-	// YYYY-MM-DD => 3 = 0.9
-	std::cout << std::setprecision(0) << date << " => " << std::setprecision(2) << value << " = " ;
-	std::cout << std::fixed << std::setprecision(2) << value * result << std::endl;
+	// 			Input: [YYYY-MM-DD => 3] | Using [YYYY-MM-DD => 0.3] |  3 * 0.3 === 0.9
+
+	std::cout << "Input: [" << date << "| " << YELLOW << val_money << NC << "]" << GREEN " | " << NC;
+	std::cout << "Using: [" << date_used << "| " << CYAN << result << NC << "]" << GREEN " | " << NC;
+	std::cout << YELLOW << value << NC << " * " << CYAN << result << NC << std::endl;
 }
 
 // Principal function
@@ -99,7 +107,7 @@ void	BitcoinExchange::start_change(void)
 	while (std::getline(_input_file, input))
 	{
 		i++;
-		if (i == 0)
+		if (i == 0 || input.empty())
 			continue;
 		ft_strtrim(input);
 		start_convertion(input);
