@@ -56,6 +56,15 @@ int BitcoinExchange::parse_digit(std::string str)
 	return (EXIT_SUCCESS);
 }
 
+
+// Un año es bisiesto si es divisible entre 4, pero no entre 100, excepto si también es divisible entre 400.
+int BitcoinExchange::is_leap_year(int year)
+{
+	if ((year % 4) == 0 && (year % 100 != 0 || (year % 400 == 0)))
+		return (1);
+	return (0);
+}
+
 // UTILSS - EXTRACT ARCHIVE DATA.CSV
 /* 
 	Line's variable gonna be something like "2022-12-17"
@@ -75,6 +84,11 @@ int	BitcoinExchange::get_struct_value(std::string line)
 
 	// Parseo normalito
 	int	daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+	// If the year is leap... (bisiesto)
+	if (is_leap_year(date.year))
+		daysInMonth[2] = 29;
+
 	if (date.year <= 0 || date.month <= 0 || date.day <= 0 
 		|| date.month > 12 || date.day > daysInMonth[date.month])
 		return (EXIT_FAILURE);

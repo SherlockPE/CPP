@@ -83,11 +83,9 @@ void	BitcoinExchange::start_convertion(std::string input)
 	date_used = find_exchange(date, result);
 
 	// Print Line
-	// Input: [YYYY-MM-DD => 3] | Using [YYYY-MM-DD => 0.3] |  3 * 0.3 === 0.9
-
-	std::cout << "Input: [" << date << "| " << YELLOW << val_money << NC << "] | ";
-	std::cout << "Using: [" << date_used << "| " << CYAN << result << NC << "] | ";
-	std::cout << YELLOW << value << NC << " * " << CYAN << result << GREEN << "---> " << value * result << NC << std::endl;
+	std::cout << "Input: [" << date << "| " << YELLOW << std::setw(5) << val_money << NC << "] | ";
+	std::cout << "Using: [" << date_used << "| " << CYAN << std::setw(7) << result << NC << "] | ";
+	std::cout << YELLOW << value << NC << " * " << CYAN << result << GREEN << " --Exchange---> " << WHITE << value * result << NC << std::endl;
 }
 
 // Principal function

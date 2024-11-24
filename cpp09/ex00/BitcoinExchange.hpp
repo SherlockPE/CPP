@@ -72,8 +72,10 @@ class BitcoinExchange
 		std::string	pass_days_to_str(t_data &date);
 		void		print_change_dict(void);
 		void		ft_strtrim(std::string &str);
-		int 		parse_digit(std::string str);
+		int			parse_digit(std::string str);
 		int			validate_date(std::string &date);
+		int			is_leap_year(int year);
+
 
 
 
