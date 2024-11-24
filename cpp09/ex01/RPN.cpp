@@ -53,6 +53,11 @@ int	RPN::print_error(std::string msg)
 	return (EXIT_FAILURE);
 }
 
+std::string	RPN::get_storage(void)
+{
+	return (_storage);
+}
+
 
 // Principal
 void	RPN::init(std::string args)
@@ -69,7 +74,7 @@ void	RPN::init(std::string args)
 	while (pos != std::string::npos)
 	{
 		if (pos + 1 < args.size() && args[pos + 1] != ' ')
-			throw (PolishError("Error: Invalid input"));
+			throw (PolishError("Error: Invalid input, the numbers must be positive or < 10"));
 
 		// Comprobar que el caracter actual sea válido:
 		if (std::find(valid_chars.begin(), valid_chars.end(), args[pos]) == valid_chars.end())
@@ -88,7 +93,7 @@ void	RPN::init(std::string args)
 	// 		-Que tenga al menos 3 elementos
 	// 		-Que el ultimo valor no sea un digito (tiene que ser un operador para poder funcionar)
 	if (_storage.size() <= 2 || std::isdigit(_storage[_storage.size() - 1]))
-		throw (PolishError("Error: Invalid input"));
+		throw (PolishError("Error: Invalid input (not enough elements or the last element must be an operator)"));
 
 	num_operators += std::count(args.begin(), args.end(), '+');
 	num_operators += std::count(args.begin(), args.end(), '-');
@@ -96,7 +101,7 @@ void	RPN::init(std::string args)
 	num_operators += std::count(args.begin(), args.end(), '/');
 
 	if (num_operators != (_storage.size() - num_operators) - 1)
-		throw (PolishError("Invalid operator"));
+		throw (PolishError("Error: Operator without sufficient operands"));
 }
 
 void	RPN::start(void)
@@ -154,7 +159,7 @@ void	RPN::start(void)
 
 	// Imprimo el resultado
 	final_value = _stack.top();
-	std::cout << GREEN << "Result: " << final_value << NC <<  std::endl;
+	std::cout << GREEN << "Result: " << final_value << NC << std::endl;
 }
 
 

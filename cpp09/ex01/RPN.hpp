@@ -46,6 +46,7 @@ class RPN
 
 		// UTILS
 		static int	print_error(std::string msg);
+		std::string	get_storage(void);
 		int			sum(int num1, int num2);
 		int			sub(int num1, int num2);
 		int			mul(int num1, int num2);
