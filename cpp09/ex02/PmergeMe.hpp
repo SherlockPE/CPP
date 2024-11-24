@@ -17,15 +17,19 @@
 # define _PMERGEME_HPP
 
 # include <string>
+# include <vector>
+# include <list>
+# include <cstdlib>
 # include <iostream>
 
 class PmergeMe
 {
 	private:
-		PmergeMe(void);
-
+		std::vector<int>	_array;
+		std::list<int>		_list;
 	public:
 		// CONSTRUCTORS AND DESTRUCTORS---------------------------------------------
+		PmergeMe(void);
 		PmergeMe(std::string args);
 		PmergeMe(PmergeMe const& other);
 		~PmergeMe(void);
@@ -35,15 +39,15 @@ class PmergeMe
 
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
 		static	int print_error(std::string msg);
-		int		parse_input(std::string argv);
+		void		insert(std::string args);
 
 		// EXCEPTION CLASSES -------------------------------------------------------
-		class PolishError : public std::exception
+		class PmergeError : public std::exception
 		{
 			private:
 				const char *_msg;
 			public:
-				PolishError(const char *msg): _msg(msg){};
+				PmergeError(const char *msg): _msg(msg){};
 				virtual const char * what() const throw ()
 				{
 					return (_msg);

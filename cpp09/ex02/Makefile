@@ -6,14 +6,15 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/11 12:36:14 by flopez-r          #+#    #+#              #
-#    Updated: 2024/11/24 04:36:40 by flopez-r         ###   ########.fr        #
+#    Updated: 2024/11/24 14:07:49 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = RPN
+NAME = PmergeMe
 
 OBJ_DIR =	obj
-SOURCES =	main.cpp
+SOURCES =	main.cpp \
+			PmergeMe.cpp
 
 MAKE_DIR = mkdir -p
 SRC = $(SOURCES)
