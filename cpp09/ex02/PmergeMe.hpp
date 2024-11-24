@@ -40,6 +40,7 @@ class PmergeMe
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
 		static	int print_error(std::string msg);
 		void		insert(std::string args);
+		void		start(void);
 
 		// EXCEPTION CLASSES -------------------------------------------------------
 		class PmergeError : public std::exception

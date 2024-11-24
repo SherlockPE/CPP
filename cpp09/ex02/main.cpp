@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 04:34:49 by flopez-r          #+#    #+#             */
-/*   Updated: 2024/11/24 14:06:36 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/11/24 15:05:48 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main(int argc, char **argv)
 
 		for (size_t i = 1; argv[i]; i++)
 			rev_polish.insert(argv[i]);
+		rev_polish.start();
 	
 	} catch (std::exception &e) {
 		std::cout << RED << e.what() << NC << std::endl;

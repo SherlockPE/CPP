@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 #include <iostream>
+#include <climits>
 
 // CONSTRUCTORS AND DESTRUCTORS-------------------------------------------------
 PmergeMe::PmergeMe(void){}
@@ -31,15 +32,16 @@ int	PmergeMe::print_error(std::string msg)
 }
 
 // Principal
-// [0 2 -2     4   21  54]
 void		PmergeMe::insert(std::string input)
 {
 	size_t		pos = 0;
 	size_t		next_pos = 0;
-	std::string	valid("0123456789-+");
+	std::string	valid("0123456789");
 
 	// std::cout << "Input --> [" << input << "]" << std::endl;
 	pos = input.find_first_not_of(' ');
+	if (input.empty())
+		throw (PmergeError("Error: Empty imput"));
 	while (pos != std::string::npos)
 	{
 		next_pos = input.find_first_of(' ', pos);
@@ -47,19 +49,47 @@ void		PmergeMe::insert(std::string input)
 			next_pos = input.size();
 
 		if (next_pos - pos > 10)
-		{
-			std::cout << " no se 1 " << std::endl;
-				return ;
-		}
+			throw (PmergeError("Error: Argument to long"));
 
 		for (size_t i = pos; i < next_pos; i++)
 		{
 			if (valid.find(input[i]) == std::string::npos)
-				throw (PmergeError("Error: Not valid Arguments\n"));
+				throw (PmergeError("Error: Not valid Arguments"));
 		}
-
-		std::cout << "pos: " << pos << " | next pos: " << next_pos << std::endl;
-		std::cout << GREEN "Adding --> [" << std::strtol(input.substr(pos, next_pos).c_str(), NULL, 10) << "]" << NC << std::endl;
+		std::string value_str =  input.substr(pos, next_pos).c_str();
+		long value =  std::strtol(value_str.c_str(), NULL, 10);
+		if (value > INT_MAX)
+			throw (PmergeError("Error: Argument to long"));
+		_array.push_back(value);
 		pos = input.find_first_not_of(' ', next_pos + 1);
 	}
+}
+
+void		PmergeMe::start(void)
+{
+	std::cout << "Before: " << MAGENTA;
+	for (size_t i = 0; i < _array.size(); i++)
+		std::cout << _array[i] << " ";
+	std::cout << NC << std::endl;
+
+	// Inicia el reloj
+	// clock_t	start_vector = clock();
+	// clock_t	start_list = clock();
+
+	// Algoritmo de ordenamiento
+	double	final_time_vector = 0;
+	double	final_time_list = 0;
+
+	// Imprimir contenedor ordenado
+	std::cout << "After : " << GREEN;
+	for (size_t i = 0; i < _array.size(); i++)
+		std::cout << _array[i] << " ";
+	std::cout << NC << std::endl;
+
+	// Imprimir tiempo de ejecución
+	std::cout << "Time to process a range of " << _array.size()
+		<< " with [std::vector] :  " << final_time_vector << " ms" << std::endl;
+	std::cout << "Time to process a range of " << _list.size()
+		<< " with [std::list] :  " << final_time_list << " ms" << std::endl;
+	std::cout << NC << std::endl;
 }
