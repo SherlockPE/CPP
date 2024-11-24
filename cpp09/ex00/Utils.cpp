@@ -19,6 +19,8 @@ void	BitcoinExchange::print_change_dict(void)
 
 void	BitcoinExchange::ft_strtrim(std::string &str)
 {
+	if (str.empty())
+		return;
 	while (str[0] == ' ')
 		str.erase(str.begin());
 	while (str[str.size() - 1] == ' ')

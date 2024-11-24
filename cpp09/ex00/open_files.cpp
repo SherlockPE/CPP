@@ -57,5 +57,6 @@ void BitcoinExchange::open_files(const char *input, const char * data_base)
 
 	// Extract information
 	extract_data_base(_data_base_file);
-	// print_change_dict();
+	if (_change.empty())
+		throw (ErrorException("Empty data base"));
 }
