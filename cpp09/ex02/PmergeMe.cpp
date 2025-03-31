@@ -65,12 +65,23 @@ void		PmergeMe::insert(std::string input)
 	}
 }
 
-void		PmergeMe::start(void)
+void	parse(std::string arr)
 {
-	std::cout << "Before: " << MAGENTA;
-	for (size_t i = 0; i < _array.size(); i++)
-		std::cout << _array[i] << " ";
-	std::cout << NC << std::endl;
+	
+}
+
+void	PmergeMe::ford_jhonson(void)
+{
+
+}
+
+void		PmergeMe::start(std::string arr)
+{
+	parse(arr);
+	// std::cout << "Before: " << MAGENTA;
+	// for (size_t i = 0; i < _array.size(); i++)
+	// 	std::cout << _array[i] << " ";
+	// std::cout << NC << std::endl;
 
 	// Inicia el reloj
 	// clock_t	start_vector = clock();
@@ -80,11 +91,11 @@ void		PmergeMe::start(void)
 	double	final_time_vector = 0;
 	double	final_time_list = 0;
 
-	// Imprimir contenedor ordenado
-	std::cout << "After : " << GREEN;
-	for (size_t i = 0; i < _array.size(); i++)
-		std::cout << _array[i] << " ";
-	std::cout << NC << std::endl;
+	// // Imprimir contenedor ordenado
+	// std::cout << "After : " << GREEN;
+	// for (size_t i = 0; i < _array.size(); i++)
+	// 	std::cout << _array[i] << " ";
+	// std::cout << NC << std::endl;
 
 	// Imprimir tiempo de ejecución
 	std::cout << "Time to process a range of " << _array.size()

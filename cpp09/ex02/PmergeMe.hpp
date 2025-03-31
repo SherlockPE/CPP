@@ -39,8 +39,9 @@ class PmergeMe
 
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
 		static	int print_error(std::string msg);
+		void		ford_jhonson(void);
 		void		insert(std::string args);
-		void		start(void);
+		void		start(std::string arr);
 
 		// EXCEPTION CLASSES -------------------------------------------------------
 		class PmergeError : public std::exception
