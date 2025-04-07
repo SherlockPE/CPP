@@ -103,11 +103,6 @@ void	recursive_sort(std::vector<std::pair<long, long> > &pairs)
 	}
 }
 
-
-
-
-
-
 void	PmergeMe::ford_jhonson(void)
 {
 	std::vector<std::pair<long, long> > pairs;
