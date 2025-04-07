@@ -66,10 +66,6 @@ void	PmergeMe::make_and_sort_pairs(std::vector<std::pair<long, long> > &pairs, l
 	}
 }
 
-void	generate_bresenham_numbers(void)
-{
-
-}
 
 void	recursive_sort(std::vector<std::pair<long, long> > &pairs)
 {
@@ -103,9 +99,29 @@ void	recursive_sort(std::vector<std::pair<long, long> > &pairs)
 	}
 }
 
+long	generate_bresenham_numbers(void)
+{
+	static long num;
+	static int i;
+
+	num *= 2;
+	if (i % 2 == 0)
+		num += 2;
+	else
+		num -= 2;
+	i++;
+	return (num);
+}
+
+void	last_insertion(long last_value, std::vector<std::pair<long, long> > &pairs, std::vector<long> &result)
+{
+
+}
+
 void	PmergeMe::ford_jhonson(void)
 {
 	std::vector<std::pair<long, long> > pairs;
+	std::vector<long>					result;
 	long last_value = -1;
 
 	// 1.- make and sort pairs 
@@ -119,17 +135,25 @@ void	PmergeMe::ford_jhonson(void)
 	// 2.- Recursive algorithm
 	std::cout << MAGENTA;
 	recursive_sort(pairs);
+
+	// 3.- Insert order
 	for (size_t i = 0; i < pairs.size(); i++)
 	{
-		std::cout << "fila: " << i << " [" << pairs[i].first << ", " << pairs[i].second << "]\n";
+		result.push_back(pairs[i].second);
 	}
-	std::cout << last_value;
+	// 4.- Insert at the start of S {\displaystyle S} the element that was paired with the first and smallest element of S {\displaystyle S}.
+	result.insert(result.begin(), pairs[0].first);
 
+	// 5.- Last insert
+	last_insertion(last_value, pairs, result);
+
+	// std::cout << last_value;
 }
 
 void		PmergeMe::start(std::stringstream &arr)
 {
 	parse(arr);
+	
 	std::cout << "Before: " << MAGENTA;
 	for (size_t i = 0; i < _array.size(); i++)
 		std::cout << _array[i] << " ";
