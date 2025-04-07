@@ -1,6 +1,8 @@
 #include "PmergeMe.hpp"
 #include <iostream>
 #include <climits>
+#include <stdio.h>
+#include <cctype>
 
 // CONSTRUCTORS AND DESTRUCTORS-------------------------------------------------
 PmergeMe::PmergeMe(void){}
@@ -65,9 +67,23 @@ void		PmergeMe::insert(std::string input)
 	}
 }
 
-void	parse(std::string arr)
+void	PmergeMe::parse(std::stringstream &arr)
 {
-	
+	long number;
+
+	while (arr >> number)
+	{
+		if (number < 0)
+			throw (PmergeError("Error:  not a valid input"));
+		if (number < INT_MIN || number > INT_MAX)
+			throw (PmergeError("Error:  not a valid input"));
+		_array.push_back(number);
+		_list.push_back(number);
+
+		std::cout << "Numero [" << number << "]" << std::endl;
+	}
+	if (!arr.eof())
+		throw (PmergeError("Error: not a valid input!"));
 }
 
 void	PmergeMe::ford_jhonson(void)
@@ -75,7 +91,7 @@ void	PmergeMe::ford_jhonson(void)
 
 }
 
-void		PmergeMe::start(std::string arr)
+void		PmergeMe::start(std::stringstream &arr)
 {
 	parse(arr);
 	// std::cout << "Before: " << MAGENTA;

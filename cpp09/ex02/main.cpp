@@ -19,13 +19,11 @@ int main(int argc, char **argv)
 	try
 	{
 		PmergeMe	merge_alg;
-		std::string	array;
+		std::stringstream	input;
+
 		for (size_t i = 1; argv[i]; i++)
-		{
-			array.append(argv[i]);
-			array.append(" ");
-		}
-		merge_alg.start(array);
+			input << argv[i] << " ";
+		merge_alg.start(input);
 	
 	} catch (std::exception &e) {
 		std::cout << RED << e.what() << NC << std::endl;

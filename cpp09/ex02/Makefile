@@ -35,7 +35,7 @@ $(OBJ_DIR)/%.o: %.cpp
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) -c $< -o $@
 
 c_dir:
-	$(MAKE_DIR) $(OBJ_DIR)
+	@$(MAKE_DIR) $(OBJ_DIR)
 
 clean:
 	rm -rf $(OBJ_DIR)

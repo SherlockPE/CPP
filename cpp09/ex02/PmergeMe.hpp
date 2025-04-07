@@ -20,6 +20,7 @@
 # include <vector>
 # include <list>
 # include <cstdlib>
+#include <sstream>
 # include <iostream>
 
 class PmergeMe
@@ -41,7 +42,8 @@ class PmergeMe
 		static	int print_error(std::string msg);
 		void		ford_jhonson(void);
 		void		insert(std::string args);
-		void		start(std::string arr);
+		void		start(std::stringstream &arr);
+		void		parse(std::stringstream &arr);
 
 		// EXCEPTION CLASSES -------------------------------------------------------
 		class PmergeError : public std::exception
