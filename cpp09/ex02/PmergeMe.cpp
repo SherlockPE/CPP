@@ -33,40 +33,6 @@ int	PmergeMe::print_error(std::string msg)
 	return (EXIT_FAILURE);
 }
 
-// Principal
-void		PmergeMe::insert(std::string input)
-{
-	size_t		pos = 0;
-	size_t		next_pos = 0;
-	std::string	valid("0123456789");
-
-	// std::cout << "Input --> [" << input << "]" << std::endl;
-	pos = input.find_first_not_of(' ');
-	if (input.empty())
-		throw (PmergeError("Error: Empty imput"));
-	while (pos != std::string::npos)
-	{
-		next_pos = input.find_first_of(' ', pos);
-		if (next_pos == std::string::npos)
-			next_pos = input.size();
-
-		if (next_pos - pos > 10)
-			throw (PmergeError("Error: Argument to long"));
-
-		for (size_t i = pos; i < next_pos; i++)
-		{
-			if (valid.find(input[i]) == std::string::npos)
-				throw (PmergeError("Error: Not valid Arguments"));
-		}
-		std::string value_str =  input.substr(pos, next_pos).c_str();
-		long value =  std::strtol(value_str.c_str(), NULL, 10);
-		if (value > INT_MAX)
-			throw (PmergeError("Error: Argument to long"));
-		_array.push_back(value);
-		pos = input.find_first_not_of(' ', next_pos + 1);
-	}
-}
-
 void	PmergeMe::parse(std::stringstream &arr)
 {
 	long number;
@@ -79,8 +45,6 @@ void	PmergeMe::parse(std::stringstream &arr)
 			throw (PmergeError("Error:  not a valid input"));
 		_array.push_back(number);
 		_list.push_back(number);
-
-		std::cout << "Numero [" << number << "]" << std::endl;
 	}
 	if (!arr.eof())
 		throw (PmergeError("Error: not a valid input!"));
@@ -88,30 +52,56 @@ void	PmergeMe::parse(std::stringstream &arr)
 
 void	PmergeMe::ford_jhonson(void)
 {
+	std::vector	<long>					result;
+	std::vector<std::pair<long, long> > pairs;
+	std::pair<long, long>				temp;
 
+
+	long last_value = -1;
+	if (_array.size() % 2 != 0)
+	{
+		last_value = _array.back();
+		_array.pop_back();
+	}
+	for (size_t i = 0; i < _array.size(); i += 2)
+	{
+		if (_array[i] > _array[i + 1])
+			pairs.push_back(std::make_pair(_array[i + 1], _array[i]));
+		else
+			pairs.push_back(std::make_pair(_array[i], _array[i + 1]));
+	}
+
+	// 
+	for (size_t i = 0; i < pairs.size(); i++)
+	{
+		std::cout << "fila: " << i << " [" << pairs[i].first << ", " << pairs[i].second << "]\n";
+	}
+	
 }
 
 void		PmergeMe::start(std::stringstream &arr)
 {
 	parse(arr);
-	// std::cout << "Before: " << MAGENTA;
-	// for (size_t i = 0; i < _array.size(); i++)
-	// 	std::cout << _array[i] << " ";
-	// std::cout << NC << std::endl;
+	std::cout << "Before: " << MAGENTA;
+	for (size_t i = 0; i < _array.size(); i++)
+		std::cout << _array[i] << " ";
+	std::cout << NC << std::endl;
 
 	// Inicia el reloj
 	// clock_t	start_vector = clock();
 	// clock_t	start_list = clock();
 
 	// Algoritmo de ordenamiento
+	ford_jhonson();
 	double	final_time_vector = 0;
 	double	final_time_list = 0;
+	
 
-	// // Imprimir contenedor ordenado
-	// std::cout << "After : " << GREEN;
-	// for (size_t i = 0; i < _array.size(); i++)
-	// 	std::cout << _array[i] << " ";
-	// std::cout << NC << std::endl;
+	// Imprimir contenedor ordenado
+	std::cout << "After : " << GREEN;
+	for (size_t i = 0; i < _array.size(); i++)
+		std::cout << _array[i] << " ";
+	std::cout << NC << std::endl;
 
 	// Imprimir tiempo de ejecución
 	std::cout << "Time to process a range of " << _array.size()

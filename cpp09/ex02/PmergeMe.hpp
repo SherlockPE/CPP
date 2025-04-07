@@ -26,8 +26,8 @@
 class PmergeMe
 {
 	private:
-		std::vector<int>	_array;
-		std::list<int>		_list;
+		std::vector<long>	_array;
+		std::list<long>		_list;
 	public:
 		// CONSTRUCTORS AND DESTRUCTORS---------------------------------------------
 		PmergeMe(void);
