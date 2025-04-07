@@ -45,6 +45,10 @@ class PmergeMe
 		void		start(std::stringstream &arr);
 		void		parse(std::stringstream &arr);
 
+		// ALGORITHM
+
+		void	make_and_sort_pairs(std::vector<std::pair<long, long> > &pairs, long &last_value);
+
 		// EXCEPTION CLASSES -------------------------------------------------------
 		class PmergeError : public std::exception
 		{

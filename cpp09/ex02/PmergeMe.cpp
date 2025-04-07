@@ -50,14 +50,8 @@ void	PmergeMe::parse(std::stringstream &arr)
 		throw (PmergeError("Error: not a valid input!"));
 }
 
-void	PmergeMe::ford_jhonson(void)
+void	PmergeMe::make_and_sort_pairs(std::vector<std::pair<long, long> > &pairs, long &last_value)
 {
-	std::vector	<long>					result;
-	std::vector<std::pair<long, long> > pairs;
-	std::pair<long, long>				temp;
-
-
-	long last_value = -1;
 	if (_array.size() % 2 != 0)
 	{
 		last_value = _array.back();
@@ -70,13 +64,72 @@ void	PmergeMe::ford_jhonson(void)
 		else
 			pairs.push_back(std::make_pair(_array[i], _array[i + 1]));
 	}
+}
 
-	// 
+void	generate_bresenham_numbers(void)
+{
+
+}
+
+void	recursive_sort(std::vector<std::pair<long, long> > &pairs)
+{
+	if (pairs.size() <= 1)
+		return;
+	
+
+	std::vector<std::pair<long, long> > first_pair(pairs.begin(), pairs.begin() + pairs.size() / 2);
+	std::vector<std::pair<long, long> > second_pair(pairs.begin() + pairs.size() / 2, pairs.end());
+	recursive_sort(first_pair);
+	recursive_sort(second_pair);
+
+	size_t itf = 0;
+	size_t its = 0;
+	size_t itp = 0;
+	while (itf < first_pair.size() && its < second_pair.size())
+	{
+		if (first_pair[itf].second > second_pair[its].second)
+			pairs[itp] = second_pair[its++];
+		else
+			pairs[itp] = first_pair[itf++];
+		itp++;
+	}
+	while (itf < first_pair.size() || its < second_pair.size())
+	{
+		if (itf == first_pair.size())
+			pairs[itp] = second_pair[its++];
+		else
+			pairs[itp] = first_pair[itf++];
+		itp++;
+	}
+}
+
+
+
+
+
+
+void	PmergeMe::ford_jhonson(void)
+{
+	std::vector<std::pair<long, long> > pairs;
+	long last_value = -1;
+
+	// 1.- make and sort pairs 
+	make_and_sort_pairs(pairs, last_value);
+
+	std::cout << YELLOW;
 	for (size_t i = 0; i < pairs.size(); i++)
 	{
 		std::cout << "fila: " << i << " [" << pairs[i].first << ", " << pairs[i].second << "]\n";
 	}
-	
+	// 2.- Recursive algorithm
+	std::cout << MAGENTA;
+	recursive_sort(pairs);
+	for (size_t i = 0; i < pairs.size(); i++)
+	{
+		std::cout << "fila: " << i << " [" << pairs[i].first << ", " << pairs[i].second << "]\n";
+	}
+	std::cout << last_value;
+
 }
 
 void		PmergeMe::start(std::stringstream &arr)
