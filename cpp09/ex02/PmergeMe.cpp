@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <cctype>
 #include <algorithm>
+#include <iterator>
 
 // CONSTRUCTORS AND DESTRUCTORS-------------------------------------------------
 PmergeMe::PmergeMe(void){}
@@ -32,6 +33,15 @@ int	PmergeMe::print_error(std::string msg)
 {
 	std::cout << RED << "Error: " << msg << NC << std::endl;
 	return (EXIT_FAILURE);
+}
+void	print_array(std::vector<long> arr)
+{
+	std::cout << GREEN << "Result :\n" ;
+	for (size_t i = 0; i < arr.size(); i++)
+	{
+		std::cout << arr[i] << ", ";
+	}
+	std::cout << NC << std::endl ;
 }
 
 void	PmergeMe::parse(std::stringstream &arr)
@@ -115,36 +125,41 @@ long	generate_insertion_order(void)
 	return (num);
 }
 
-
-
-long	binary_search(std::vector<long> &result, long number)
+std::vector<long>::iterator	binary_search(std::vector<long>::iterator start, std::vector<long>::iterator end, long number)
 {
-	long position;
-	long	size;
-	long	half;
+	std::vector<long>::iterator	half;
 
-	size = result.size() / 2;
-	// while (true)
-	// {
-	// 	half = result[size];
-	// 	if (number < half)
-	// 	{
-	// 		half = result[size / 2];
-	// 		if (half > number)
-	// 	}
-	// }
+	if (std::distance(start, end) <= 1)
+	{
+		std::cout << "Valor de start [" << *start << "]" << "\n";
+		std::cout << "Valor de number [" << number << "]" << "\n";
+		if (*start > number)
+			return (start);
+		std::advance(start, 1);
+		return (start);
+	}
+	half = start + std::distance(start, end) / 2;
+	if (number < *half)
+		return (binary_search(start, half, number));
+	else if (number > *half)
+		return (binary_search(half, end, number));
+	return (half);
 }
 
-void binary_search_insertion(std::vector<long> & result, std::vector<long> &insertion_order, long last_value)
+
+void binary_search_insertion(std::vector<long> &result, std::vector<long> &insertion_order, long last_value)
 {
-	long position;
+	std::vector<long>::iterator position;
 
 	for (size_t i = 0; i < insertion_order.size(); i++)
 	{
-		position = binary_search(result, insertion_order[i]);
-
+		position = binary_search(result.begin(), result.end(), insertion_order[i]);
+		std::cout << WHITE << "Intenté meter el número ["<< insertion_order[i] << "]" << " en la posición -->" << std::distance(result.begin(), position) << "\n" << NC;
+		result.insert(position, insertion_order[i]);
+		print_array(result);
 	}
-	
+	position = binary_search(result.begin(), result.end(), last_value);
+	result.insert(position, last_value);
 }
 
 void	last_insertion(long last_value, std::vector<std::pair<long, long> > &pairs, std::vector<long> &result)
@@ -155,7 +170,6 @@ void	last_insertion(long last_value, std::vector<std::pair<long, long> > &pairs,
 	long											group_size;
 
 	(void)last_value;
-	(void)result;
 	it = pairs.begin() + 1;
 	while (it != pairs.end())
 	{
@@ -168,18 +182,18 @@ void	last_insertion(long last_value, std::vector<std::pair<long, long> > &pairs,
 		std::reverse(group.begin(), group.end());
 		insertion_order.insert(insertion_order.end(), group.begin(), group.end());
 
-		std::cout << CYAN << "Insertion order: " ;
-		for (size_t i = 0; i < insertion_order.size(); i++)
-		{
-			std::cout << insertion_order[i] << ", " ;
-		}
-		std::cout << "\n";
 		group.clear();
 	}
+	std::cout << CYAN << "Insertion order: " ;
+	for (size_t i = 0; i < insertion_order.size(); i++)
+	{
+		std::cout << insertion_order[i] << ", " ;
+	}
+	std::cout << "\n";
 	binary_search_insertion(result, insertion_order, last_value);
 }
 
-void	PmergeMe::ford_jhonson(void)
+std::vector<long>	PmergeMe::ford_jhonson(void)
 {
 	std::vector<std::pair<long, long> > pairs;
 	std::vector<long>					result;
@@ -219,10 +233,12 @@ void	PmergeMe::ford_jhonson(void)
 	last_insertion(last_value, pairs, result);
 
 	// std::cout << last_value;
+	return (result);
 }
 
 void		PmergeMe::start(std::stringstream &arr)
 {
+	std::vector<long>	result;
 	parse(arr);
 	
 	std::cout << "Before: " << MAGENTA;
@@ -235,7 +251,7 @@ void		PmergeMe::start(std::stringstream &arr)
 	// clock_t	start_list = clock();
 
 	// Algoritmo de ordenamiento
-	ford_jhonson();
+	result = ford_jhonson();
 	double	final_time_vector = 0;
 	double	final_time_list = 0;
 

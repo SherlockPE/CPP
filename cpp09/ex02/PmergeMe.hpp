@@ -40,7 +40,7 @@ class PmergeMe
 
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
 		static	int print_error(std::string msg);
-		void		ford_jhonson(void);
+		std::vector<long>	ford_jhonson(void);
 		void		insert(std::string args);
 		void		start(std::stringstream &arr);
 		void		parse(std::stringstream &arr);
