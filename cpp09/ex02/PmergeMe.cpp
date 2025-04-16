@@ -3,6 +3,7 @@
 #include <climits>
 #include <stdio.h>
 #include <cctype>
+#include <algorithm>
 
 // CONSTRUCTORS AND DESTRUCTORS-------------------------------------------------
 PmergeMe::PmergeMe(void){}
@@ -99,7 +100,8 @@ void	recursive_sort(std::vector<std::pair<long, long> > &pairs)
 	}
 }
 
-long	generate_bresenham_numbers(void)
+//  2, 2, 6, 10, 22, 42, ...
+long	generate_insertion_order(void)
 {
 	static long num;
 	static int i;
@@ -115,7 +117,24 @@ long	generate_bresenham_numbers(void)
 
 void	last_insertion(long last_value, std::vector<std::pair<long, long> > &pairs, std::vector<long> &result)
 {
+	std::vector<std::pair<long, long> >::iterator	it;
+	std::vector<long>								group;
+	std::vector<long>								insertion_order;
+	long											group_size;
 
+
+	it = pairs.begin() + 1;
+	while ()
+	{
+		group_size = generate_insertion_order();
+		for (size_t i = 0; i < group_size && it != pairs.end(); i++)
+		{
+			group.push_back((*it).first);
+			it++;
+		}
+		std::reverse(group.begin(), group.end());
+		insertion_order.insert(insertion_order.end(), group.begin(), group.end());
+	}
 }
 
 void	PmergeMe::ford_jhonson(void)
@@ -133,8 +152,12 @@ void	PmergeMe::ford_jhonson(void)
 		std::cout << "fila: " << i << " [" << pairs[i].first << ", " << pairs[i].second << "]\n";
 	}
 	// 2.- Recursive algorithm
-	std::cout << MAGENTA;
 	recursive_sort(pairs);
+	std::cout << MAGENTA;
+	for (size_t i = 0; i < pairs.size(); i++)
+	{
+		std::cout << "fila: " << i << " [" << pairs[i].first << ", " << pairs[i].second << "]\n";
+	}
 
 	// 3.- Insert order
 	for (size_t i = 0; i < pairs.size(); i++)
@@ -144,6 +167,12 @@ void	PmergeMe::ford_jhonson(void)
 	// 4.- Insert at the start of S {\displaystyle S} the element that was paired with the first and smallest element of S {\displaystyle S}.
 	result.insert(result.begin(), pairs[0].first);
 
+	std::cout << YELLOW << "Result :\n" ;
+	for (size_t i = 0; i < result.size(); i++)
+	{
+		std::cout << result[i] << ", ";
+	}
+	std::cout << std::endl;
 	// 5.- Last insert
 	last_insertion(last_value, pairs, result);
 
@@ -167,7 +196,6 @@ void		PmergeMe::start(std::stringstream &arr)
 	ford_jhonson();
 	double	final_time_vector = 0;
 	double	final_time_list = 0;
-	
 
 	// Imprimir contenedor ordenado
 	std::cout << "After : " << GREEN;
