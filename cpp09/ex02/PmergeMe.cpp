@@ -158,6 +158,8 @@ void binary_search_insertion(std::vector<long> &result, std::vector<long> &inser
 		result.insert(position, insertion_order[i]);
 		print_array(result);
 	}
+	if (last_value == -1)
+		return ;
 	position = binary_search(result.begin(), result.end(), last_value);
 	result.insert(position, last_value);
 }
@@ -169,7 +171,6 @@ void	last_insertion(long last_value, std::vector<std::pair<long, long> > &pairs,
 	std::vector<long>								insertion_order;
 	long											group_size;
 
-	(void)last_value;
 	it = pairs.begin() + 1;
 	while (it != pairs.end())
 	{
@@ -223,12 +224,6 @@ std::vector<long>	PmergeMe::ford_jhonson(void)
 	// 4.- Insert at the start of S {\displaystyle S} the element that was paired with the first and smallest element of S {\displaystyle S}.
 	result.insert(result.begin(), pairs[0].first);
 
-	std::cout << YELLOW << "Result :\n" ;
-	for (size_t i = 0; i < result.size(); i++)
-	{
-		std::cout << result[i] << ", ";
-	}
-	std::cout << std::endl;
 	// 5.- Last insert
 	last_insertion(last_value, pairs, result);
 
@@ -257,8 +252,8 @@ void		PmergeMe::start(std::stringstream &arr)
 
 	// Imprimir contenedor ordenado
 	std::cout << "After : " << GREEN;
-	for (size_t i = 0; i < _array.size(); i++)
-		std::cout << _array[i] << " ";
+	for (size_t i = 0; i < result.size(); i++)
+		std::cout << result[i] << " ";
 	std::cout << NC << std::endl;
 
 	// Imprimir tiempo de ejecución
