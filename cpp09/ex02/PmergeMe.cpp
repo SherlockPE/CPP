@@ -115,6 +115,38 @@ long	generate_insertion_order(void)
 	return (num);
 }
 
+
+
+long	binary_search(std::vector<long> &result, long number)
+{
+	long position;
+	long	size;
+	long	half;
+
+	size = result.size() / 2;
+	// while (true)
+	// {
+	// 	half = result[size];
+	// 	if (number < half)
+	// 	{
+	// 		half = result[size / 2];
+	// 		if (half > number)
+	// 	}
+	// }
+}
+
+void binary_search_insertion(std::vector<long> & result, std::vector<long> &insertion_order, long last_value)
+{
+	long position;
+
+	for (size_t i = 0; i < insertion_order.size(); i++)
+	{
+		position = binary_search(result, insertion_order[i]);
+
+	}
+	
+}
+
 void	last_insertion(long last_value, std::vector<std::pair<long, long> > &pairs, std::vector<long> &result)
 {
 	std::vector<std::pair<long, long> >::iterator	it;
@@ -122,19 +154,29 @@ void	last_insertion(long last_value, std::vector<std::pair<long, long> > &pairs,
 	std::vector<long>								insertion_order;
 	long											group_size;
 
-
+	(void)last_value;
+	(void)result;
 	it = pairs.begin() + 1;
-	while ()
+	while (it != pairs.end())
 	{
 		group_size = generate_insertion_order();
-		for (size_t i = 0; i < group_size && it != pairs.end(); i++)
+		for (long i = 0; i < group_size && it != pairs.end(); i++)
 		{
 			group.push_back((*it).first);
 			it++;
 		}
 		std::reverse(group.begin(), group.end());
 		insertion_order.insert(insertion_order.end(), group.begin(), group.end());
+
+		std::cout << CYAN << "Insertion order: " ;
+		for (size_t i = 0; i < insertion_order.size(); i++)
+		{
+			std::cout << insertion_order[i] << ", " ;
+		}
+		std::cout << "\n";
+		group.clear();
 	}
+	binary_search_insertion(result, insertion_order, last_value);
 }
 
 void	PmergeMe::ford_jhonson(void)
