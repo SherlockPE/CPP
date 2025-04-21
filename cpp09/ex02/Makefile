@@ -11,17 +11,17 @@
 # **************************************************************************** #
 
 NAME = PmergeMe
-
+SRC_DIR = src
 OBJ_DIR =	obj
 SOURCES =	main.cpp \
 			PmergeMe.cpp
 
 MAKE_DIR = mkdir -p
-SRC = $(SOURCES)
+SRC = $(addprefix $(SRC_DIR)/, $(SOURCES))
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 
-INCLUDES := -I includes
+INCLUDE := -I includes
 CPPC = c++
 CPPVERSION = -std=c++98
 CPPFLAGS = -Wall -Wextra -Werror -g3 $(CPPVERSION) -fsanitize=address -g3
@@ -29,13 +29,13 @@ CPPFLAGS = -Wall -Wextra -Werror -g3 $(CPPVERSION) -fsanitize=address -g3
 all: c_dir $(NAME)
 
 $(NAME): $(OBJ)
-	$(CPPC) $(CPPFLAGS) $(OBJ) -o $@
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) $(OBJ) -o $@
 
 $(OBJ_DIR)/%.o: %.cpp
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) -c $< -o $@
 
 c_dir:
-	@$(MAKE_DIR) $(OBJ_DIR)
+	@$(MAKE_DIR) $(OBJ_DIR)/$(SRC_DIR)
 
 clean:
 	rm -rf $(OBJ_DIR)
