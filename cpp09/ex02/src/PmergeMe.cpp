@@ -1,5 +1,4 @@
 #include "PmergeMe.hpp"
-#include <algorithm>
 #include <cctype>
 #include <climits>
 #include <iostream>
@@ -38,17 +37,6 @@ int PmergeMe::print_error(std::string msg)
 	std::cout << RED << "Error: " << msg << NC << std::endl;
 	return (EXIT_FAILURE);
 }
-void	print_array(std::vector<long> arr, std::string color)
-{
-	std::cout << color;
-	for (size_t i = 0; i < arr.size(); i++)
-	{
-		std::cout << arr[i];
-		if (i != arr.size() - 1)
-			std::cout << ", ";
-	}
-	std::cout << NC << std::endl;
-}
 
 void PmergeMe::parse(std::stringstream &arr)
 {
@@ -67,160 +55,15 @@ void PmergeMe::parse(std::stringstream &arr)
 		throw(PmergeError("Error: not a valid input!"));
 }
 
-void PmergeMe::make_and_sort_pairs(std::vector<std::pair<long, long> > &pairs, long &last_value)
-{
-	if (_array.size() % 2 != 0)
-	{
-		last_value = _array.back();
-		_array.pop_back();
-	}
-	for (size_t i = 0; i < _array.size(); i += 2)
-	{
-		if (_array[i] > _array[i + 1])
-			pairs.push_back(std::make_pair(_array[i + 1], _array[i]));
-		else
-			pairs.push_back(std::make_pair(_array[i], _array[i + 1]));
-	}
-}
-
-void	recursive_sort(std::vector<std::pair<long, long> > &pairs)
-{
-	size_t	itf;
-	size_t	its;
-	size_t	itp;
-
-	if (pairs.size() <= 1)
-		return ;
-	std::vector<std::pair<long, long> > first_pair(pairs.begin(), pairs.begin() + pairs.size() / 2);
-	std::vector<std::pair<long, long> > second_pair(pairs.begin() + pairs.size() / 2, pairs.end());
-	recursive_sort(first_pair);
-	recursive_sort(second_pair);
-	itf = 0;
-	its = 0;
-	itp = 0;
-	while (itf < first_pair.size() && its < second_pair.size())
-	{
-		if (first_pair[itf].second > second_pair[its].second)
-			pairs[itp] = second_pair[its++];
-		else
-			pairs[itp] = first_pair[itf++];
-		itp++;
-	}
-	while (itf < first_pair.size() || its < second_pair.size())
-	{
-		if (itf == first_pair.size())
-			pairs[itp] = second_pair[its++];
-		else
-			pairs[itp] = first_pair[itf++];
-		itp++;
-	}
-}
-
-//  2, 2, 6, 10, 22, 42, ...
-long	generate_insertion_order(void)
-{
-	static long	num;
-	static int	i;
-
-	num *= 2;
-	if (i % 2 == 0)
-		num += 2;
-	else
-		num -= 2;
-	i++;
-	return (num);
-}
-
-std::vector<long>::iterator binary_search(std::vector<long>::iterator start, std::vector<long>::iterator end, long number)
-{
-	std::vector<long>::iterator half;
-	if (std::distance(start, end) <= 1)
-	{
-		if (*start > number)
-			return (start);
-		std::advance(start, 1);
-		return (start);
-	}
-	half = start + std::distance(start, end) / 2;
-	if (number < *half)
-		return (binary_search(start, half, number));
-	else if (number > *half)
-		return (binary_search(half, end, number));
-	return (half);
-}
-
-void	binary_search_insertion(std::vector<long> &result,
-		std::vector<long> &insertion_order, long last_value)
-{
-	std::vector<long>::iterator position;
-	for (size_t i = 0; i < insertion_order.size(); i++)
-	{
-		position = binary_search(result.begin(), result.end(),
-				insertion_order[i]);
-		// std::cout << WHITE << "Intenté meter el número ["<< insertion_order[i] << "]" << " en la posición -->" << std::distance(result.begin(), position) << "\n" << NC;
-		result.insert(position, insertion_order[i]);
-	}
-	if (last_value == -1)
-		return ;
-	position = binary_search(result.begin(), result.end(), last_value);
-	result.insert(position, last_value);
-}
-
-void	last_insertion(long last_value, std::vector<std::pair<long, long> > &pairs, std::vector<long> &result)
-{
-	long	group_size;
-
-	std::vector<std::pair<long, long> >::iterator it;
-	std::vector<long> group;
-	std::vector<long> insertion_order;
-	it = pairs.begin() + 1;
-	while (it != pairs.end())
-	{
-		group_size = generate_insertion_order();
-		for (long i = 0; i < group_size && it != pairs.end(); i++)
-		{
-			group.push_back((*it).first);
-			it++;
-		}
-		std::reverse(group.begin(), group.end());
-		insertion_order.insert(insertion_order.end(), group.begin(),
-			group.end());
-		group.clear();
-	}
-	binary_search_insertion(result, insertion_order, last_value);
-}
-
-std::vector<long> PmergeMe::ford_jhonson(void)
-{
-	long	last_value;
-
-	std::vector<std::pair<long, long> > pairs;
-	std::vector<long> result;
-	last_value = -1;
-	// 1.- make and sort pairs
-	make_and_sort_pairs(pairs, last_value);
-	// 2.- Recursive algorithm
-	recursive_sort(pairs);
-	// 3.- Insert order
-	for (size_t i = 0; i < pairs.size(); i++)
-	{
-		result.push_back(pairs[i].second);
-	}
-	// 4.- Insert at the start of S the element that was paired with the first and smallest element of S
-	result.insert(result.begin(), pairs[0].first);
-	// 5.- Last insert
-	last_insertion(last_value, pairs, result);
-	return (result);
-}
-
 void PmergeMe::start(std::stringstream &arr)
 {
 	clock_t	start_vector;
 	clock_t	start_list;
 	double	final_time_vector;
 	double	final_time_list;
-
 	std::vector<long> result_vector;
+	std::list<long> result_list;
+
 	parse(arr);
 	std::cout << "Before: ";
 	print_array(_array, MAGENTA);
@@ -230,8 +73,9 @@ void PmergeMe::start(std::stringstream &arr)
 	start_list = clock();
 
 	// Algoritmo de ordenamiento
-	result_vector = ford_jhonson();
+	result_vector = ford_jhonson_vector();
 	final_time_vector = clock() - start_vector;
+	result_list = ford_jhonson_list();
 	final_time_list = clock() - start_list;
 
 	// Imprimir contenedor ordenado

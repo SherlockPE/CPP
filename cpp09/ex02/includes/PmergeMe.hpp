@@ -20,8 +20,23 @@
 # include <vector>
 # include <list>
 # include <cstdlib>
-#include <sstream>
+# include <sstream>
 # include <iostream>
+# include <algorithm>
+
+
+template < typename T>
+void	print_array(T &arr, std::string color)
+{
+	std::cout << color;
+	for (typename T::iterator it; it != arr.end(); it++)
+	{
+		std::cout << *it;
+		// if (it != arr.size() - 1)
+		std::cout << ", ";
+	}
+	std::cout << NC << std::endl;
+}
 
 class PmergeMe
 {
@@ -39,15 +54,25 @@ class PmergeMe
 		PmergeMe& operator=(PmergeMe const& other);
 
 		// METHODS AND MEMBER FUNCTIONS---------------------------------------------
-		static	int print_error(std::string msg);
-		std::vector<long>	ford_jhonson(void);
-		void		insert(std::string args);
-		void		start(std::stringstream &arr);
-		void		parse(std::stringstream &arr);
+		static	int 		print_error(std::string msg);
+		void				insert(std::string args);
+		void				start(std::stringstream &arr);
+		void				parse(std::stringstream &arr);
 
-		// ALGORITHM
+		// ALGORITHM - VECTOR
+		std::vector<long>	ford_jhonson_vector(void);
+		void				recursive_sort_vector(std::vector<std::pair<long, long> > &pairs);
+		void				make_and_sort_pairs_vector(std::vector<std::pair<long, long> > &pairs, long &last_value);
+		void				last_insertion_vector(long last_value, std::vector<std::pair<long, long> > &pairs, std::vector<long> &result);
 
-		void	make_and_sort_pairs(std::vector<std::pair<long, long> > &pairs, long &last_value);
+		// ALGORITHM - LIST
+		std::list<long>		ford_jhonson_list(void);
+		void				recursive_sort_list(std::list<std::pair<long, long> > &pairs);
+		void				make_and_sort_pairs_list(std::list<std::pair<long, long> > &pairs, long &last_value);
+		void				last_insertion_list(long last_value, std::list<std::pair<long, long> > &pairs, std::list<long> &result);
+
+		// ALGORITHM UTILS
+		long				generate_insertion_order(void);
 
 		// EXCEPTION CLASSES -------------------------------------------------------
 		class PmergeError : public std::exception
@@ -64,4 +89,3 @@ class PmergeMe
 };
 
 #endif // !_PMERGEME_HPP
-

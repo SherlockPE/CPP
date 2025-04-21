@@ -18,14 +18,15 @@ int main(int argc, char **argv)
 		return (PmergeMe::print_error("Invalid arguments"));
 	try
 	{
-		PmergeMe	merge_alg;
+		PmergeMe			merge_alg;
 		std::stringstream	input;
 
 		for (size_t i = 1; argv[i]; i++)
 			input << argv[i] << " ";
 		merge_alg.start(input);
-	
-	} catch (std::exception &e) {
+	}
+	catch (std::exception &e)
+	{
 		std::cout << RED << e.what() << NC << std::endl;
 	}
 }
