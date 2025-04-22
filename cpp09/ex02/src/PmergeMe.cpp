@@ -85,7 +85,7 @@ void PmergeMe::start(std::stringstream &arr)
 	print_array(result_list, GREEN);
 
 	// Imprimir tiempo de ejecución
-	std::cout << "Time to process a range of " << _array.size() << " with [std::vector] :  " << final_time_vector << " ms" << std::endl;
-	std::cout << "Time to process a range of " << _list.size() << " with [std::list] :  " << final_time_list << " ms" << std::endl;
+	std::cout << "Time to process a range of " << result_vector.size() << " with [std::vector] :  " << final_time_vector << " ms" << std::endl;
+	std::cout << "Time to process a range of " << result_list.size() << " with [std::list] :  " << final_time_list << " ms" << std::endl;
 	std::cout << NC << std::endl;
 }
