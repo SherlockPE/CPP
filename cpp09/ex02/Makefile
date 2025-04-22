@@ -13,14 +13,14 @@
 NAME = PmergeMe
 SRC_DIR = src
 OBJ_DIR =	obj
-SOURCES =	main.cpp \
-			PmergeMe.cpp \
-			ford_jhonson.cpp \
+SOURCES =	ford_jhonson.cpp \
 			generate_insertion_order.cpp \
+			last_insertion_list.cpp \
 			last_insertion_vector.cpp \
+			main.cpp \
 			make_and_sort_pairs.cpp \
-			recursive_sort.cpp \
-
+			PmergeMe.cpp \
+			recursive_sort.cpp
 
 MAKE_DIR = mkdir -p
 SRC = $(addprefix $(SRC_DIR)/, $(SOURCES))

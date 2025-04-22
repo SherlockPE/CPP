@@ -25,15 +25,22 @@
 # include <algorithm>
 
 
-template < typename T>
-void	print_array(T &arr, std::string color)
+
+template <typename T>
+void print_array(const T &arr, const std::string &color)
 {
+	typedef typename T::const_iterator iterator;
 	std::cout << color;
-	for (typename T::iterator it; it != arr.end(); it++)
+	
+	iterator it = arr.begin();
+	iterator end = arr.end();
+	
+	while (it != end)
 	{
 		std::cout << *it;
-		// if (it != arr.size() - 1)
-		std::cout << ", ";
+		++it;
+		if (it != end)
+			std::cout << ", ";
 	}
 	std::cout << NC << std::endl;
 }

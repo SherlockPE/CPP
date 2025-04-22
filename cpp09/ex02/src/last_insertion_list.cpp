@@ -26,7 +26,7 @@ void	binary_search_insertion(std::list<long> &result, std::list<long> &insertion
 	for (; it_insertion != insertion_order.end(); it_insertion++)
 	{
 		position = binary_search(result.begin(), result.end(), *(it_insertion));
-		std::cout << WHITE << "Intenté meter el número ["<< *(it_insertion) << "]" << " en la posición -->" << std::distance(result.begin(), position) << "\n" << NC;
+		// std::cout << WHITE << "Intenté meter el número ["<< *(it_insertion) << "]" << " en la posición -->" << std::distance(result.begin(), position) << "\n" << NC;
 		result.insert(position, *(it_insertion));
 	}
 	if (last_value == -1)

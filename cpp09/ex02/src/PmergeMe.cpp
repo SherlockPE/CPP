@@ -79,8 +79,10 @@ void PmergeMe::start(std::stringstream &arr)
 	final_time_list = clock() - start_list;
 
 	// Imprimir contenedor ordenado
-	std::cout << "After : ";
+	std::cout << "After (vector): ";
 	print_array(result_vector, GREEN);
+	std::cout << "After (list): ";
+	print_array(result_list, GREEN);
 
 	// Imprimir tiempo de ejecución
 	std::cout << "Time to process a range of " << _array.size() << " with [std::vector] :  " << final_time_vector << " ms" << std::endl;

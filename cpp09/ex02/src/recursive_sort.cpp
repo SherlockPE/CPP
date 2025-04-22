@@ -37,34 +37,47 @@ void	PmergeMe::recursive_sort_vector(std::vector<std::pair<long, long> > &pairs)
 // LIST
 void	PmergeMe::recursive_sort_list(std::list<std::pair<long, long> > &pairs)
 {
-	size_t	itf = 0;
-	size_t	its = 0;
-	size_t	itp = 0;
-	std::list<std::pair<long, long> >::iterator half = pairs.begin();
-
 	if (pairs.size() <= 1)
 		return ;
 
+	std::list<std::pair<long, long> >::iterator half = pairs.begin();
 	std::advance(half, (pairs.size() / 2));
 
 	std::list<std::pair<long, long> > first_pair(pairs.begin(), half);
 	std::list<std::pair<long, long> > second_pair(half, pairs.end());
 	recursive_sort_list(first_pair);
 	recursive_sort_list(second_pair);
-	while (itf < first_pair.size() && its < second_pair.size())
+
+	std::list<std::pair<long, long> >::iterator	it_first = first_pair.begin();
+	std::list<std::pair<long, long> >::iterator	it_second = second_pair.begin();
+	std::list<std::pair<long, long> >::iterator	it_pair = pairs.begin();
+
+	while (it_first != first_pair.end() && it_second != second_pair.begin())
 	{
-		if (first_pair[itf].second > second_pair[its].second)
-			pairs[itp] = second_pair[its++];
+		if ((it_pair)->second > (it_second)->second)
+		{
+			pairs.insert(it_pair, *it_second);
+			it_second++;
+		}
 		else
-			pairs[itp] = first_pair[itf++];
-		itp++;
+		{
+			pairs.insert(it_pair, *it_first);
+			it_first++;
+		}
+		it_pair++;
 	}
-	while (itf < first_pair.size() || its < second_pair.size())
+	while (it_first != first_pair.end() || it_second != second_pair.begin())
 	{
-		if (itf == first_pair.size())
-			pairs[itp] = second_pair[its++];
+		if (it_first == first_pair.end() )
+		{
+			pairs.insert(it_pair, *it_second);
+			it_second++;
+		}
 		else
-			pairs[itp] = first_pair[itf++];
-		itp++;
+		{
+			pairs.insert(it_pair, *it_first);
+			it_first++;
+		}
+		it_pair++;
 	}
 }
