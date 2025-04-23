@@ -24,22 +24,29 @@
 # include <iostream>
 # include <algorithm>
 
+template <typename T>
+void print_pairs(const T &arr, const std::string &color, std::string text)
+{
+	typedef typename T::const_iterator iterator;
+	std::cout << color << text;
+	for (iterator it = arr.begin(); it != arr.end(); ++it)
+	{
+		std::cout << "[" << it->first << ", " << it->second << "]\n";
+	}
+	std::cout << NC << std::endl;
+}
 
 
 template <typename T>
-void print_array(const T &arr, const std::string &color)
+void print_array(const T &arr, const std::string &color, std::string text)
 {
 	typedef typename T::const_iterator iterator;
-	std::cout << color;
-	
-	iterator it = arr.begin();
-	iterator end = arr.end();
-	
-	while (it != end)
+	std::cout << color << text;
+
+	for (iterator it = arr.begin(); it != arr.end(); it++)
 	{
 		std::cout << *it;
-		++it;
-		if (it != end)
+		if (it != arr.end())
 			std::cout << ", ";
 	}
 	std::cout << NC << std::endl;

@@ -32,50 +32,36 @@ void	PmergeMe::recursive_sort_vector(std::vector<std::pair<long, long> > &pairs)
 }
 
 // LIST
-void	PmergeMe::recursive_sort_list(std::list<std::pair<long, long> > &pairs)
+void PmergeMe::recursive_sort_list(std::list<std::pair<long, long> > &pairs)
 {
 	if (pairs.size() <= 1)
 		return ;
 
 	std::list<std::pair<long, long> >::iterator half = pairs.begin();
-	std::advance(half, (pairs.size() / 2));
+	std::advance(half, pairs.size() / 2);
 
 	std::list<std::pair<long, long> > first_pair(pairs.begin(), half);
 	std::list<std::pair<long, long> > second_pair(half, pairs.end());
 	recursive_sort_list(first_pair);
 	recursive_sort_list(second_pair);
 
+	// Limpia la lista original para reconstruirla ordenadamente
+	pairs.clear();
 
-	std::list<std::pair<long, long> >::iterator	it_first = first_pair.begin();
-	std::list<std::pair<long, long> >::iterator	it_second = second_pair.begin();
-	std::list<std::pair<long, long> >::iterator	it_pair = pairs.begin();
+	std::list<std::pair<long, long> >::iterator it_first = first_pair.begin();
+	std::list<std::pair<long, long> >::iterator it_second = second_pair.begin();
 
 	while (it_first != first_pair.end() && it_second != second_pair.end())
 	{
-		if ((it_first)->second > (it_second)->second)
-		{
-			pairs.insert(it_pair, *it_second);
-			it_second++;
-		}
+		if (it_first->second > it_second->second)
+			pairs.push_back(*it_second++);
 		else
-		{
-			pairs.insert(it_pair, *it_first);
-			it_first++;
-		}
-		it_pair++;
+			pairs.push_back(*it_first++);
 	}
-	while (it_first != first_pair.end() || it_second != second_pair.end())
-	{
-		if (it_first == first_pair.end())
-		{
-			pairs.insert(it_pair, *it_second);
-			it_second++;
-		}
-		else
-		{
-			pairs.insert(it_pair, *it_first);
-			it_first++;
-		}
-		it_pair++;
-	}
+
+	while (it_first != first_pair.end())
+		pairs.push_back(*it_first++);
+
+	while (it_second != second_pair.end())
+		pairs.push_back(*it_second++);
 }

@@ -17,20 +17,11 @@ std::list<long> PmergeMe::ford_jhonson_list(void)
 	make_and_sort_pairs_list(pairs, last_value);
 
 	// 2.- Recursive algorithm
-	std::cout << "Pairs (list): \n";
-	for (std::list<std::pair<long, long> > ::iterator it = pairs.begin(); it != pairs.end(); it++)
-	{
-		std::cout << "["<< it->first  << ", " << it->second << "]" ;
-	}
-	std::cout << "\n";
+	print_pairs(pairs, WHITE, "Pairs (list) before rec_s_list: \n");
 	recursive_sort_list(pairs);
-	std::cout << "Pairs (list): \n";
-	for (std::list<std::pair<long, long> > ::iterator it = pairs.begin(); it != pairs.end(); it++)
-	{
-		std::cout << "["<< it->first  << ", " << it->second << "]" ;
-	}
-	std::cout << "\n";
-	
+	print_pairs(pairs, WHITE, "Pairs (list) after rec_s_list: \n");
+
+
 
 	// 3.- Insert order
 	std::list<std::pair<long, long> >::iterator it = pairs.begin();
@@ -42,9 +33,6 @@ std::list<long> PmergeMe::ford_jhonson_list(void)
 	// 4.- Insert at the start of S the element that was paired with the first and smallest element of S
 	std::list<std::pair<long, long> >::iterator it_pairs = pairs.begin();
 	result.insert(result.begin(), it_pairs->first);
-
-	std::cout << YELLOW "result (list): ";
-	print_array(result, YELLOW);
 
 	// 5.- Last insert
 	last_insertion_list(last_value, pairs, result);
@@ -63,18 +51,10 @@ std::vector<long> PmergeMe::ford_jhonson_vector(void)
 	make_and_sort_pairs_vector(pairs, last_value);
 
 	// 2.- Recursive algorithm
-	std::cout << "Pairs (vector): \n";
-	for (std::vector<std::pair<long, long> > ::iterator it = pairs.begin(); it != pairs.end(); it++)
-	{
-		std::cout << "["<< it->first  << ", " << it->second << "]" ;
-	}
+	print_pairs(pairs, WHITE, "Pairs (vector) before rec_s_list: \n");
 	recursive_sort_vector(pairs);
-	std::cout << "\nPairs (vector): \n";
-	for (std::vector<std::pair<long, long> > ::iterator it = pairs.begin(); it != pairs.end(); it++)
-	{
-		std::cout << "["<< it->first  << ", " << it->second << "]" ;
-	}
-	std::cout << "\n";
+	print_pairs(pairs, WHITE, "Pairs (vector) after rec_s_list: \n");
+
 	
 
 	// 3.- Insert order
@@ -85,9 +65,6 @@ std::vector<long> PmergeMe::ford_jhonson_vector(void)
 
 	// 4.- Insert at the start of S the element that was paired with the first and smallest element of S
 	result.insert(result.begin(), pairs[0].first);
-
-	std::cout << YELLOW "result (vector): ";
-	print_array(result, YELLOW);
 
 	// 5.- Last insert
 	last_insertion_vector(last_value, pairs, result);
