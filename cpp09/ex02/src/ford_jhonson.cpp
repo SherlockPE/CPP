@@ -18,11 +18,7 @@ void	PmergeMe::ford_jhonson_list(void)
 	make_and_sort_pairs_list(pairs, last_value);
 
 	// 2.- Recursive algorithm
-	print_pairs(pairs, WHITE, "Pairs (list) before rec_s_list: \n");
 	recursive_sort_list(pairs);
-	print_pairs(pairs, WHITE, "Pairs (list) after rec_s_list: \n");
-
-
 
 	// 3.- Insert order
 	std::list<std::pair<long, long> >::iterator it = pairs.begin();
@@ -54,17 +50,11 @@ void	PmergeMe::ford_jhonson_vector(void)
 	make_and_sort_pairs_vector(pairs, last_value);
 
 	// 2.- Recursive algorithm
-	// print_pairs(pairs, WHITE, "Pairs (vector) before rec_s_list: \n");
 	recursive_sort_vector(pairs);
-	// print_pairs(pairs, WHITE, "Pairs (vector) after rec_s_list: \n");
-
-	
 
 	// 3.- Insert order
 	for (size_t i = 0; i < pairs.size(); i++)
-	{
 		result.push_back(pairs[i].second);
-	}
 
 	// 4.- Insert at the start of S the element that was paired with the first and smallest element of S
 	result.insert(result.begin(), pairs[0].first);

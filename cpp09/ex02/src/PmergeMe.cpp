@@ -63,10 +63,7 @@ void PmergeMe::start(std::stringstream &arr)
 	double	final_time_list;
 
 	parse(arr);
-	print_array(_array, MAGENTA, "Before: ");
-
-	// Inicia el reloj
-
+	print_array(_array, MAGENTA,"Before: ");
 
 	/* Algoritmo de ordenamiento */
 	// Vector
@@ -79,11 +76,11 @@ void PmergeMe::start(std::stringstream &arr)
 	final_time_list = clock() - start_list;
 
 	// Imprimir contenedor ordenado
-	print_array(_array, GREEN, "After (vector): ");
-	print_array(_list, GREEN, "After (list): ");
+	print_array(_array, GREEN, "\nAfter (vector): ");
+	print_array(_list, GREEN, "\nAfter   (list): ");
 
 	// Imprimir tiempo de ejecución
-	std::cout << "Time to process a range of " << _array.size() << " with [std::vector] :  " << final_time_vector << " ms" << std::endl;
-	std::cout << "Time to process a range of " << _list.size() << " with [std::list] :  " << final_time_list << " ms" << std::endl;
+	std::cout << WHITE << "\nTime to process a range of " << _array.size() << " with [std::vector] :  " << final_time_vector << " ms" << std::endl;
+	std::cout << WHITE << "Time to process a range of " << _list.size() << " with [std::list] :  " << final_time_list << " ms" << std::endl;
 	std::cout << NC << std::endl;
 }

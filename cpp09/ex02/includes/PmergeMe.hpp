@@ -1,20 +1,27 @@
 #ifndef _COLORS
 # define _COLORS
-# define BLACK   "\033[1;30m"
-# define RED     "\033[1;31m"
-# define GREEN   "\033[1;32m"
-# define YELLOW  "\033[1;33m"
-# define BLUE    "\033[1;34m"
-# define MAGENTA "\033[1;35m"
-# define CYAN    "\033[1;36m"
-# define WHITE   "\033[1;37m"
-# define NC      "\033[0m"
+# define BLACK    "\033[1;30m"
+# define RED      "\033[1;31m"
+# define GREEN    "\033[1;32m"
+# define YELLOW   "\033[1;33m"
+# define BLUE     "\033[1;34m"
+# define MAGENTA  "\033[1;35m"
+# define CYAN     "\033[1;36m"
+# define WHITE    "\033[1;37m"
+# define BOLD	  "\033[1m"
+# define BOLD_OFF "\033[22m"
+# define ITALIC   "\033[3m"
+# define NC       "\033[0m"
 #endif // !_COLORS
 
 // PmergeMe declaration --------------------------------------------------------
 
 #ifndef _PMERGEME_HPP
 # define _PMERGEME_HPP
+
+#  ifndef PRINT
+#   define PRINT 0
+#  endif
 
 # include <string>
 # include <vector>
@@ -40,9 +47,21 @@ void print_array(const T &arr, const std::string &color, std::string text)
 {
 	typedef typename T::const_iterator iterator;
 	std::cout << color << text;
+	iterator it = arr.begin();
 
-	for (iterator it = arr.begin(); it != arr.end(); it++)
+	if (PRINT)
+	{
+		for ( ; it != arr.end(); it++)
+			std::cout << *it << " ";
+		return ;
+	}
+	for (size_t i = 0; i < 4 && it != arr.end(); i++)
+	{
 		std::cout << *it << " ";
+		it++;
+	}
+	if (arr.size() > 4)
+		std::cout << " [...]";
 	std::cout << NC << std::endl;
 }
 
