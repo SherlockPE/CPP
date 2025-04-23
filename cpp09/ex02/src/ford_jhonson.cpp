@@ -6,13 +6,14 @@
 #include <iterator>
 #include <stdio.h>
 
-std::list<long> PmergeMe::ford_jhonson_list(void)
+void	PmergeMe::ford_jhonson_list(void)
 {
-	long	last_value;
+	if (_list.size() < 2)
+		return;
 
-	std::list<std::pair<long, long> > pairs;
-	std::list<long> result;
-	last_value = -1;
+	std::list<std::pair<long, long> >	pairs;
+	std::list<long> 					result;
+	long								last_value = -1;
 	// 1.- make and sort pairs
 	make_and_sort_pairs_list(pairs, last_value);
 
@@ -26,9 +27,7 @@ std::list<long> PmergeMe::ford_jhonson_list(void)
 	// 3.- Insert order
 	std::list<std::pair<long, long> >::iterator it = pairs.begin();
 	for (; it != pairs.end(); it++)
-	{
 		result.push_back(it->second);
-	}
 
 	// 4.- Insert at the start of S the element that was paired with the first and smallest element of S
 	std::list<std::pair<long, long> >::iterator it_pairs = pairs.begin();
@@ -36,24 +35,28 @@ std::list<long> PmergeMe::ford_jhonson_list(void)
 
 	// 5.- Last insert
 	last_insertion_list(last_value, pairs, result);
-	return (result);
+
+	_list.clear();
+	_list = result;
 }
 
 
-std::vector<long> PmergeMe::ford_jhonson_vector(void)
+void	PmergeMe::ford_jhonson_vector(void)
 {
-	long	last_value;
+	if (_array.size() < 2)
+		return;
 
-	std::vector<std::pair<long, long> > pairs;
-	std::vector<long> result;
-	last_value = -1;
+	std::vector<std::pair<long, long> >	pairs;
+	std::vector<long>					result;
+	long								last_value = -1;
+
 	// 1.- make and sort pairs
 	make_and_sort_pairs_vector(pairs, last_value);
 
 	// 2.- Recursive algorithm
-	print_pairs(pairs, WHITE, "Pairs (vector) before rec_s_list: \n");
+	// print_pairs(pairs, WHITE, "Pairs (vector) before rec_s_list: \n");
 	recursive_sort_vector(pairs);
-	print_pairs(pairs, WHITE, "Pairs (vector) after rec_s_list: \n");
+	// print_pairs(pairs, WHITE, "Pairs (vector) after rec_s_list: \n");
 
 	
 
@@ -68,5 +71,7 @@ std::vector<long> PmergeMe::ford_jhonson_vector(void)
 
 	// 5.- Last insert
 	last_insertion_vector(last_value, pairs, result);
-	return (result);
+
+	_array.clear();
+	_array = result;
 }

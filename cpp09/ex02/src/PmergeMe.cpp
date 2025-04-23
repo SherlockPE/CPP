@@ -61,28 +61,29 @@ void PmergeMe::start(std::stringstream &arr)
 	clock_t	start_list;
 	double	final_time_vector;
 	double	final_time_list;
-	std::vector<long> result_vector;
-	std::list<long> result_list;
 
 	parse(arr);
 	print_array(_array, MAGENTA, "Before: ");
 
 	// Inicia el reloj
-	start_vector = clock();
-	start_list = clock();
 
-	// Algoritmo de ordenamiento
-	result_vector = ford_jhonson_vector();
+
+	/* Algoritmo de ordenamiento */
+	// Vector
+	start_vector = clock();
+	ford_jhonson_vector();
 	final_time_vector = clock() - start_vector;
-	result_list = ford_jhonson_list();
+	// List
+	start_list = clock();
+	ford_jhonson_list();
 	final_time_list = clock() - start_list;
 
 	// Imprimir contenedor ordenado
-	print_array(result_vector, GREEN, "After (vector): ");
-	print_array(result_list, GREEN, "After (list): ");
+	print_array(_array, GREEN, "After (vector): ");
+	print_array(_list, GREEN, "After (list): ");
 
 	// Imprimir tiempo de ejecución
-	std::cout << "Time to process a range of " << result_vector.size() << " with [std::vector] :  " << final_time_vector << " ms" << std::endl;
-	std::cout << "Time to process a range of " << result_list.size() << " with [std::list] :  " << final_time_list << " ms" << std::endl;
+	std::cout << "Time to process a range of " << _array.size() << " with [std::vector] :  " << final_time_vector << " ms" << std::endl;
+	std::cout << "Time to process a range of " << _list.size() << " with [std::list] :  " << final_time_list << " ms" << std::endl;
 	std::cout << NC << std::endl;
 }

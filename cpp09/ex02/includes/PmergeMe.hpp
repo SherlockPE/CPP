@@ -30,9 +30,7 @@ void print_pairs(const T &arr, const std::string &color, std::string text)
 	typedef typename T::const_iterator iterator;
 	std::cout << color << text;
 	for (iterator it = arr.begin(); it != arr.end(); ++it)
-	{
 		std::cout << "[" << it->first << ", " << it->second << "]\n";
-	}
 	std::cout << NC << std::endl;
 }
 
@@ -44,11 +42,7 @@ void print_array(const T &arr, const std::string &color, std::string text)
 	std::cout << color << text;
 
 	for (iterator it = arr.begin(); it != arr.end(); it++)
-	{
-		std::cout << *it;
-		if (it != arr.end())
-			std::cout << ", ";
-	}
+		std::cout << *it << " ";
 	std::cout << NC << std::endl;
 }
 
@@ -74,13 +68,13 @@ class PmergeMe
 		void				parse(std::stringstream &arr);
 
 		// ALGORITHM - VECTOR
-		std::vector<long>	ford_jhonson_vector(void);
+		void				ford_jhonson_vector(void);
 		void				recursive_sort_vector(std::vector<std::pair<long, long> > &pairs);
 		void				make_and_sort_pairs_vector(std::vector<std::pair<long, long> > &pairs, long &last_value);
 		void				last_insertion_vector(long last_value, std::vector<std::pair<long, long> > &pairs, std::vector<long> &result);
 
 		// ALGORITHM - LIST
-		std::list<long>		ford_jhonson_list(void);
+		void				ford_jhonson_list(void);
 		void				recursive_sort_list(std::list<std::pair<long, long> > &pairs);
 		void				make_and_sort_pairs_list(std::list<std::pair<long, long> > &pairs, long &last_value);
 		void				last_insertion_list(long last_value, std::list<std::pair<long, long> > &pairs, std::list<long> &result);
