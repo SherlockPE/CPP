@@ -74,7 +74,7 @@ void	RPN::init(std::string args)
 	while (pos != std::string::npos)
 	{
 		if (pos + 1 < args.size() && args[pos + 1] != ' ')
-			throw (PolishError("Error: Invalid input, the numbers must be positive or < 10"));
+			throw (PolishError("Error: Invalid input, the numbers must be positive or < 10 (parenthesis not accepted)"));
 
 		// Comprobar que el caracter actual sea válido:
 		if (std::find(valid_chars.begin(), valid_chars.end(), args[pos]) == valid_chars.end())

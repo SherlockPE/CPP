@@ -12,9 +12,7 @@ void	get_values(std::string all_line, std::string &date, std::string &change)
 		return ;
 	}
 	date = all_line.substr(0, found);
-	// check_date(date);
 	change = all_line.substr(found + 1);
-	// check_change(change);
 }
 
 
